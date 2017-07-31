@@ -1,0 +1,2 @@
+class Ong < ApplicationRecord
+end
