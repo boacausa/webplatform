@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_number: 1
+  agency: 1
+  bank: 1
+  operation: 1
+  ngo: one
+
+two:
+  account_number: 1
+  agency: 1
+  bank: 1
+  operation: 1
+  ngo: two

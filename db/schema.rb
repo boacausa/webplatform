@@ -10,26 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731162428) do
+ActiveRecord::Schema.define(version: 20170924194328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ongs", force: :cascade do |t|
-    t.string   "razao_social"
-    t.string   "nome_fantasia"
-    t.integer  "telefone_fixo"
-    t.integer  "telefone_celular"
+  create_table "bank_accounts", force: :cascade do |t|
+    t.integer  "account_number"
+    t.integer  "agency"
+    t.integer  "bank"
+    t.integer  "operation"
+    t.integer  "ngo_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["ngo_id"], name: "index_bank_accounts_on_ngo_id", using: :btree
+  end
+
+  create_table "ngos", force: :cascade do |t|
+    t.string   "social_name"
+    t.string   "fantasy_name"
+    t.integer  "phone_number1"
+    t.integer  "phone_number2"
     t.string   "email"
     t.string   "site"
     t.integer  "cnpj"
-    t.string   "atividade"
-    t.date     "data_inicio"
-    t.integer  "banco"
-    t.integer  "agencia"
-    t.integer  "conta"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "activity"
+    t.date     "date_start"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,4 +57,5 @@ ActiveRecord::Schema.define(version: 20170731162428) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bank_accounts", "ngos"
 end
