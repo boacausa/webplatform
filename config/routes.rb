@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
 
-  resources :ongs, only: [:index]
+  resources :ngos, only: [:index]
 end

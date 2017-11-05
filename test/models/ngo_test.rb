@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class OngsControllerTest < ActionDispatch::IntegrationTest
+class NgoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
