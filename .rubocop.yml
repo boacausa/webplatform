@@ -1,0 +1,7 @@
+AllCops:
+  TargetRubyVersion: 2.2
+  TargetRailsVersion: 4.2.5
+Metrics/LineLength:
+  Max: 120
+Documentation:
+  Enabled: false

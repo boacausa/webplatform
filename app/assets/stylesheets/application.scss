@@ -2,7 +2,7 @@
 @import "bootstrap-sprockets";
 
 // Import lumen variables
-@import "bootswatch/lumen/variables";
+@import "bootswatch/flatly/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
@@ -11,7 +11,7 @@
 body { padding-top: 60px; }
 
 // And finally bootswatch style itself
-@import "bootswatch/lumen/bootswatch";
+@import "bootswatch/flatly/bootswatch";
 
 // Whatever application styles you have go last
 // @import "base";

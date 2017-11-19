@@ -1,0 +1,31 @@
+<br><br>
+<div class="jumbotron">
+  <h2>Conheça todos os pets para adotação.</h2>
+  <p>Gostou de algum? Acesse este <a>link</a> para saber mais sobre a nossa política de adotação.</p>
+</div>
+<div class="row">
+  <% @pets.each do |pet| %>
+  <div class="col-lg-4">
+    <div class="bs-component">
+      <div class="col-6">
+        <div class="card">
+          <h3 class="card-header"><%= pet.name %></h3>
+          <div class="card-body">
+            <!-- <h5 class="card-title">Special title treatment</h5> -->
+            <!-- <h6 class="card-subtitle text-muted">Support card subtitle</h6> -->
+          </div>
+          <!-- <img style="height: 200px; width: 100%; display: block;" src="" alt="Card image"> -->
+          <%= image_tag pet.image.url(:medium) %>
+          <div class="card-body">
+            <p class="card-text"><%= pet.description %></p>
+            <a href="#" class="card-link">Adotar <%= pet.name %></a>
+          </div>
+          <div class="card-footer text-muted">
+            <%= pet.days_ago %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
