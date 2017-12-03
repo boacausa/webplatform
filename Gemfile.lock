@@ -70,6 +70,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    cpf_cnpj (0.4.1)
     devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -216,6 +217,7 @@ DEPENDENCIES
   bootswatch-rails
   byebug
   coffee-rails (~> 4.2)
+  cpf_cnpj
   devise
   faker
   jbuilder (~> 2.5)
@@ -235,4 +237,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
