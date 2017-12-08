@@ -7,6 +7,7 @@ end
 
 gem 'coffee-rails', '~> 4.2'
 gem 'cpf_cnpj'
+gem 'faker'
 gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.3'
@@ -24,7 +25,6 @@ gem 'paperclip', '~> 5.0.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'faker'
 end
 
 group :development do
