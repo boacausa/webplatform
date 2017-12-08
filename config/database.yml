@@ -16,6 +16,8 @@ test:
 
 production:
   <<: *default
-  database: porumaboacausa_production
-  username: porumaboacausa
+  database: d36jr7cfg67b2d
+  username: wwpaqrakvxivbn
+  host: ec2-54-83-54-224.compute-1.amazonaws.com
+  port: 5432
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
