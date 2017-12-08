@@ -23,19 +23,6 @@
               <a class="nav-link" href="<%=adoption_index_path%>">ADOTE</a>
             </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <% if user_signed_in? %>
-                <li>
-                <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
-                </li>
-              <% else %>
-                <li>
-                <%= link_to('Entrar', new_user_session_path)  %>
-                </li>
-              <% end %>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
