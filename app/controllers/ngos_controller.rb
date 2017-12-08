@@ -1,4 +1,5 @@
 class NgosController < ApplicationController
-    def index
-    end
+  def index
+    @ngos = Ngo.all
+  end
 end
