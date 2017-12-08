@@ -1,4 +1,4 @@
-class AdoptionController < ApplicationController
+class AdoptionController < UserAreaController
   def index
     @pets = Pet.all
   end
