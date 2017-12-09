@@ -1,26 +1,32 @@
-<h2>Log in</h2>
+<div class="row">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6">
+    <div class="well bs-component">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-horizontal') do |f| %>
+      <fieldset>
+        <legend>Login</legend>
+        <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <div class="form-group">
+          <%= f.label :email, class: 'control-label' %><br />
+          <%= f.email_field :email, class: 'form-control', autofocus: true %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+        <div class="form-group">
+          <%= f.label :password, class: 'control-label' %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+        </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <div class="actions">
+          <%= f.submit "Entrar", class: 'btn btn-primary btn-lg btn-block' %>
+        </div>
+      <fieldset>
+      <% end %>
+      <%= render "devise/shared/links" %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <div class="col-lg-3"></div>
+</div>

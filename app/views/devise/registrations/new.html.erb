@@ -1,19 +1,20 @@
-<div class="page-header" id="banner">
+<!-- <div class="page-header" id="banner">
    <div class="row">
      <div class="col-lg-8 col-md-7 col-sm-6">
        <h1>Registre-se</h1>
        <p class="lead">E faça parte de um mundo melhor (frase nhoin).</p>
      </div>
   </div>
-</div>
+</div> -->
 <div class="row">
-  <div class="col-lg-6">
+  <!-- <div class="col-lg-6">
     <div class="well bs-component">
       <legend>Utilize uma conta existente</legend>
       <a href="#" class="btn btn-primary btn-lg btn-block">Entrar com Facebook</a>
       <a href="#" class="btn btn-danger btn-lg btn-block">Entrar com Google</a>
     </div>
-  </div>
+  </div> -->
+  <div class="col-lg-3"></div>
   <div class="col-lg-6">
     <div class="well bs-component">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form-horizontal') do |f| %>
@@ -48,4 +49,5 @@
       <%= render "devise/shared/links" %>
     </div>
   </div>
+  <div class="col-lg-3"></div>
 </div>
