@@ -25,17 +25,21 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
             <li>
-              <% if user_signed_in? %>
-              <li>
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">Olá, <%= current_user.email %><span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="download">
+                <%= link_to('Área da ONG', "#") %>
+                <div class="dropdown-divider"></div>
                 <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
-              </li>
+              </div>
+            </li>
             <% else %>
               <li>
                 <%= link_to('Sou uma ONG', new_user_session_path) %>
               </li>
             <% end %>
-          </li>
+            </li>
         </ul>
       </div>
     </div>
@@ -46,3 +50,4 @@
   </div>
 </body>
 </html>
+
