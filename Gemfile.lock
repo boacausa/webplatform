@@ -48,6 +48,9 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap_sb_admin_base_v2 (0.3.6)
+      font-awesome-rails
+      jquery-rails
     bootswatch-rails (3.3.5)
       railties (>= 3.1)
     builder (3.2.3)
@@ -82,6 +85,8 @@ GEM
     faker (1.8.4)
       i18n (~> 0.5)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.4)
@@ -214,6 +219,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
+  bootstrap_sb_admin_base_v2
   bootswatch-rails
   byebug
   coffee-rails (~> 4.2)

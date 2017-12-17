@@ -13,12 +13,12 @@ gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap_sb_admin_base_v2'
 gem 'bootswatch-rails'
 gem 'devise'
 gem 'paperclip', '~> 5.0.0'

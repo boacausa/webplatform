@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ngo_home/index'
+
   get 'adoption/index'
 
   get 'adoption/show'

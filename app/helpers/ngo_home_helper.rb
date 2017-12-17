@@ -1,0 +1,2 @@
+module NgoHomeHelper
+end
