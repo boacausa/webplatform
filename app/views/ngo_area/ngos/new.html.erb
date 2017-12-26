@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Nova ONG</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Dados cadastrais
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <%= form_for @ngo, url: {action: "create"}, html: {class: "form"} do |f| %>
+              <div class="form-group">
+                <%= label_tag(:social_name, 'Razão Social') %>
+                <%= f.text_field :social_name, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= label_tag(:fantasy_name, 'Nome Fantasia') %>
+                <%= f.text_field :fantasy_name, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= label_tag(:email, 'E-mail') %>
+                <%= f.text_field :email, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= label_tag(:site, 'Site') %>
+                <%= f.text_field :site, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= label_tag(:cnpj, 'CNPJ') %>
+                <%= f.number_field :cnpj, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.submit 'Salvar', class: 'btn btn-success' %>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <%= label_tag(:phone_number1, 'Telefone 1') %>
+                <%= f.phone_field :phone_number1, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= label_tag(:phone_number2, 'Telefone 2') %>
+                <%= f.phone_field :phone_number2, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= label_tag(:activity, 'Atividade') %>
+                <%= f.text_field :activity, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= label_tag(:date_start, 'Data início') %>
+                <%= f.date_field :date_start, class: 'form-control' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

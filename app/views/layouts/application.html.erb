@@ -29,7 +29,7 @@
             <li>
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">Olá, <%= current_user.email %><span class="caret"></span></a>
               <div class="dropdown-menu" aria-labelledby="download">
-                <%= link_to('Área da ONG', ngo_home_index_path) %>
+                <%= link_to('Área da ONG', ngo_area_ngos_path) %>
                 <div class="dropdown-divider"></div>
                 <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
               </div>

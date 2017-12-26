@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'ngo_home/index'
-
   get 'adoption/index'
 
   get 'adoption/show'
@@ -13,5 +11,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
 
-  resources :ngos, only: [:index]
+  namespace :ngo_area do
+    resources :ngos, only: %i[index new create]
+  end
 end
