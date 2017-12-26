@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24ff57de-b080-4747-8a24-891d7324178e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/ngo_area/ngos/index.html.erb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/ngo_area/ngos/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/ongs.coffee" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ngo_home_controller.rb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ngos_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/ngo_area/ngos_controller.rb" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/ngo_area.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/ngo_area.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/ngo_home/index.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/ngos/index.html.erb" afterPath="" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20170924194328_create_bank_accounts.rb" afterPath="$PROJECT_DIR$/db/migrate/20170924194328_create_bank_accounts.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -30,58 +20,38 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/uberdo3setor@Production__uberdo3setor.coverage" NAME="Production: uberdo3setor Coverage Results" MODIFIED="1514300955453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="uberdo3setor" />
-    <SUITE FILE_PATH="coverage/uberdo3setor@Development__uberdo3setor.coverage" NAME="Development: uberdo3setor Coverage Results" MODIFIED="1514305749072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="uberdo3setor" />
+    <SUITE FILE_PATH="coverage/uberdo3setor@Development__uberdo3setor.coverage" NAME="Development: uberdo3setor Coverage Results" MODIFIED="1514311177934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="uberdo3setor" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="uberdo3setor" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ngo_area.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/ngo_area.html.erb">
+      <file leaf-file-name="ngos_controller.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/ngos_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="248" column="59" lean-forward="false" selection-start-line="248" selection-start-column="41" selection-end-line="248" selection-end-column="59" />
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/ngo_area/ngos/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="44" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/ngo_area/ngos/new.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="34" column="41" lean-forward="false" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ngos_controller.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ngo_area/ngos_controller.rb">
+        <entry file="file://$PROJECT_DIR$/app/views/ngos/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+              <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -93,6 +63,7 @@
     <findStrings>
       <find>search</find>
       <find>wrap</find>
+      <find>ngo_area_ngos_path</find>
       <find>ongs</find>
     </findStrings>
   </component>
@@ -103,16 +74,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/assets/javascripts/ngo_area.js" />
-        <option value="$PROJECT_DIR$/app/controllers/ngos_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/ngos/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/ngo_area/dashboard_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/ngo/ngos_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/ngo_area.html.erb" />
         <option value="$PROJECT_DIR$/app/views/ngo_area/ngos/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/ngo_area/ngos/new.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/ngo_area/ngos_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/ngos/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/ngos_controller.rb" />
       </list>
     </option>
   </component>
@@ -171,13 +142,6 @@
               <item name="uberdo3setor" type="b2602c69:ProjectViewProjectNode" />
               <item name="uberdo3setor" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="ngo_area" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uberdo3setor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uberdo3setor" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -199,7 +163,6 @@
               <item name="uberdo3setor" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="ngo_area" type="462c0819:PsiDirectoryNode" />
               <item name="ngos" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -214,7 +177,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
-    <property name="SearchEverywhereHistoryKey" value="fix&#9;ACTION&#9;FixDocComment&#10;ngocon&#9;FILE&#9;file:///Users/carolinesalib/my_projects/uberdo3setor/app/controllers/ngo_area/ngos_controller.rb&#10;route&#9;FILE&#9;file:///Users/carolinesalib/my_projects/uberdo3setor/config/routes.rb&#10;application&#9;FILE&#9;file:///Users/carolinesalib/my_projects/uberdo3setor/app/views/layouts/application.html.erb" />
+    <property name="SearchEverywhereHistoryKey" value="applicatio&#9;FILE&#9;file:///Users/carolinesalib/my_projects/uberdo3setor/app/views/layouts/application.html.erb&#10;fix&#9;ACTION&#9;FixDocComment&#10;ngocon&#9;FILE&#9;file:///Users/carolinesalib/my_projects/uberdo3setor/app/controllers/ngo_area/ngos_controller.rb&#10;route&#9;FILE&#9;file:///Users/carolinesalib/my_projects/uberdo3setor/config/routes.rb&#10;application&#9;FILE&#9;file:///Users/carolinesalib/my_projects/uberdo3setor/app/views/layouts/application.html.erb" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -354,12 +317,12 @@
       <updated>1514300500777</updated>
       <workItem from="1514300503169" duration="1038000" />
       <workItem from="1514303970453" duration="328000" />
-      <workItem from="1514304379860" duration="5526000" />
+      <workItem from="1514304379860" duration="5895000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6892000" />
+    <option name="totallyTimeSpent" value="7261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -493,26 +456,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/ngo_area/ngos_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="12" lean-forward="false" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/ngo_area.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="248" column="59" lean-forward="false" selection-start-line="248" selection-start-column="41" selection-end-line="248" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -525,6 +472,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/ngo_area/ngos/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -533,10 +488,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ngo_area/ngos_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/ngo_area.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="248" column="59" lean-forward="false" selection-start-line="248" selection-start-column="41" selection-end-line="248" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ngos/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ngos_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
