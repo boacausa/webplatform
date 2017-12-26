@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get 'home/index'
 
   namespace :ngo_area do
-    resources :ngos, only: %i[index new create]
+    resources :ngos, only: %i[index new create edit update]
   end
 end

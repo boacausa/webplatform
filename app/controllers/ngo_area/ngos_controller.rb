@@ -10,7 +10,18 @@ class NgoArea::NgosController < NgoAreaController
   def create
     @ngo = Ngo.create(params_ngo)
 
-    render ngo_area_ngos_path
+    redirect_to ngo_area_ngos_path
+  end
+
+  def edit
+    @ngo = Ngo.find(params[:id])
+  end
+
+  def update
+    @ngo = Ngo.find(params[:id])
+    @ngo.update params_ngo
+
+    redirect_to ngo_area_ngos_path
   end
 
   private
