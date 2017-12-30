@@ -10,69 +10,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203153635) do
+ActiveRecord::Schema.define(version: 20171230141715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bank_accounts", force: :cascade do |t|
-    t.integer  "account_number"
-    t.integer  "agency"
-    t.integer  "bank"
-    t.integer  "operation"
-    t.integer  "ngo_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["ngo_id"], name: "index_bank_accounts_on_ngo_id", using: :btree
+  create_table "bank_accounts", id: :serial, force: :cascade do |t|
+    t.integer "account_number"
+    t.integer "agency"
+    t.integer "bank"
+    t.integer "operation"
+    t.integer "ngo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ngo_id"], name: "index_bank_accounts_on_ngo_id"
   end
 
-  create_table "ngos", force: :cascade do |t|
-    t.string   "social_name"
-    t.string   "fantasy_name"
-    t.integer  "phone_number1"
-    t.integer  "phone_number2"
-    t.string   "email"
-    t.string   "site"
-    t.bigint   "cnpj"
-    t.string   "activity"
-    t.date     "date_start"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+  create_table "ngos", id: :serial, force: :cascade do |t|
+    t.string "social_name"
+    t.string "fantasy_name"
+    t.integer "phone_number1"
+    t.integer "phone_number2"
+    t.string "email"
+    t.string "site"
+    t.bigint "cnpj"
+    t.string "activity"
+    t.date "date_start"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
   end
 
-  create_table "pets", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "age"
-    t.string   "sex"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
+  create_table "pets", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "sex"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "description"
+    t.string "description"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "name"
-    t.string   "cpf"
-    t.string   "phone"
-    t.boolean  "temporary_home"
-    t.string   "image"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "cpf"
+    t.string "phone"
+    t.boolean "temporary_home"
+    t.string "image"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bank_accounts", "ngos"

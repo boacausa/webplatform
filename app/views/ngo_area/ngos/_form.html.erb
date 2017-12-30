@@ -20,6 +20,10 @@
     <%= f.number_field :cnpj, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= label_tag(:description, 'Descrição') %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= f.submit 'Salvar', class: 'btn btn-success' %>
     <%= link_to 'Voltar', ngo_area_ngos_path, class: 'btn btn-default' %>
   </div>
