@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   namespace :ngo_area do
     resources :ngos, only: %i[index new create edit update]
+    resources :pets, only: %i[index new create edit update]
   end
 end

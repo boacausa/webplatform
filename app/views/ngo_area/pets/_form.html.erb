@@ -1,0 +1,24 @@
+<div class="col-lg-6">
+  <div class="form-group">
+    <%= label_tag(:name, 'Nome') %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:description, 'Descrição') %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'Salvar', class: 'btn btn-success' %>
+    <%= link_to 'Voltar', ngo_area_ngos_path, class: 'btn btn-default' %>
+  </div>
+</div>
+<div class="col-lg-6">
+  <div class="form-group">
+    <%= label_tag(:sex, 'Sexo') %>
+    <%= f.text_field :sex, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:age, 'Idade') %>
+    <%= f.number_field :age, class: 'form-control' %>
+  </div>
+</div>
