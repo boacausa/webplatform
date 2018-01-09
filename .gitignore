@@ -17,6 +17,9 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore env vars
+/.env
+
 # Ignore Byebug command history file.
 .byebug_history
 

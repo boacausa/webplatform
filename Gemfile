@@ -22,6 +22,7 @@ gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'devise'
 gem 'paperclip', '~> 5.0.0'
+gem 'aws-sdk', '~> 3'
 
 group :development, :test do
   gem 'byebug', platform: :mri
