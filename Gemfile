@@ -21,11 +21,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'devise'
+
+gem 'aws-sdk', '2.10.47'
 gem 'paperclip', '~> 5.0.0'
-gem 'aws-sdk', '~> 3'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
+  gem 'dotenv-rails'
   gem 'rubocop'
 end
 

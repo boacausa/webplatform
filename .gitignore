@@ -25,3 +25,6 @@
 
 # Ignore IDE configs
 /.idea
+
+# Paperclip local images
+/public/system/
