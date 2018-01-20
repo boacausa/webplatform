@@ -24,5 +24,6 @@ Ngo.create!(
   email: Faker::Internet.email,
   site: Faker::Internet.url,
   cnpj: CNPJ.generate,
-  date_start: Faker::Date.backward(1000)
+  date_start: Faker::Date.backward(1000),
+  image: File.new("public/templates/ngo/amigobicho.png")
 )

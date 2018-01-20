@@ -1,24 +1,9 @@
 <div class="row">
   <% @ngos.each do |ngo| %>
-    <!--<div class="card">-->
-      <!--<h3 class="card-header"><%= ngo.fantasy_name %></h3>-->
-      <!--<div class="card-body">-->
-        <!--&lt;!&ndash; <h5 class="card-title">Special title treatment</h5> &ndash;&gt;-->
-      <!--</div>-->
-      <!--<div class="card-body">-->
-        <!--<a href="#" class="card-link">Saiba mais</a>-->
-      <!--</div>-->
-    <!--</div>-->
     <div class="col-sm-6">
-      <div class="card ngo-card">
-        <div class="card-header">
-          <%= ngo.fantasy_name %>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><%= ngo.social_name %></h5>
-          <p class="card-text"><%= ngo.description %></p>
-          <a href="#" class="btn btn-primary">Saiba mais</a>
-        </div>
+      <%= image_tag ngo.image.url %>
+      <div class="card-block">
+        <p class="card-text"><%= ngo.description %></p>
       </div>
     </div>
   <% end %>
