@@ -23,7 +23,7 @@ gem 'bootstrap_sb_admin_base_v2'
 gem 'devise'
 
 gem 'aws-sdk', '2.10.47'
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.1.0'
 
 group :development, :test do
   gem 'dotenv-rails'
