@@ -28,7 +28,22 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :password, class: 'control-label' %>
+          <%= f.label :name, 'Nome', class: 'control-label' %><br />
+          <%= f.text_field :name, class: 'form-control', autofocus: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :last_name, 'Sobrenome', class: 'control-label' %><br />
+          <%= f.text_field :last_name, class: 'form-control', autofocus: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :phone, 'Telefone', class: 'control-label' %><br />
+          <%= f.text_field :phone, class: 'form-control', type: 'phone', autofocus: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, 'Senha', class: 'control-label' %>
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %><br />
@@ -36,7 +51,7 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation, class: 'control-label' %><br />
+          <%= f.label :password_confirmation, 'Confirmação de senha', class: 'control-label' %><br />
           <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
         </div>
 
