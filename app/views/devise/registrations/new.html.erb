@@ -39,7 +39,7 @@
 
         <div class="form-group">
           <%= f.label :phone, 'Telefone', class: 'control-label' %><br />
-          <%= f.text_field :phone, class: 'form-control', type: 'phone', autofocus: true %>
+          <%= f.text_field :phone, class: 'form-control', autofocus: true, maxlength: 15 %>
         </div>
 
         <div class="form-group">
@@ -66,3 +66,23 @@
   </div>
   <div class="col-lg-3"></div>
 </div>
+
+<script>
+  var user_phone = document.getElementById("user_phone");
+  user_phone.onkeyup = mascara;
+
+  function mascara(){
+    setTimeout("execmascara()",1);
+  }
+
+  function execmascara(){
+      user_phone.value=mtel(user_phone.value);
+  }
+
+  function mtel(v){
+    v=v.replace(/\D/g,"");
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2");
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2");
+    return v;
+  }
+</script>
