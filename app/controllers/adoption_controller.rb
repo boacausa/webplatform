@@ -1,6 +1,6 @@
 class AdoptionController < UserAreaController
   def index
-    @pets = Pet.all
+    @pets = Pet.actived
   end
 
   def show

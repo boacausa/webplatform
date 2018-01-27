@@ -49,4 +49,8 @@
     <%= label_tag(:image, 'Imagem') %>
     <%= f.file_field :image, class: 'form-control' %>
   </div>
+  <div class="form-group">
+    <%= label_tag(:active, 'Idade') %>
+    <%= f.select :active, options_for_select({"Ativo" => "true", "Inativo" => "false"}, @ngo.active), class: 'form-control' %>
+  </div>
 </div>

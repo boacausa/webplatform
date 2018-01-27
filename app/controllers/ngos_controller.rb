@@ -1,5 +1,5 @@
 class NgosController < UserAreaController
   def index
-    @ngos = Ngo.all
+    @ngos = Ngo.actived
   end
 end

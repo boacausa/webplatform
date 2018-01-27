@@ -25,4 +25,8 @@
     <%= label_tag(:age, 'Idade') %>
     <%= f.number_field :age, class: 'form-control' %>
   </div>
+  <div class="form-group">
+    <%= label_tag(:active, 'Idade') %>
+    <%= f.select :active, options_for_select({"Ativo" => "true", "Inativo" => "false"}, @pet.active), class: 'form-control' %>
+  </div>
 </div>
