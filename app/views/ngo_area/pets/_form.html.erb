@@ -13,7 +13,15 @@
   </div>
   <div class="form-group">
     <%= f.submit 'Salvar', class: 'btn btn-success' %>
-    <%= link_to 'Voltar', ngo_area_ngos_path, class: 'btn btn-default' %>
+    <% if @pet %>
+      <%= form_for ngo_area_pet_path(@pet), method: :delete, authenticity_token: true do |f| %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <%= f.submit 'Excluir',
+                     data: { confirm: 'Tem certeza que deseja excluir este registro?' },
+                     class: 'btn btn-danger' %>
+      <% end %>
+  <% end %>
+    <%= link_to 'Voltar', ngo_area_pets_path, class: 'btn btn-default' %>
   </div>
 </div>
 <div class="col-lg-6">
