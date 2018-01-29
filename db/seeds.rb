@@ -7,7 +7,7 @@ Pet.delete_all
     name: Faker::Name.first_name,
     age: Random.rand(10),
     description: Faker::Lorem.sentence,
-    sex: 'female',
+    sex: 'f',
     image: File.new("public/templates/pets/#{Random.rand(6)}.png"),
     active: true
   )
