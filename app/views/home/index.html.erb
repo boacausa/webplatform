@@ -36,5 +36,26 @@
 </div>
 
 <div class="jumbotron" style="margin-top: 30px; width: 100%;">
-  <p>Consulte as ONGs cadastradas para fazer uma doação ou visite nossa galeria de amiguinhos disponíveis para adoção.</p>
+  <p class="lead">Consulte as <a href="<%= ngos_index_path %>">ONGs</a> cadastradas para fazer uma doação ou visite nossa galeria de <a href="<%= adoption_index_path %>">amiguinhos</a> disponíveis para adoção.</p>
+</div>
+
+<div class="row" style="margin-bottom: 30px">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Encontrar uma ONG</h5>
+        <p class="card-text">Acesse a área de ONGs para encontrar uma ONG e descobrir formas de colaborar.</p>
+        <a href="<%= ngos_index_path %>" class="btn btn-primary">Ver ONGs</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Adote um amiguinho</h5>
+        <p class="card-text">Acesse a área de adoções para encontrar um amiguinho para adoção agora mesmo.</p>
+        <a href="<%= adoption_index_path %>" class="btn btn-primary">Ver Pets</a>
+      </div>
+    </div>
+  </div>
 </div>
