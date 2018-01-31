@@ -13,7 +13,7 @@
   </div>
   <div class="form-group">
     <%= f.submit 'Salvar', class: 'btn btn-success' %>
-    <% if @pet %>
+    <% if @pet.id %>
       <%= link_to("Excluir",
                   ngo_area_pet_path(@pet),
                   method: :delete,
