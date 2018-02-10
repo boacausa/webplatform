@@ -29,3 +29,16 @@ Ngo.create!(
   image: File.new("public/templates/ngo/amigobicho.png"),
   active: true
 )
+
+Ngo.create!(
+  social_name: 'Outra ONG',
+  fantasy_name: 'ONG Teste',
+  phone_number1: Faker::PhoneNumber.phone_number,
+  phone_number2: Faker::PhoneNumber.phone_number,
+  email: Faker::Internet.email,
+  site: Faker::Internet.url,
+  cnpj: CNPJ.generate,
+  date_start: Faker::Date.backward(1000),
+  image: File.new("public/templates/ngo/amigobicho.png"),
+  active: true
+)
