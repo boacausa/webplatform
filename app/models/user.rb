@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # TODO add address
+  include PhoneFormat
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -7,6 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def phone=(text)
-    super(text.gsub(/[^\d]/, ''))
+    super(only_numbers text)
   end
 end

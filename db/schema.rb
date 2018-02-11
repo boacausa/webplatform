@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127153424) do
+ActiveRecord::Schema.define(version: 20180211134728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20180127153424) do
   create_table "ngos", id: :serial, force: :cascade do |t|
     t.string "social_name"
     t.string "fantasy_name"
-    t.integer "phone_number1"
-    t.integer "phone_number2"
+    t.string "phone_number1"
+    t.string "phone_number2"
     t.string "email"
     t.string "site"
     t.bigint "cnpj"
