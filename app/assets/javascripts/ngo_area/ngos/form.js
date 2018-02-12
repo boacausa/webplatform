@@ -35,18 +35,16 @@ function findAddress() {
     if (zipCode == null || zipCode == '') return;
 
     $.get("https://viacep.com.br/ws/" + zipCode + "/json/", function (data) {
-        document.getElementById("address").value = data.logradouro;
-        document.getElementById("neighborhood").value = data.bairro;
-        document.getElementById("city").value = data.localidade;
-        document.getElementById("state").value = data.uf;
+        document.getElementById("ngo_address").value = data.logradouro;
+        document.getElementById("ngo_neighborhood").value = data.bairro;
+        document.getElementById("ngo_city").value = data.localidade;
+        document.getElementById("ngo_state").value = data.uf;
     })
     .fail(function() {
         alert( "Endereço não encontrado." );
-        document.getElementById("address").value = '';
-        document.getElementById("neighborhood").value = '';
-        document.getElementById("city").value = '';
-        document.getElementById("state").value = '';
+        document.getElementById("ngo_address").value = '';
+        document.getElementById("ngo_neighborhood").value = '';
+        document.getElementById("ngo_city").value = '';
+        document.getElementById("ngo_state").value = '';
     });
 }
-
-findAddress();
