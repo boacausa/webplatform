@@ -14,4 +14,12 @@ class Ngo < ApplicationRecord
   def phone_number2=(text)
     super(only_numbers text)
   end
+
+  def phone_number1
+    mask(super)
+  end
+
+  def phone_number2
+    mask(super)
+  end
 end
