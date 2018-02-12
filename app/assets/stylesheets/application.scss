@@ -8,6 +8,18 @@ body { padding-top: 80px; }
   margin-bottom: 20px;
 }
 
+.ngo-card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  padding-left: 0px !important;
+  height: 322px;
+}
+
+.ngo-card-img {
+  padding-left: 0px !important;
+  max-width: 320px;
+}
+
 .jumbotron-home {
   margin-top: 30px;
   width: 100%;
@@ -19,12 +31,4 @@ body { padding-top: 80px; }
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
-}
-
-.card-img-bottom {
-  color: #fff;
-  height: 20rem;
-  background: url(images/img1.jpg) right no-repeat;
-  background-size: cover;
-  margin-right: 0;
 }
