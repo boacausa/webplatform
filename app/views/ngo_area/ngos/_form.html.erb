@@ -24,12 +24,6 @@
     <%= f.text_area :description, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.submit 'Salvar', class: 'btn btn-success' %>
-    <%= link_to 'Voltar', ngo_area_ngos_path, class: 'btn btn-default' %>
-  </div>
-</div>
-<div class="col-lg-6">
-  <div class="form-group">
     <%= label_tag(:phone_number1, 'Telefone 1') %>
     <%= f.phone_field :phone_number1, class: 'form-control', maxlength: 15 %>
   </div>
@@ -50,32 +44,68 @@
     <%= f.file_field :image, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:active, 'Idade') %>
+    <%= label_tag(:transparency_portal, 'Portal da transparência') %>
+    <%= f.text_field :transparency_portal, class: 'form-control' %>
+    <p class="help-block">Pode ser a URL de algum local onde tenha a prestação de contas da ONG. Ex: Planilha Google</p>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:active, 'Status') %>
     <%= f.select :active, options_for_select({"Ativo" => "true", "Inativo" => "false"}, @ngo.active), class: 'form-control' %>
   </div>
 </div>
+<div class="col-lg-6">
+  <h1>Endereço</h1>
+  <div class="form-group">
+    <%= label_tag(:zipcode, 'CEP') %>
+    <%= f.number_field :zipcode, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:address_number, 'Número ') %>
+    <%= f.number_field :address_number, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:address, 'Endereço') %>
+    <%= text_field_tag 'address', nil, class: 'form-control', :readonly => true %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:neighborhood, 'Bairro') %>
+    <%= text_field_tag :neighborhood, nil, class: 'form-control', :readonly => true %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:city, 'Cidade') %>
+    <%= text_field_tag :city, nil, class: 'form-control', :readonly => true %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:state, 'Estado') %>
+    <%= text_field_tag :state, nil, class: 'form-control', :readonly => true %>
+  </div>
+  <h1>Conta bancária</h1>
+  <div class="form-group">
+    <%= label_tag(:bank, 'Banco') %>
+    <%= f.text_field :bank, class: 'form-control', placeholder: 'Ex: Caixa Economica Federal' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:agency, 'Agência') %>
+    <%= f.text_field :agency, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:operation, 'Operação') %>
+    <%= f.text_field :operation, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:account, 'Número da conta') %>
+    <%= f.text_field :account, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:titular, 'Titular') %>
+    <%= f.text_field :titular, class: 'form-control' %>
+  </div>
+</div>
+<div class="col-lg-12">
+  <div class="form-group">
+    <%= f.submit 'Salvar', class: 'btn btn-success' %>
+    <%= link_to 'Voltar', ngo_area_ngos_path, class: 'btn btn-default' %>
+  </div>
+</div>
 
-<script>
-  var phone_number1 = document.getElementById("ngo_phone_number1");
-  var phone_number2 = document.getElementById("ngo_phone_number2");
-  phone_number1.onkeyup = mask;
-  phone_number2.onkeyup = mask;
-
-  function mask(){
-    setTimeout("execmask()",1);
-  }
-
-  function execmask(){
-    phone_number1.value=mtel(phone_number1.value);
-    phone_number2.value=mtel(phone_number2.value);
-  }
-
-  function mtel(v){
-    v=v.replace(/\D/g,"");
-    v=v.replace(/^(\d{2})(\d)/g,"($1) $2");
-    v=v.replace(/(\d)(\d{4})$/,"$1-$2");
-    return v;
-  }
-
-  execmask();
-</script>
+<%= javascript_include_tag "ngo_area/ngos/form" %>

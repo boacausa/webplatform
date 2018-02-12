@@ -28,6 +28,7 @@ class NgoArea::NgosController < NgoAreaController
 
   def params_ngo
     params.require(:ngo).permit(:social_name, :fantasy_name, :phone_number1, :phone_number2, :email, :site, :cnpj,
-                                :activity, :date_start, :description, :image, :activegit )
+                                :activity, :date_start, :description, :image, :active, :transparency_portal, :bank,
+                                :agency, :operation, :account, :titular, :zipcode, :address_number)
   end
 end
