@@ -14,11 +14,11 @@
     </div>
     <p><%= truncate(ngo.description, length: 380) %></p>
     <div style="position:absolute;bottom:70px">
-      <p style="margin-bottom:0px;"><strong>E-mail: </strong><%= ngo.email %></p>
-      <p style="margin-bottom:0px;"><strong>Phone: </strong><%= "#{ngo.phone_number1}, #{ngo.phone_number2}" %></p>
-      <p style="margin-bottom:0px;"><strong>Cidade: </strong><%= "#{ngo.city}/#{ngo.state}" %></p>
+      <p class="p-detail"><strong>E-mail: </strong><%= ngo.email %></p>
+      <p class="p-detail"><strong>Phone: </strong><%= "#{ngo.phone_number1}, #{ngo.phone_number2}" %></p>
+      <p class="p-detail"><strong>Cidade: </strong><%= "#{ngo.city}/#{ngo.state}" %></p>
     </div>
-    <a style="position:absolute;bottom:10px;"class="btn btn-primary btn-lg" href="#">Clique aqui para ajudar!</a>
+    <a style="position:absolute;bottom:10px;"class="btn btn-primary btn-lg" href="<%= ngo_path(ngo) %>">Saiba mais</a>
   </div>
 </div>
 <% end %>

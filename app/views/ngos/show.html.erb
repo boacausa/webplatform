@@ -1,0 +1,35 @@
+<div class="jumbotron">
+  <h1><%= @ngo.fantasy_name %></h1>
+  <p><%= @ngo.description %> </p>
+
+  <span class="badge badge-success">Atuando desde <%= @ngo.date_start.year %></span>
+</div>
+
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Faça uma doação agora mesmo!</h4>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-block">
+      <h2 class="card-title">Saiba mais sobre <%= @ngo.fantasy_name %></h2>
+      <p class="p-detail"><strong>E-mail: </strong> <%= @ngo.email %></p>
+    <p class="p-detail"><strong>Site: </strong> <a href="<%= @ngo.site %>"><%= @ngo.site %></a></a></p>
+      <p class="p-detail"><strong>CNPJ: </strong> <%= @ngo.cnpj %></p>
+      <p class="p-detail"><strong>Telefone 1: </strong> <%= @ngo.phone_number1 %></p>
+      <p class="p-detail"><strong>Telefone 2: </strong> <%= @ngo.phone_number2 %></p>
+      <p class="p-detail"><strong>Atividade: </strong> <%= @ngo.activity %></p>
+      <p class="p-detail"><strong>Portal da transparência: </strong>  <a href="<%= @ngo.transparency_portal %>"><%= @ngo.transparency_portal %></a></p>
+    </div>
+    <div class="card-block">
+      <h4 class="card-title">Endereço</h4>
+      <p class="p-detail"><strong>CEP: </strong> <%= @ngo.zipcode %></p>
+      <p class="p-detail"><strong>Número: </strong> <%= @ngo.address_number %></p>
+      <p class="p-detail"><strong>Rua: </strong> <%= @ngo.address %></p>
+      <p class="p-detail"><strong>Bairro: </strong> <%= @ngo.neighborhood %></p>
+      <p class="p-detail"><strong>Cidade: </strong> <%= @ngo.city%></p>
+      <p class="p-detail"><strong>Estado: </strong> <%= @ngo.state %></p>
+  </div>
+</div>
+<br>
