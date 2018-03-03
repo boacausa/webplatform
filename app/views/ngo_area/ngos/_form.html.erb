@@ -52,6 +52,14 @@
     <%= label_tag(:active, 'Status') %>
     <%= f.select :active, options_for_select({"Ativo" => "true", "Inativo" => "false"}, @ngo.active), class: 'form-control' %>
   </div>
+  <div class="form-group">
+    <%= label_tag(:payment_type, 'Método de pagamento') %>
+    <%= f.select :payment_type, options_for_select({"Botão - Paypal" => "paypal-form"}, @ngo.payment_type), class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:payment_form, 'Código do botão') %>
+    <%= f.text_area :payment_form, class: 'form-control' %>
+  </div>
 </div>
 <div class="col-lg-6">
   <h1>Endereço</h1>

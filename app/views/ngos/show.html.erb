@@ -5,17 +5,33 @@
   <span class="badge badge-success">Atuando desde <%= @ngo.date_start.year %></span>
 </div>
 
-<div class="card">
-  <div class="card-block">
-    <h4 class="card-title">Faça uma doação agora mesmo!</h4>
+<% if @ngo.payment_type && @ngo.bank_account? %>
+  <div class="card">
+    <div class="card-block">
+      <h3 class="card-title">Faça uma doação agora mesmo!</h3>
+      <% if @ngo.payment_type == 'paypal-form' %>
+        <br>
+        <h5 class="card-title">Via cartão de crédito - Paypal</h5>
+        <%= raw @ngo.payment_form %>
+      <% end %>
+      <% if @ngo.bank_account? %>
+        <br>
+        <h5 class="card-title">Via depósito ou transferência</h5>
+        <p class="p-detail"><strong>Banco:</strong> <%= @ngo.bank %></p>
+        <p class="p-detail"><strong>Agência:</strong> <%= @ngo.agency %></p>
+        <p class="p-detail"><strong>Operação:</strong> <%= @ngo.operation %></p>
+        <p class="p-detail"><strong>Conta:</strong> <%= @ngo.account %></p>
+        <p class="p-detail"><strong>Titular:</strong> <%= @ngo.titular %></p>
+      <% end %>
+    </div>
   </div>
-</div>
-<br>
+  <br>
+<% end %>
 <div class="card">
   <div class="card-block">
       <h2 class="card-title">Saiba mais sobre <%= @ngo.fantasy_name %></h2>
       <p class="p-detail"><strong>E-mail: </strong> <%= @ngo.email %></p>
-    <p class="p-detail"><strong>Site: </strong> <a href="<%= @ngo.site %>"><%= @ngo.site %></a></a></p>
+      <p class="p-detail"><strong>Site: </strong> <a href="<%= @ngo.site %>"><%= @ngo.site %></a></a></p>
       <p class="p-detail"><strong>CNPJ: </strong> <%= @ngo.cnpj %></p>
       <p class="p-detail"><strong>Telefone 1: </strong> <%= @ngo.phone_number1 %></p>
       <p class="p-detail"><strong>Telefone 2: </strong> <%= @ngo.phone_number2 %></p>

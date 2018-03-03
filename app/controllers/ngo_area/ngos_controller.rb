@@ -30,6 +30,6 @@ class NgoArea::NgosController < NgoAreaController
     params.require(:ngo).permit(:social_name, :fantasy_name, :phone_number1, :phone_number2, :email, :site, :cnpj,
                                 :activity, :date_start, :description, :image, :active, :transparency_portal, :bank,
                                 :agency, :operation, :account, :titular, :zipcode, :address_number, :address,
-                                :neighborhood, :city, :state)
+                                :neighborhood, :city, :state, :payment_type, :payment_form)
   end
 end

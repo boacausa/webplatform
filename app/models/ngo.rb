@@ -22,4 +22,8 @@ class Ngo < ApplicationRecord
   def phone_number2
     mask(super)
   end
+
+  def bank_account?
+    bank.present? && account.present? && agency.present?
+  end
 end
