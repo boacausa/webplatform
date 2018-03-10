@@ -17,13 +17,13 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="<%=root_path%>">SOBRE <span class="sr-only">(current)</span></a>
+          <li class="nav-item <%= current_page?(root_path) ? 'active' : '' %>">
+            <a class="nav-link" href="<%=root_path%>">SOBRE</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <%= current_page?(ngos_path) ? 'active' : '' %>">
             <a class="nav-link" href="<%=ngos_path%>">ONGS</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <%= current_page?(adoption_index_path) ? 'active' : '' %>">
             <a class="nav-link" href="<%=adoption_index_path%>">ADOTE</a>
           </li>
         </ul>
