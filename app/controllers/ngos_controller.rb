@@ -4,6 +4,8 @@ class NgosController < UserAreaController
   end
 
   def show
-    @ngo = Ngo.find(params[:id])
+    @ngo = Ngo.find_by_fantasy_name(params[:id]).first || Ngo.find(params[:id])
+
+    # TODO: render error page when @ngo not find
   end
 end

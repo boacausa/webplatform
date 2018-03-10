@@ -6,6 +6,7 @@ class Ngo < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   scope :actived, -> { where(active: true) }
+  scope :find_by_fantasy_name, ->(name) { where('replace(lower(fantasy_name), \' \', \'\') = ?', name) }
 
   def phone_number1=(text)
     super(only_numbers text)
@@ -25,5 +26,11 @@ class Ngo < ApplicationRecord
 
   def bank_account?
     bank.present? && account.present? && agency.present?
+  end
+
+  def fantasy_name_url
+    return unless fantasy_name.present?
+
+    fantasy_name.downcase.gsub(/\s+/, '')
   end
 end
