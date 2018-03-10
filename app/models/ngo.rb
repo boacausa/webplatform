@@ -5,6 +5,8 @@ class Ngo < ApplicationRecord
   has_attached_file :image, styles: { medium: '320x320#', thumb: '100x100>' }, default_url: '/images/:style/missing.png'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
+  validates :fantasy_name, presence: true
+
   scope :actived, -> { where(active: true) }
   scope :find_by_fantasy_name, ->(name) { where('replace(lower(fantasy_name), \' \', \'\') = ?', name) }
 
