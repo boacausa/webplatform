@@ -2,7 +2,7 @@
   <h1><%= @ngo.fantasy_name %></h1>
   <p><%= @ngo.description %> </p>
 
-  <% if ngo.date_start.present? %>
+  <% if @ngo.date_start.present? %>
     <span class="badge badge-success">Atuando desde <%= @ngo.date_start.year %></span>
   <% end %>
 </div>
