@@ -1,11 +1,13 @@
 <div class="jumbotron">
-  <h1><%= @ngo.fantasy_name %></h1>
+  <div style="width:100%; height: 60px">
+    <h1 style="float:left;margin-top: 2px;"><%= @ngo.fantasy_name %></h1>
+    <% if @ngo.date_start.present? %>
+      <span style="margin:20px;" class="badge badge-success"><%= @ngo.date_start.strftime("Atuando desde %Y") %></span>
+    <% end %>
+  </div>
   <p><%= @ngo.description %> </p>
-
-  <% if @ngo.date_start.present? %>
-    <span class="badge badge-success">Atuando desde <%= @ngo.date_start.year %></span>
-  <% end %>
 </div>
+
 
 <% if @ngo.payment_type && @ngo.bank_account? %>
   <div class="card">
