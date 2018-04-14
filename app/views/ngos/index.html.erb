@@ -11,7 +11,7 @@
     <div style="width:100%; height: 60px">
       <h1 style="float:left;margin-top: 2px;"><%= ngo.fantasy_name %></h1>
       <% if ngo.date_start.present? %>
-        <span style="margin:20px;" class="badge badge-success"><%= ngo.date_start.strftime("Atuando desde %m/%d/%Y") %></span>
+        <span style="margin:20px;" class="badge badge-success"><%= ngo.date_start.strftime("Atuando desde %Y") %></span>
       <% end %>
     </div>
     <p><%= truncate(ngo.description, length: 380) %></p>
