@@ -16,8 +16,8 @@ test:
 
 production:
   <<: *default
-  database: d36jr7cfg67b2d
-  username: wwpaqrakvxivbn
-  host: ec2-54-83-54-224.compute-1.amazonaws.com
-  port: 5432
+  database: <%= ENV['MYAPP_DATABASE_NAME'] %>
+  username: <%= ENV['MYAPP_DATABASE_USER'] %>
+  host: <%= ENV['MYAPP_DATABASE_HOST'] %>
+  port: <%= ENV['MYAPP_DATABASE_PORT'] %>
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
