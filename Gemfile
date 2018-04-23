@@ -39,7 +39,6 @@ group :development do
 end
 
 group :production do
-  gem 'sentry-raven'
   gem 'unicorn'
 end
 
