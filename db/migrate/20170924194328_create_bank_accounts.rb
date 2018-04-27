@@ -5,7 +5,7 @@ class CreateBankAccounts < ActiveRecord::Migration[5.0]
       t.integer :agency
       t.integer :bank
       t.integer :operation
-      t.references :ngo_area, foreign_key: true
+      t.references :ngo, foreign_key: true
 
       t.timestamps
     end
