@@ -49,6 +49,7 @@ task :setup do
     database_yml = %[production:
   database: #{fetch(:user)}
   adapter: postgresql
+  user: postgres
   pool: 5
   timeout: 5000]
     command %[test -e #{path_database_yml} || echo "#{database_yml}" > #{path_database_yml}]
