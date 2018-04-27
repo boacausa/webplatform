@@ -82,13 +82,14 @@ Rails.application.configure do
   end
 
   config.paperclip_defaults = {
+    storage: :s3,
+    s3_host_name: "s3-us-west-2.amazonaws.com",
+    s3_region: 'us-west-2', # or ENV['AWS_REGION']
     s3_credentials: {
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+      bucket: ENV['AWS_BUCKET'],
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      bucket: ENV['S3_BUCKET'],
-      s3_region: ENV['AWS_REGION']
-    },
-    storage: :s3
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+    }
   }
 
   # Do not dump schema after migrations.
