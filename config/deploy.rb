@@ -80,7 +80,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      command "sudo service boacausa-app restart"
+      # command "sudo service boacausa-app restart"
     end
   end
 
