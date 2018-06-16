@@ -30,3 +30,4 @@
 /public/system/
 
 /config/database.yml
+/coverage/*
