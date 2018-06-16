@@ -31,6 +31,10 @@ group :development, :test do
   gem 'rubocop'
 end
 
+group :test do
+  gem 'simplecov'
+end
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'minitest-rails-capybara'
