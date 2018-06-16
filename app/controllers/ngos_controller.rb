@@ -7,7 +7,8 @@ class NgosController < UserAreaController
     @ngo = if params[:id].is_a? Integer
              Ngo.find(params[:id])
            else
-             Ngo.find_by_fantasy_name(params[:id]).first
+             fantasy_name = params[:id].downcase.gsub(/\s+/, '')
+             Ngo.find_by_fantasy_name(fantasy_name).first
            end
 
     unless @ngo.present?

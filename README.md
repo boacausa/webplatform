@@ -1,24 +1,27 @@
-# README
+<a href="https://codeclimate.com/github/boacausa/webplatform/maintainability"><img src="https://api.codeclimate.com/v1/badges/0c390c414647d152de40/maintainability" /></a>
+<a href="https://codeclimate.com/github/boacausa/webplatform/test_coverage"><img src="https://api.codeclimate.com/v1/badges/0c390c414647d152de40/test_coverage" /></a>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Por uma boa causa (Plataforma Rails)
 
-Things you may want to cover:
+Bem vindo ao projeto Boa causa, neste repositório você irá encontrar o código-fonte para o a plataforma web do projeto.
 
-* Ruby version
+Link oficial: http://boacausa.org/
 
-* System dependencies
+### Setup
 
-* Configuration
+**Pré-requisitos**
 
-* Database creation
+Ter o ruby 2.4.3 ou rbenv instalado.
 
-* Database initialization
+**Passos de instalação**
 
-* How to run the test suite
+* rbenv install ruby 2.4.3
+* rbenv local 2.4.3
+* gem install bundler
+* bundler install
+* rails db:setup
+* rails s
 
-* Services (job queues, cache servers, search engines, etc.)
+**Para rodar os testes**
 
-* Deployment instructions
-
-* ...
+* bundle exec rspec spec

@@ -28,7 +28,11 @@ gem 'sentry-raven'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'faker'
+  gem 'factory_bot_rails'
   gem 'rubocop'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -37,6 +41,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'simplecov'
 end
 
 group :production do
