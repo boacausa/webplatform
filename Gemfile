@@ -29,9 +29,7 @@ gem 'sentry-raven'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'rubocop'
-end
-
-group :test do
+  gem 'rspec-rails', '~> 3.7'
   gem 'simplecov'
 end
 
