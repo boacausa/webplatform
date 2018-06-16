@@ -29,9 +29,10 @@ gem 'sentry-raven'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'faker'
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'rubocop'
   gem 'rspec-rails', '~> 3.7'
+  gem 'rails-controller-testing'
 end
 
 group :development do
