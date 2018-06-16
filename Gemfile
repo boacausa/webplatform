@@ -32,7 +32,6 @@ group :development, :test do
   gem 'factory_bot'
   gem 'rubocop'
   gem 'rspec-rails', '~> 3.7'
-  gem 'simplecov'
 end
 
 group :development do
@@ -41,6 +40,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'simplecov'
 end
 
 group :production do
