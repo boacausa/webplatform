@@ -29,5 +29,4 @@
 # Paperclip local images
 /public/system/
 
-/config/database.yml
 /coverage/*
