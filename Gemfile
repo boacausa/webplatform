@@ -28,6 +28,8 @@ gem 'sentry-raven'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'faker'
+  gem 'factory_bot'
   gem 'rubocop'
   gem 'rspec-rails', '~> 3.7'
   gem 'simplecov'
