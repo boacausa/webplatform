@@ -8,6 +8,9 @@ jobs:
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.4.1-node-browsers
+         environment:
+           RAILS_ENV: test
+           CC_TEST_REPORTER_ID: cbd5dbe286144902877051aa0171c72a1d80942efaca7a9bba57670e130c1327
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -43,14 +46,21 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
+      # Codeclimate coverage reporter
+      - run:
+          name: Install CodeClimate test coverage reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+
       # run tests!
       - run:
           name: run tests
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-
-            bundle exec rspec spec
+            bundle exec rspec spec --format progress --out /tmp/test-results/rspec.xml
 
       # collect reports
       - store_test_results:
@@ -58,3 +68,7 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+      - run:
+          name: Upload test coverage report to CodeClimate
+          command: ./cc-test-reporter after-build --exit-code $?

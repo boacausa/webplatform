@@ -4,7 +4,7 @@ class NgosController < UserAreaController
   end
 
   def show
-    @ngo = if params[:id].is_a? Integer
+    @ngo = if StringValidation.only_numbers?(params[:id])
              Ngo.find(params[:id])
            else
              fantasy_name = params[:id].downcase.gsub(/\s+/, '')
