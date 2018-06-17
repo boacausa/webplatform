@@ -33,6 +33,8 @@ group :development, :test do
   gem 'rubocop'
   gem 'rspec-rails', '~> 3.7'
   gem 'rails-controller-testing'
+  gem 'simplecov'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
@@ -43,7 +45,6 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'guard-livereload'
   gem 'guard-rspec'
-  gem 'simplecov'
 end
 
 group :production do
