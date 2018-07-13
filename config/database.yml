@@ -5,7 +5,7 @@ default: &default
   username: postgres
   password: postgres
   host: localhost
-  port: 5432
+  port: <%= ENV['DB_PORT'] || 5432 %>
 
 development:
   <<: *default
@@ -14,5 +14,4 @@ development:
 test:
   <<: *default
   database: boacausa_test
-  port: 5432
 
