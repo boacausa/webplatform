@@ -62,10 +62,10 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, type: :controller
 
-  def login_user
+  def login_user(trait = nil)
     before(:each) do
       @request.env['devise.mapping'] = Devise.mappings[:user]
-      user = FactoryBot.create(:user)
+      user = FactoryBot.create(:user, trait)
       sign_in user
     end
   end
