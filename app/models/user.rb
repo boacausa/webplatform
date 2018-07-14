@@ -8,4 +8,8 @@ class User < ApplicationRecord
   def phone=(text)
     super(only_numbers text)
   end
+
+  def ngo_privileges?
+    admin? || ngo?
+  end
 end
