@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: circleci/ruby:2.4.1-node-browsers
+       - image: circleci/ruby:2.5.1-node-browsers
          environment:
            RAILS_ENV: test
            CC_TEST_REPORTER_ID: cbd5dbe286144902877051aa0171c72a1d80942efaca7a9bba57670e130c1327
