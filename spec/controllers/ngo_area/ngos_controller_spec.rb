@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe NgoArea::NgosController do
-  login_user
+  login_user(:ngo_privileges)
 
   subject { create(:ngo) }
 
