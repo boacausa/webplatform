@@ -24,7 +24,6 @@ gem 'devise'
 
 gem 'aws-sdk-s3', '~> 1'
 gem 'paperclip', '~> 5.2.0'
-gem 'sentry-raven'
 
 group :development, :test do
   gem 'dotenv-rails'
@@ -49,6 +48,7 @@ end
 
 group :production do
   gem 'unicorn'
+  gem 'sentry-raven'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
