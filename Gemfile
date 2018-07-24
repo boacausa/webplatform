@@ -22,7 +22,6 @@ gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'devise'
 
-gem 'aws-sdk-s3', '~> 1'
 gem 'paperclip', '~> 5.2.0'
 gem 'sentry-raven'
 
@@ -48,6 +47,7 @@ group :development do
 end
 
 group :production do
+  gem 'aws-sdk', '2.10.47'
   gem 'unicorn'
 end
 
