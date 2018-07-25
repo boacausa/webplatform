@@ -15,3 +15,6 @@ test:
   <<: *default
   database: boacausa_test
 
+production:
+  url: <%= ENV['DATABASE_URL'] %>
+
