@@ -23,6 +23,8 @@ gem 'bootstrap_sb_admin_base_v2'
 gem 'devise'
 
 gem 'paperclip', '~> 5.2.0'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'dotenv-rails'
