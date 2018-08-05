@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'adoption/new'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'home#index'
   get 'home/index'

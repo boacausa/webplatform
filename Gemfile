@@ -25,6 +25,7 @@ gem 'devise'
 gem 'paperclip', '~> 5.2.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'dotenv-rails'
