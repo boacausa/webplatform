@@ -17,7 +17,7 @@
   </div>
   <div class="form-group">
     <%= label_tag(:phone, 'Telefone') %>
-    <%= f.text_field :phone, class: 'form-control' %>
+    <%= f.text_field :phone, class: 'form-control', maxlength: 15  %>
   </div>
   <div class="form-group">
     <%= label_tag(:group, 'Grupo') %>
@@ -41,4 +41,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag "ngo_area/ngos/form" %>
+<%= javascript_include_tag "ngo_area/users/form" %>

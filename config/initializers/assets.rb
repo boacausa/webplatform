@@ -10,4 +10,4 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-Rails.application.config.assets.precompile += %w[ngo_area.css ngo_area.js ngo_area/ngos/form.js]
+Rails.application.config.assets.precompile += %w[ngo_area.css ngo_area.js ngo_area/ngos/form.js ngo_area/users/form.js]
