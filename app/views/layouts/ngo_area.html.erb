@@ -253,6 +253,11 @@
                       <li>
                         <a href="<%= ngo_area_pets_path %>"><i class="fa fa-dashboard fa-qq"></i> Pets</a>
                       </li>
+                      <% if current_user.admin? %>
+                        <li>
+                          <a href="<%= ngo_area_users_path %>"><i class="fa fa-users"></i> Usuários</a>
+                        </li>
+                      <% end %>
                       <li>
                         <a href="<%= root_path %>"><i class="fa fa-home"></i> Voltar ao site</a>
                       </li>

@@ -1,0 +1,44 @@
+<div class="col-lg-12">
+  <div class="form-group">
+    <%= label_tag(:name, 'Nome') %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:last_name, 'Sobrenome') %>
+    <%= f.text_field :last_name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:email, 'E-mail') %>
+    <%= f.text_field :email, class: 'form-control', disabled: params[:action] == 'edit' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:cpf, 'CPF') %>
+    <%= f.text_field :cpf, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:phone, 'Telefone') %>
+    <%= f.text_field :phone, class: 'form-control', maxlength: 15  %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:group, 'Grupo') %>
+    <%= f.select :group, user_groups_for_select, class: 'form-control' %>
+  </div>
+  <% if params[:action] == 'new' %>
+    <div class="form-group">
+      <%= label_tag(:password) %>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:password_confirmation) %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    </div>
+  <% end %>
+</div>
+<div class="col-lg-12">
+  <div class="form-group">
+    <%= f.submit 'Salvar', class: 'btn btn-success' %>
+    <%= link_to 'Voltar', ngo_area_ngos_path, class: 'btn btn-default' %>
+  </div>
+</div>
+
+<%= javascript_include_tag "ngo_area/users/form" %>

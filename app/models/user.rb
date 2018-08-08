@@ -23,6 +23,10 @@ class User < ApplicationRecord
     super(only_numbers text)
   end
 
+  def phone
+    mask(super)
+  end
+
   def ngo_privileges?
     admin? || ngo?
   end
