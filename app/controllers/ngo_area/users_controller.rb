@@ -1,4 +1,6 @@
 class NgoArea::UsersController < NgoAreaController
+  before_action :check_admin_privileges
+
   def index
     @users = User.all
   end
@@ -28,5 +30,9 @@ class NgoArea::UsersController < NgoAreaController
 
   def params_user
     params.require(:user).permit(:name, :email, :last_name, :cpf, :phone, :group, :password, :password_confirmation)
+  end
+
+  def check_admin_privileges
+    head :not_found unless current_user.admin?
   end
 end

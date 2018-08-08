@@ -13,6 +13,19 @@ describe NgoArea::UsersController do
     it 'returns 200 code status' do
       expect(response).to have_http_status(:ok)
     end
+
+    context 'when user is not admin' do
+      before do
+        user = create(:user, :ngo_privileges)
+        allow(controller).to receive(:current_user) { user }
+
+        get :index
+      end
+
+      it 'returns not found code' do
+        expect(response).to have_http_status(:not_found)
+      end
+    end
   end
 
   describe 'GET #new' do
