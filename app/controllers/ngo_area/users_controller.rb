@@ -1,6 +1,8 @@
 class NgoArea::UsersController < NgoAreaController
   before_action :check_admin_privileges
 
+  helper UserGroupsHelper
+
   def index
     @users = User.all
   end

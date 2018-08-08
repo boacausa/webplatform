@@ -21,7 +21,7 @@
   </div>
   <div class="form-group">
     <%= label_tag(:group, 'Grupo') %>
-    <%= f.select :group, User.groups.keys.map {|group| [group.titleize,group]}, class: 'form-control' %>
+    <%= f.select :group, user_groups_for_select, class: 'form-control' %>
   </div>
   <% if params[:action] == 'new' %>
     <div class="form-group">
