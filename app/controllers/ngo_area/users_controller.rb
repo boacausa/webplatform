@@ -31,7 +31,7 @@ class NgoArea::UsersController < NgoAreaController
   private
 
   def params_user
-    params.require(:user).permit(:name, :email, :last_name, :cpf, :phone, :group, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :last_name, :cpf, :phone, :group, :password, :password_confirmation, ngo_ids: [])
   end
 
   def check_admin_privileges

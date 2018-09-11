@@ -1,0 +1,17 @@
+<div class="form-group">
+  <div class="nested-fields">
+    <div class="field">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12">Horário:</label>
+      <div class="col-md-2 col-sm-2 col-xs-12">
+        <%= f.text_field :sequence, class: "form-control", placeholder: "Etapa" %>
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-12">
+        <%= f.text_field :start_at, class: "form-control", placeholder: "Horário início" %>
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-12">
+        <%= f.text_field :end_at, class: "form-control", placeholder: "Horário fim" %>
+      </div>
+      <%= link_to_remove_association('<i class="fa fa-trash"></i>'.html_safe, f, class: 'btn btn-danger')%>
+    </div>
+  </div>
+</div>

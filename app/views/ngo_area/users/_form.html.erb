@@ -33,6 +33,17 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
     </div>
   <% end %>
+  <div class="form-group">
+    <label>ONGs</label>
+    <% Ngo.actived.each do |ngo| %>
+      <div class="checkbox">
+        <label>
+          <%= check_box_tag 'user[ngo_ids][]', ngo.id, f.object.ngos.include?(ngo) -%>
+          <%= h ngo.fantasy_name -%>
+        </label>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="col-lg-12">
   <div class="form-group">
