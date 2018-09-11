@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_02_234033) do
+ActiveRecord::Schema.define(version: 2018_08_15_005100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 2018_08_02_234033) do
     t.string "state"
     t.string "payment_type"
     t.text "payment_form"
+  end
+
+  create_table "ngos_users", id: false, force: :cascade do |t|
+    t.bigint "ngo_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["ngo_id"], name: "index_ngos_users_on_ngo_id"
+    t.index ["user_id"], name: "index_ngos_users_on_user_id"
   end
 
   create_table "pets", id: :serial, force: :cascade do |t|

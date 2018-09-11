@@ -11,6 +11,7 @@ jobs:
          environment:
            RAILS_ENV: test
            CC_TEST_REPORTER_ID: cbd5dbe286144902877051aa0171c72a1d80942efaca7a9bba57670e130c1327
+           POSTGRES_USER: circleci-demo-go
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
