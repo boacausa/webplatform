@@ -1,6 +1,6 @@
 class NgoArea::NgosController < NgoAreaController
   def index
-    @ngos = Ngo.all
+    @ngos = Ngo.from_user(current_user)
   end
 
   def new

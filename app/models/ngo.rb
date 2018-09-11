@@ -12,6 +12,14 @@ class Ngo < ApplicationRecord
   scope :actived, -> { where(active: true) }
   scope :find_by_fantasy_name, ->(name) { where('replace(lower(fantasy_name), \' \', \'\') = ?', name) }
 
+  def self.from_user(user)
+    if user.admin?
+      self.all
+    else
+      self.joins(:users).where(users: { id: user.id })
+    end
+  end
+
   def phone_number1=(text)
     super(only_numbers text)
   end
