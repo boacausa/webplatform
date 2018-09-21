@@ -11,13 +11,14 @@
         <div class="card-body">
           <h5 class="card-title"><%= pet.name %></h5>
           <p class="card-text"><%= pet.description %></p>
-          <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
         </div>
         <div class="card-footer">
-          <small class="text-muted"><%= pet.days_ago %></small>
+          <span class="badge badge-primary"><%= pet.sex_text %></span>
+          <span class="badge badge-success"><%= "#{pet.age} anos" %></span>
         </div>
       </div>
     </div>
     <% end %>
   </div>
 </div>
+<%= stylesheet_link_tag 'adoption' %>
