@@ -1,9 +1,19 @@
 .adoption-card {
   margin-bottom: 20px;
-  height: 500px;
+  height: 550px;
 }
 
-.adoption-card
-.card-footer {
-  background-color: white;
+.adoption-card-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 66px;
+}
+
+.adoption-card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 }

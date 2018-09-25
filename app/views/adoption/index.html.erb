@@ -8,13 +8,22 @@
     <div class="col-lg-4">
       <div class="card adoption-card">
         <%= image_tag pet.image.url(:medium) %>
-        <div class="card-body">
-          <h5 class="card-title"><%= pet.name %></h5>
-          <p class="card-text"><%= pet.description %></p>
-        </div>
-        <div class="card-footer">
-          <span class="badge badge-primary"><%= pet.sex_text %></span>
-          <span class="badge badge-success"><%= "#{pet.age} anos" %></span>
+        <div class="card-body adoption-card-body">
+          <div class=adoption-card-content>
+            <h5 class="card-title"><%= pet.name %></h5>
+            <p class="card-text"><%= truncate(pet.description, length: 100) %></p>
+          </div>
+          <div class="adoption-card-footer">
+            <div class="adoption-card-badges">
+              <span class="badge badge-primary"><%= pet.sex_text %></span>
+              <span class="badge badge-success"><%= "#{pet.age} anos" %></span>
+            </div>
+            <% if user_signed_in? %>
+              <button type="button" class="btn btn-success btn-adoption">Quero adotar</button>
+            <% else %>
+              <button disabled type="button" class="btn btn-success btn-adoption">Faça login e adote on-line</button>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
