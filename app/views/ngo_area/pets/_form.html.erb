@@ -27,10 +27,10 @@
 <div class="col-lg-6">
   <div class="form-group">
     <%= label_tag(:sex, 'Sexo') %>
-    <%= f.select :sex, options_for_select({"Fêmea" => "f", "Macho" => "m"}, @pet.sex), class: 'form-control' %>
+    <%= f.select :sex, options_for_select(Pet::SEX.invert, @pet.sex), class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= label_tag(:age, 'Idade') %>
+    <%= label_tag(:age, 'Idade (anos)') %>
     <%= f.number_field :age, class: 'form-control' %>
   </div>
   <div class="form-group">
