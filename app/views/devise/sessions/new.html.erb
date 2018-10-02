@@ -22,10 +22,11 @@
 
         <div class="actions">
           <%= f.submit "Entrar", class: 'btn btn-primary btn-lg btn-block' %>
+          <a class="btn btn-primary btn-lg btn-block" href="<%= user_facebook_omniauth_authorize_path %>" role="button">Login with facebook</a>
+          <a class="btn btn-primary btn-lg btn-block" href="<%= user_google_oauth2_omniauth_authorize_path %>" role="button">Login with google</a>
         </div>
       <fieldset>
       <% end %>
-      <%= render "devise/shared/links" %>
     </div>
   </div>
   <div class="col-lg-3"></div>
