@@ -28,6 +28,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 group :development, :test do
+  gem 'capybara'
   gem 'dotenv-rails'
   gem 'faker'
   gem 'factory_bot_rails'
