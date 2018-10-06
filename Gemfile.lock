@@ -369,6 +369,7 @@ DEPENDENCIES
   aws-sdk (= 2.10.47)
   bootstrap (~> 4.0.0.beta3)
   bootstrap_sb_admin_base_v2
+  capybara
   coffee-rails (~> 4.2)
   cpf_cnpj
   devise
