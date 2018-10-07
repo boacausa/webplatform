@@ -11,12 +11,12 @@ Link oficial: http://boacausa.org/
 
 **Pré-requisitos**
 
-Ter o ruby 2.4.3 ou rbenv instalado.
+Ter o ruby 2.5.1 ou rbenv instalado.
 
 **Passos de instalação**
 
-* rbenv install ruby 2.4.3
-* rbenv local 2.4.3
+* rbenv install ruby 2.5.1
+* rbenv local 2.5.1
 * gem install bundler
 * bundler install
 * rails db:setup
