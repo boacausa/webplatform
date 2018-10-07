@@ -18,7 +18,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'bootstrap', '~> 4.0.0.beta3'
+gem 'bootstrap', '~> 4.1.3'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'devise'
 
