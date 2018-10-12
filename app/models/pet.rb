@@ -1,6 +1,8 @@
 class Pet < ApplicationRecord
   include Paperclip::Glue
 
+  belongs_to :ngo
+
   SEX = {
     f: 'Fêmea',
     m: 'Macho'
