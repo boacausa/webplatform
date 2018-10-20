@@ -3,25 +3,25 @@
   <p class="lead">Encontre aqui uma ONG para acompanhar suas atividades, consultar sua situação financeira e fazer doações.</p>
 </div>
 <% @ngos.each do |ngo| %>
-<div class="row ngo-card" style="margin-bottom: 30px">
-  <div class="col-lg-4 ngo-card-img">
-    <img alt="Image" src="<%= ngo.image.url(:medium) %>">
-  </div>
-  <div class="col-lg-8" style="padding-right: 20px;">
-    <div style="width:100%; height: 60px">
-      <h1 style="float:left;margin-top: 2px;"><%= ngo.fantasy_name %></h1>
-      <% if ngo.date_start.present? %>
-        <span style="margin:20px;" class="badge badge-success"><%= ngo.date_start.strftime("Atuando desde %Y") %></span>
-      <% end %>
+  <div class="row ngo-card">
+    <div class="col-lg-4 ngo-card-img">
+      <img alt="Image" src="<%= ngo.image.url(:medium) %>">
     </div>
-    <p><%= truncate(ngo.description, length: 380) %></p>
+    <div class="col-lg-8 fantasy-name">
+      <div class="title">
+        <h1><%= ngo.fantasy_name %></h1>
+        <% if ngo.date_start.present? %>
+          <span class="badge badge-success"><%= ngo.date_start.strftime("Atuando desde %Y") %></span>
+        <% end %>
+      </div>
+      <p><%= truncate(ngo.description, length: 380) %></p>
 
-    <div style="position:absolute;bottom:70px">
-      <p class="p-detail"><strong>E-mail: </strong><%= ngo.email %></p>
-      <p class="p-detail"><strong>Telefone: </strong><%= "#{ngo.phone_number1}, #{ngo.phone_number2}" %></p>
-      <p class="p-detail"><strong>Cidade: </strong><%= "#{ngo.city}/#{ngo.state}" %></p>
+      <div class="contact-detail">
+        <p class="p-detail"><strong>E-mail: </strong><%= ngo.email %></p>
+        <p class="p-detail"><strong>Telefone: </strong><%= "#{ngo.phone_number1}, #{ngo.phone_number2}" %></p>
+        <p class="p-detail"><strong>Cidade: </strong><%= "#{ngo.city}/#{ngo.state}" %></p>
+      </div>
+      <a class="btn btn-primary btn-lg detail" href="<%= ngo_path(ngo.fantasy_name_url) %>">Saiba mais</a>
     </div>
-    <a style="position:absolute;bottom:10px;"class="btn btn-primary btn-lg" href="<%= ngo_path(ngo.fantasy_name_url) %>">Saiba mais</a>
   </div>
-</div>
 <% end %>
