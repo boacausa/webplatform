@@ -37,4 +37,8 @@
     <%= label_tag(:active, 'Status') %>
     <%= f.select :active, options_for_select({"Ativo" => "true", "Inativo" => "false"}, @pet.active), class: 'form-control' %>
   </div>
+  <div class="form-group">
+    <%= label_tag(:active, 'ONG') %>
+    <%= f.select :ngo_id, options_for_select(ngo_options(current_user), ngo_selected_id(@pet.ngo)), class: 'form-control' %>
+  </div>
 </div>

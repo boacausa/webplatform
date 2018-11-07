@@ -36,6 +36,6 @@ class NgoArea::PetsController < NgoAreaController
   end
 
   def params_pet
-    params.require(:pet).permit(:name, :age, :sex, :description, :image, :active)
+    params.require(:pet).permit(:name, :age, :sex, :description, :image, :active, :ngo_id)
   end
 end
