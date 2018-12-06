@@ -197,7 +197,6 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oauth (0.5.4)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
       jwt (~> 1.0)
@@ -209,13 +208,10 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
-    omniauth-google (1.0.2)
-      multi_json
-      omniauth (~> 1.0)
-      omniauth-oauth
-    omniauth-oauth (1.1.0)
-      oauth
-      omniauth (~> 1.0)
+    omniauth-google-oauth2 (0.5.3)
+      jwt (>= 1.5)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.5)
     omniauth-oauth2 (1.5.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
@@ -389,7 +385,7 @@ DEPENDENCIES
   nokogiri (~> 1.8.1)
   omniauth
   omniauth-facebook
-  omniauth-google
+  omniauth-google-oauth2
   paperclip (~> 5.2.0)
   pg
   puma (~> 3.0)
