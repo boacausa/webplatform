@@ -9,9 +9,15 @@ class User < ApplicationRecord
   has_and_belongs_to_many :ngos
 
   def self.from_omniauth(auth)
-    user = User.find_or_create_by(email: auth.info['email'])
-    user.name = auth.info['name']
-    user.password = Devise.friendly_token[0, 20]
+    user = User.where(email: auth.info.email).first
+
+    unless user
+      user = User.create(
+        name: data.info.name,
+        email: data.info.email,
+        password: Devise.friendly_token[0,20]
+      )
+    end
 
     user
   end
