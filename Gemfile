@@ -27,6 +27,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
+gem 'activestorage', '>= 5.2.1.1'
+
 group :development, :test do
   gem 'capybara'
   gem 'dotenv-rails'
