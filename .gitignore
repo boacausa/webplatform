@@ -30,3 +30,6 @@
 /public/system/
 
 /coverage/*
+
+# Ignore assets
+/public/assets/*
