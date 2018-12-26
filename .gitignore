@@ -31,8 +31,5 @@
 
 /coverage/*
 
-# Ignore Gemfile.lock
-/Gemfile.lock
-
 # Ignore assets
 /public/assets/*
