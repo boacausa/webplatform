@@ -3,15 +3,27 @@
 // Bootstrap body padding for fixed navbar
 body { padding-top: 80px; }
 
-.ngo-card {
-  margin-bottom: 20px;
-}
 
 .ngo-card {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
   padding-left: 0px !important;
   height: 322px;
+  margin-bottom: 30px;
+  & .fantasy-name {
+    padding-right: 20px;
+    & .title {
+        width:100%;
+        height: 60px;
+      & h1 {
+          float:left;
+          margin-top: 2px;
+        }
+      & .badge {
+          margin:20px;
+      }
+    }
+  }
 }
 
 .ngo-card-img {
@@ -34,4 +46,13 @@ body { padding-top: 80px; }
 
 .p-detail {
   margin-bottom: 0px;
+}
+.contact-detail {
+  position:absolute;
+  bottom:70px;
+}
+
+.detail {
+  position:absolute;
+  bottom:10px;
 }

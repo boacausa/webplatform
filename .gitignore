@@ -23,12 +23,14 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore editor configs
+# Ignore IDE configs
 /.idea
 /.DS_Store
-
 
 # Paperclip local images
 /public/system/
 
 /coverage/*
+
+# Ignore assets
+/public/assets/*
