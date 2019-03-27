@@ -4,9 +4,14 @@ FactoryBot.define do
     last_name { Faker::Name.last_name }
     email { Faker::Internet.email }
     password { Faker::Internet.password }
-    group nil
+    group { nil }
 
-    trait(:admin_privileges) { group :admin }
-    trait(:ngo_privileges) { group :ngo }
+    trait(:admin_privileges) do
+      group { :admin }
+    end
+
+    trait(:ngo_privileges) do
+      group { :ngo }
+    end
   end
 end
