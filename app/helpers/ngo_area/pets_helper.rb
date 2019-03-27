@@ -4,8 +4,6 @@ module NgoArea::PetsHelper
   end
 
   def ngo_selected_id(ngo)
-    if ngo.present?
-      ngo.id
-    end
+    ngo&.id
   end
 end
