@@ -2,7 +2,7 @@ class NgoArea::PetsController < NgoAreaController
   before_action :set_pet, only: %i[edit update destroy]
 
   def index
-    @pets = Pet.all
+    @pets = PetList.execute(current_user)
   end
 
   def new
