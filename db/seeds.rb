@@ -1,21 +1,10 @@
-puts 'Creating or recreating pets'
+puts 'Deleting old registers'
 
 Pet.delete_all
-
-7.times do
-  Pet.create!(
-    name: Faker::Name.first_name,
-    age: Random.rand(10),
-    description: Faker::Lorem.sentence,
-    sex: 'f',
-    image: File.new("public/templates/pets/#{Random.rand(6)}.png"),
-    active: true
-  )
-end
-
-puts 'Create an ngo'
-
 Ngo.delete_all
+User.delete_all
+
+puts 'Creating NGOs'
 
 Ngo.create!(
   social_name: 'Amigo Bicho Nome Social',
@@ -42,3 +31,39 @@ Ngo.create!(
   image: File.new("public/templates/ngo/amigobicho.png"),
   active: true
 )
+
+puts 'Creating Users'
+
+User.create!(
+  email: 'admin@boacausa.com',
+  password: '123456789',
+  group: :admin,
+)
+
+ngo_user = User.create!(
+  email: 'ngo@boacausa.com',
+  password: '123456789',
+  group: :ngo
+)
+
+User.create!(
+  email: 'user@boacausa.com',
+  password: '123456789',
+)
+
+ngo_user.ngos << Ngo.first
+
+puts 'Creating Pets'
+
+ngo_ids = Ngo.all.pluck(:id)
+7.times do
+  Pet.create!(
+      name: Faker::Name.first_name,
+      age: Random.rand(10),
+      description: Faker::Lorem.sentence,
+      sex: 'f',
+      image: File.new("public/templates/pets/#{Random.rand(6)}.png"),
+      active: true,
+      ngo_id: ngo_ids.sample
+  )
+end
