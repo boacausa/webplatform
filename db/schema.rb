@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_005100) do
+ActiveRecord::Schema.define(version: 2018_10_12_004200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 2018_08_15_005100) do
     t.datetime "image_updated_at"
     t.string "description"
     t.boolean "active"
+    t.bigint "ngo_id"
+    t.index ["ngo_id"], name: "index_pets_on_ngo_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -108,4 +110,5 @@ ActiveRecord::Schema.define(version: 2018_08_15_005100) do
   end
 
   add_foreign_key "bank_accounts", "ngos"
+  add_foreign_key "pets", "ngos"
 end

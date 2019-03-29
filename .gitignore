@@ -25,6 +25,7 @@
 
 # Ignore IDE configs
 /.idea
+/.DS_Store
 
 # Paperclip local images
 /public/system/

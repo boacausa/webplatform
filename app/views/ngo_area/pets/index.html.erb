@@ -24,6 +24,7 @@
             <tr>
               <th>#</th>
               <th>Name</th>
+              <th>ONG</th>
             </tr>
             </thead>
             <tbody>
@@ -31,6 +32,7 @@
             <tr>
               <td><a href="<%= edit_ngo_area_pet_path(pet) %>"><%=pet.id%></a></td>
               <td><a href="<%= edit_ngo_area_pet_path(pet) %>"><%=pet.name%></a></td>
+              <td><a href="<%= edit_ngo_area_pet_path(pet) %>"><%=pet.ngo.try(:fantasy_name)%></a></td>
             </tr>
             <% end %>
             </tbody>

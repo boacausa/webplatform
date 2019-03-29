@@ -7,8 +7,9 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: circleci/ruby:2.5.1-node-browsers
+       - image: circleci/ruby:2.6.2-node-browsers
          environment:
+           BUNDLER_VERSION: 2.0.1
            RAILS_ENV: test
            CC_TEST_REPORTER_ID: cbd5dbe286144902877051aa0171c72a1d80942efaca7a9bba57670e130c1327
            POSTGRES_USER: circleci-demo-go
@@ -36,6 +37,11 @@ jobs:
       - run:
           name: install dependencies
           command: |
+            sudo gem update --system
+            sudo gem uninstall bundler
+            sudo rm /usr/local/bin/bundle
+            sudo rm /usr/local/bin/bundler
+            sudo gem install bundler
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:

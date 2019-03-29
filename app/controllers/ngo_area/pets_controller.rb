@@ -2,7 +2,7 @@ class NgoArea::PetsController < NgoAreaController
   before_action :set_pet, only: %i[edit update destroy]
 
   def index
-    @pets = Pet.all
+    @pets = PetList.execute(current_user)
   end
 
   def new
@@ -36,6 +36,6 @@ class NgoArea::PetsController < NgoAreaController
   end
 
   def params_pet
-    params.require(:pet).permit(:name, :age, :sex, :description, :image, :active)
+    params.require(:pet).permit(:name, :age, :sex, :description, :image, :active, :ngo_id)
   end
 end
