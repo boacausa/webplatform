@@ -28,6 +28,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'activestorage', '>= 5.2.1.1'
+gem 'skylight'
 
 group :development, :test do
   gem 'capybara'
