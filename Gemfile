@@ -28,7 +28,10 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'activestorage', '>= 5.2.1.1'
+
+# TODO: testing some metric tools, remove this after
 gem 'skylight'
+gem 'scout_apm'
 
 group :development, :test do
   gem 'capybara'
