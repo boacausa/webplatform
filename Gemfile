@@ -32,6 +32,7 @@ gem 'activestorage', '>= 5.2.1.1'
 # TODO: testing some metric tools, remove this after
 gem 'skylight'
 gem 'scout_apm'
+gem 'appsignal'
 
 group :development, :test do
   gem 'capybara'
