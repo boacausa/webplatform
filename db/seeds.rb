@@ -15,7 +15,7 @@ Ngo.create!(
   site: Faker::Internet.url,
   cnpj: CNPJ.generate,
   date_start: Faker::Date.backward(1000),
-  image: File.new("public/templates/ngo/amigobicho.png"),
+  image: File.new("public/images/ngo/amigobicho.png"),
   active: true
 )
 
@@ -28,7 +28,7 @@ Ngo.create!(
   site: Faker::Internet.url,
   cnpj: CNPJ.generate,
   date_start: Faker::Date.backward(1000),
-  image: File.new("public/templates/ngo/amigobicho.png"),
+  image: File.new("public/images/ngo/amigobicho.png"),
   active: true
 )
 
@@ -62,7 +62,7 @@ ngo_ids = Ngo.all.pluck(:id)
       age: Random.rand(10),
       description: Faker::Lorem.sentence,
       sex: 'f',
-      image: File.new("public/templates/pets/#{Random.rand(6)}.png"),
+      image: File.new("public/images/pets/#{Random.rand(6)}.png"),
       active: true,
       ngo_id: ngo_ids.sample
   )
