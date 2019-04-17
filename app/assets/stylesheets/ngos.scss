@@ -1,3 +1,30 @@
-// Place all the styles related to the ngos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.ngo-card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  padding-left: 0px !important;
+  height: 322px;
+  margin-bottom: 30px;
+  & .fantasy-name {
+    padding-right: 20px;
+    & .title {
+      width:100%;
+      height: 60px;
+      & h1 {
+        float:left;
+        margin-top: 2px;
+      }
+      & .badge {
+        margin:20px;
+      }
+    }
+  }
+}
+
+.ngo-card-img {
+  padding-left: 0px !important;
+}
+
+.ngo-card-img img {
+  width: 320px;
+  height: 100%;
+}
