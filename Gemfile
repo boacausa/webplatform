@@ -22,17 +22,11 @@ gem 'bootstrap', '>= 4.3.1'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'devise'
 
-gem 'paperclip', '~> 5.2.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'activestorage', '>= 5.2.1.1'
-
-# TODO: testing some metric tools, remove this after
-gem 'skylight'
-gem 'scout_apm'
-gem 'appsignal'
 
 group :development, :test do
   gem 'capybara'
@@ -53,12 +47,13 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'rubocop', '~> 0.62.0', require: false
+  gem 'appsignal'
 end
 
 group :production do
-  gem 'aws-sdk', '2.10.47'
   gem 'unicorn'
   gem 'sentry-raven'
+  gem 'aws-sdk-s3'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
