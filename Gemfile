@@ -22,7 +22,6 @@ gem 'bootstrap', '>= 4.3.1'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'devise'
 
-gem 'paperclip', '~> 5.2.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
@@ -56,9 +55,9 @@ group :development do
 end
 
 group :production do
-  gem 'aws-sdk', '2.10.47'
   gem 'unicorn'
   gem 'sentry-raven'
+  gem 'aws-sdk-s3'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

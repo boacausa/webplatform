@@ -15,9 +15,10 @@ Ngo.create!(
   site: Faker::Internet.url,
   cnpj: CNPJ.generate,
   date_start: Faker::Date.backward(1000),
-  image: File.new("public/images/ngo/amigobicho.png"),
   active: true
 )
+
+Ngo.last.image.attach(io: File.open("public/images/ngo/amigobicho.png"), filename: 'amigobicho.png')
 
 Ngo.create!(
   social_name: 'Outra ONG',
@@ -28,9 +29,10 @@ Ngo.create!(
   site: Faker::Internet.url,
   cnpj: CNPJ.generate,
   date_start: Faker::Date.backward(1000),
-  image: File.new("public/images/ngo/amigobicho.png"),
   active: true
 )
+
+Ngo.last.image.attach(io: File.open("public/images/ngo/amigobicho.png"), filename: 'amigobicho.png')
 
 puts 'Creating Users'
 
@@ -57,13 +59,18 @@ puts 'Creating Pets'
 
 ngo_ids = Ngo.all.pluck(:id)
 7.times do
-  Pet.create!(
+  pet = Pet.create!(
       name: Faker::Name.first_name,
       age: Random.rand(10),
       description: Faker::Lorem.sentence,
       sex: 'f',
-      image: File.new("public/images/pets/#{Random.rand(6)}.png"),
       active: true,
       ngo_id: ngo_ids.sample
   )
+
+  random_image_number = Random.rand(6)
+
+  pet.image.attach(io: File.open("public/images/pets/#{random_image_number}.png"), filename: "#{random_image_number}.png")
+  pet.save
 end
+

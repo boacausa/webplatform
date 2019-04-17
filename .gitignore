@@ -34,3 +34,6 @@
 
 # Ignore assets
 /public/assets/*
+
+# Used for active storage
+/storage/

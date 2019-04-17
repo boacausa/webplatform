@@ -1,6 +1,4 @@
 class Pet < ApplicationRecord
-  include Paperclip::Glue
-
   belongs_to :ngo
 
   SEX = {
@@ -8,8 +6,8 @@ class Pet < ApplicationRecord
     m: 'Macho'
   }.freeze
 
-  has_attached_file :image, styles: { medium: '320x320#', thumb: '100x100>' }, default_url: '/images/:style/missing.png'
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  has_one_attached :image
+  
   validates :name, :sex, :ngo, presence: true
 
   scope :actived, -> { where(active: true) }

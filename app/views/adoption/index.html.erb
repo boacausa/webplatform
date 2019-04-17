@@ -7,9 +7,11 @@
   <% @pets.each do |pet| %>
     <div class="col-lg-4">
       <div class="card adoption-card">
-        <object data="<%= pet.image.url(:medium) %>" type="image/png">
+        <% if pet.image.attached? %>
+          <%= image_tag pet.image %>
+        <% else %>
           <%= image_tag 'image_not_found.png' %>
-        </object>
+        <% end %>
         <div class="card-body adoption-card-body">
           <div class=adoption-card-content>
             <h5 class="card-title"><%= pet.name %></h5>

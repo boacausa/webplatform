@@ -5,9 +5,11 @@
 <% @ngos.each do |ngo| %>
   <div class="row ngo-card">
     <div class="col-lg-4 ngo-card-img">
-      <object data="<%= ngo.image.url(:medium) %>" type="image/png">
-        <img src="images/image_not_found.png" alt="Imagem da ONG">
-      </object>
+      <% if ngo.image.attached? %>
+        <%= image_tag ngo.image %>
+      <% else %>
+        <%= image_tag 'image_not_found.png' %>
+      <% end %>
     </div>
     <div class="col-lg-8 fantasy-name">
       <div class="title">
