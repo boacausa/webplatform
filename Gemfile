@@ -28,11 +28,6 @@ gem 'omniauth-google-oauth2'
 
 gem 'activestorage', '>= 5.2.1.1'
 
-# TODO: testing some metric tools, remove this after
-gem 'skylight'
-gem 'scout_apm'
-gem 'appsignal'
-
 group :development, :test do
   gem 'capybara'
   gem 'dotenv-rails'
@@ -52,6 +47,7 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'rubocop', '~> 0.62.0', require: false
+  gem 'appsignal'
 end
 
 group :production do
