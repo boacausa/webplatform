@@ -27,9 +27,6 @@
 /.idea
 /.DS_Store
 
-# Paperclip local images
-/public/system/
-
 /coverage/*
 
 # Ignore assets
@@ -37,3 +34,4 @@
 
 # Used for active storage
 /storage/
+/public/system/
