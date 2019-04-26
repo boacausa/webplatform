@@ -11,10 +11,12 @@ Link oficial: http://boacausa.org/
 
 **Pré-requisitos**
 
-Ter o ruby 2.6.1 ou rbenv instalado.
+* Ter o ruby 2.6.1 ou rbenv instalado
+* Ter o [docker](https://docs.docker.com/install/) e [docker-compose](https://docs.docker.com/compose/install/) instalado
 
 **Passos de instalação**
 
+* docker-compose up -d
 * rbenv install ruby 2.6.1
 * rbenv local 2.6.1
 * gem install bundler
