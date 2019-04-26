@@ -29,6 +29,9 @@ gem 'omniauth-google-oauth2'
 gem 'activestorage', '>= 5.2.1.1'
 gem 'appsignal'
 
+gem 'route_translator'
+gem 'i18n'
+
 group :development, :test do
   gem 'capybara'
   gem 'dotenv-rails'
