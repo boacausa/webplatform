@@ -14,6 +14,6 @@ test:
 production:
   <<: *default
   database: boacausa_production
-  username: <%= ENV['POSTGRES_USER'] || 'postgres' %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  port: <%= ENV['DB_PORT'] || 5432 %>
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  port: <%= ENV['POSTGRES_PORT'] %>
