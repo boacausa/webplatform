@@ -260,6 +260,9 @@ GEM
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
+    route_translator (5.10.0)
+      actionpack (>= 5.0.0.1, < 6.1)
+      activesupport (>= 5.0.0.1, < 6.1)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -377,6 +380,7 @@ DEPENDENCIES
   faker
   guard-livereload
   guard-rspec
+  i18n
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -388,6 +392,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.2)
   rails-controller-testing
+  route_translator
   rspec-rails (~> 3.7)
   rspec_junit_formatter
   rubocop (~> 0.62.0)
