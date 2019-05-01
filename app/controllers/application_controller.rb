@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  DEFAULT_LOCALE = 'pt-BR'
+
   protect_from_forgery with: :exception
 
   before_action :set_raven_context, :set_locale
@@ -13,7 +15,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    I18n.locale = 'pt-BR'
+    I18n.locale = DEFAULT_LOCALE
   end
 
   def set_raven_context

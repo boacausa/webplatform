@@ -4,14 +4,14 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
 
-  namespace :ngo_area do
-    resources :ngos, only: %i[index new create edit update]
-    resources :pets, only: %i[index new create edit update destroy]
-    resources :users, only: %i[index new create edit update destroy]
-  end
-
   localized do
     resources :adoption, only: %i[index show edit new]
     resources :ngos, only: %i[index show]
+
+    namespace :ngo_area do
+      resources :ngos, only: %i[index new create edit update]
+      resources :pets, only: %i[index new create edit update destroy]
+      resources :users, only: %i[index new create edit update destroy]
+    end
   end
 end

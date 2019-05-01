@@ -78,4 +78,8 @@ RSpec.configure do |config|
       login_as(current_user, scope: :user)
     end
   end
+
+  config.before(:each) do |_|
+    stub_const('ApplicationController::DEFAULT_LOCALE', 'en')
+  end
 end
