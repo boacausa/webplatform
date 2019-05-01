@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
+  DEFAULT_LOCALE = 'pt-BR'
+
   protect_from_forgery with: :exception
 
-  before_action :set_raven_context
+  before_action :set_raven_context, :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -11,6 +13,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_locale
+    I18n.locale = DEFAULT_LOCALE
+  end
 
   def set_raven_context
     return unless Rails.env.production?

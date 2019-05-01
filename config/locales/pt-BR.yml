@@ -1,0 +1,6 @@
+pt-BR:
+  routes:
+    adoption: adocao
+    ngos: ongs
+    ngo_area: ong_area
+    users: usuarios
