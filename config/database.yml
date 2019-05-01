@@ -6,6 +6,9 @@ default: &default
 development:
   <<: *default
   database: boacausa_development
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  port: <%= ENV['POSTGRES_PORT'] %>
 
 test:
   <<: *default
@@ -14,6 +17,3 @@ test:
 production:
   <<: *default
   database: boacausa_production
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
-  port: <%= ENV['POSTGRES_PORT'] %>
