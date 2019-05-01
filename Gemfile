@@ -27,7 +27,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'activestorage', '>= 5.2.1.1'
-gem 'appsignal'
 
 gem 'route_translator'
 gem 'i18n'
@@ -57,6 +56,7 @@ group :production do
   gem 'unicorn'
   gem 'sentry-raven'
   gem 'aws-sdk-s3'
+  gem 'appsignal'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
