@@ -6,6 +6,7 @@
 Bem vindo ao projeto Boa causa, neste repositório você irá encontrar o código-fonte para o a plataforma web do projeto.
 
 Link oficial: http://boacausa.org/
+Link para testes: http://porumaboacausa.herokuapp.com
 
 ### Setup
 
@@ -27,3 +28,7 @@ Link oficial: http://boacausa.org/
 **Para rodar os testes**
 
 * bundle exec rspec spec
+
+### Quero contribuir
+
+Quer contribuir como desenvolvedor no projeto? Da uma olhada nas nossas [issues](https://github.com/boacausa/webplatform/issues?q=is%3Aopen+is%3Aissue+-label%3Adiscussion+-label%3A%22%5Bzube%5D%3A+In+Review%22+-label%3Aidea)
