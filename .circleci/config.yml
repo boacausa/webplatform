@@ -14,6 +14,7 @@ jobs:
            CC_TEST_REPORTER_ID: cbd5dbe286144902877051aa0171c72a1d80942efaca7a9bba57670e130c1327
            POSTGRES_USER: circleci-demo-go
            POSTGRES_PASSWORD: postgres
+           POSTGRES_PORT: 5432
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -23,6 +24,7 @@ jobs:
            POSTGRES_USER: circleci-demo-go
            POSTGRES_DB: boacausa_test
            POSTGRES_PASSWORD: postgres
+           POSTGRES_PORT: 5432
 
     working_directory: ~/webplatform
 
