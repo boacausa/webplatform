@@ -2,19 +2,15 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-
-development:
-  <<: *default
-  database: boacausa_development
   username: <%= ENV['POSTGRES_USER'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
   port: <%= ENV['POSTGRES_PORT'] %>
   host: localhost
 
+development:
+  database: boacausa_development
+  <<: *default
+
 test:
   <<: *default
   database: boacausa_test
-
-production:
-  <<: *default
-  database: boacausa_production
