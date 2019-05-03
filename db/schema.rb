@@ -60,10 +60,6 @@ ActiveRecord::Schema.define(version: 2019_04_10_013351) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.boolean "active"
     t.string "transparency_portal"
     t.string "bank"
@@ -94,10 +90,6 @@ ActiveRecord::Schema.define(version: 2019_04_10_013351) do
     t.string "sex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.string "description"
     t.boolean "active"
     t.bigint "ngo_id"

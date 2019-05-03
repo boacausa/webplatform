@@ -9,6 +9,7 @@ development:
   username: <%= ENV['POSTGRES_USER'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
   port: <%= ENV['POSTGRES_PORT'] %>
+  host: localhost
 
 test:
   <<: *default
