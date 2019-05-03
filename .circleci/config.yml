@@ -22,6 +22,7 @@ jobs:
          environment:
            POSTGRES_USER: circleci-demo-go
            POSTGRES_DB: boacausa_test
+           POSTGRES_PASSWORD: postgres
 
     working_directory: ~/webplatform
 
