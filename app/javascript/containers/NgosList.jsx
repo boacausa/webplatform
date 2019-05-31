@@ -45,6 +45,7 @@ class NgosList extends React.Component {
                         <div className="contact-detail">
                             <p className="p-detail"><strong>E-mail: </strong>{ngo.email}</p>
                             <p className="p-detail">
+                                {/* TODO: https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#readme*/}
                                 <strong>Telefone: </strong>{ngo.phone_number1 + " " + ngo.phone_number2}</p>
                             <p className="p-detail"><strong>Cidade: </strong>{ngo.city + "/" + ngo.state}</p>
                         </div>
