@@ -56,4 +56,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.active_storage.service = :local
+
+  config.webpacker.check_yarn_integrity = false
 end
