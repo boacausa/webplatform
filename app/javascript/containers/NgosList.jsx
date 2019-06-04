@@ -1,7 +1,7 @@
 import React from "react"
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
-// import '../coped_styles/ngos';
+import Masks from "../utils/Masks";
 
 const GET_NGOS_REQUEST = 'GET_NGOS_REQUEST';
 const GET_NGOS_SUCCESS = 'GET_NGOS_SUCCESS';
@@ -29,6 +29,13 @@ class NgosList extends React.Component {
         fetchNgos();
     }
 
+    getCity = (ngo) => {
+        const city = ngo.city ? ngo.city : '';
+        const state = ngo.state ? ngo.state : '';
+
+        return city + "/" + state;
+    };
+
     render() {
         const {ngos} = this.props;
         const ngosList = ngos && ngos.map(ngo => {
@@ -45,9 +52,8 @@ class NgosList extends React.Component {
                         <div className="contact-detail">
                             <p className="p-detail"><strong>E-mail: </strong>{ngo.email}</p>
                             <p className="p-detail">
-                                {/* TODO: https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#readme*/}
-                                <strong>Telefone: </strong>{ngo.phone_number1 + " " + ngo.phone_number2}</p>
-                            <p className="p-detail"><strong>Cidade: </strong>{ngo.city + "/" + ngo.state}</p>
+                                <strong>Telefone: </strong>{Masks.phoneMask(ngo.phone_number1) + " " + Masks.phoneMask(ngo.phone_number2)}</p>
+                            <p className="p-detail"><strong>Cidade: </strong>{this.getCity(ngo)}</p>
                         </div>
                         <a className="btn btn-primary btn-lg detail" href="#">Saiba mais</a>
                     </div>
