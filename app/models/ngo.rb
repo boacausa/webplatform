@@ -1,8 +1,9 @@
 class Ngo < ApplicationRecord
+  attr_accessor :logo_path
+
   include PhoneFormat
 
   has_and_belongs_to_many :users
-
   has_one_attached :image
 
   validates :fantasy_name, presence: true
