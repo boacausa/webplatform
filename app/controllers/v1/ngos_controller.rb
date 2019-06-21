@@ -4,6 +4,12 @@ class V1::NgosController < ApplicationController
       ngos: ListNgos.new.all
     }.to_json
   end
+
+  def show
+    render json: {
+        ngo: Ngo.last
+    }.to_json
+  end
 end
 
 # TODO: extract to a class
@@ -11,14 +17,17 @@ end
 class ListNgos
   def all
     ngos = Ngo.actived
-    add_logo_path_attribute(ngos)
+    add_extra_fields(ngos)
   end
 
   private
 
-  def add_logo_path_attribute(ngos)
+  def add_extra_fields(ngos)
     ngos.map do |ngo|
-      ngo.attributes.merge(logo_path: logo_path(ngo))
+      ngo.attributes.merge(
+        logo_path: logo_path(ngo),
+        fantasy_name_url: ngo.fantasy_name_url
+      )
     end
   end
 

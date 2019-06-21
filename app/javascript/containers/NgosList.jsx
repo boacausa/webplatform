@@ -2,6 +2,7 @@ import React from "react"
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import Masks from "../utils/Masks";
+import {Link} from "react-router-dom";
 
 const GET_NGOS_REQUEST = 'GET_NGOS_REQUEST';
 const GET_NGOS_SUCCESS = 'GET_NGOS_SUCCESS';
@@ -9,6 +10,7 @@ const GET_NGOS_SUCCESS = 'GET_NGOS_SUCCESS';
 function fetchNgos() {
     return dispatch => {
         dispatch({type: GET_NGOS_REQUEST});
+        // TODO: how to make the path look better?
         return fetch(`../v1/ngos.json`)
             .then(response => response.json())
             .then(json => dispatch(fetchNgosSuccess(json)))
@@ -55,14 +57,14 @@ class NgosList extends React.Component {
                                 <strong>Telefone: </strong>{Masks.phoneMask(ngo.phone_number1) + " " + Masks.phoneMask(ngo.phone_number2)}</p>
                             <p className="p-detail"><strong>Cidade: </strong>{this.getCity(ngo)}</p>
                         </div>
-                        <a className="btn btn-primary btn-lg detail" href="#">Saiba mais</a>
+                        <Link className="btn btn-primary btn-lg detail" to={`/new/ong/${ngo.fantasy_name_url}`}>Saiba mais</Link>
                     </div>
                 </div>
             );
         });
 
         return (
-            <div class="container">
+            <div className="container">
                 <div className="jumbotron">
                     <h1 className="display-4">Conheça as ONGs que fazem parte</h1>
                     <p className="lead">Encontre aqui uma ONG para acompanhar suas atividades, consultar sua situação

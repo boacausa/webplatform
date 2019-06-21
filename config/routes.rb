@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   namespace :v1, defaults: { format: 'json' } do
     get 'things', to: 'things#index'
     get 'ngos', to: 'ngos#index'
+    get 'ngo/:id', to: 'ngos#show'
   end
 
   get '*page', to: 'static#index', constraints: ->(req) do

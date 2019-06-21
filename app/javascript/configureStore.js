@@ -8,12 +8,13 @@ const initialState = {
 };
 
 function rootReducer(state, action) {
-    console.log("action", action.type);
     switch (action.type) {
         case "GET_THINGS_SUCCESS":
             return { things: action.json.things };
         case "GET_NGOS_SUCCESS":
             return { ngos: action.json.ngos };
+        case "GET_NGO_SUCCESS":
+            return { ngo: action.json.ngo };
         default:
             return state;
     }
