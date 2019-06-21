@@ -38,14 +38,11 @@ class NgosList extends React.Component {
         return city + "/" + state;
     };
 
-    render() {
-        const {ngos} = this.props;
-        const ngosList = ngos && ngos.map(ngo => {
+    ngosList = (ngos) => {
+        return ngos.map(ngo => {
             return (
                 <div key={ngo.id} className="row ngo-card">
-                    <div className="col-lg-4 ngo-card-img">
-                        <img src={ngo.logo_path} />
-                    </div>
+                    <div className="col-lg-4 ngo-card-img"><img src={ngo.logo_path} /></div>
                     <div className="col-lg-8 fantasy-name">
                         <div className="title">
                             <h1>{ngo.fantasy_name}</h1>
@@ -53,8 +50,7 @@ class NgosList extends React.Component {
                         </div>
                         <div className="contact-detail">
                             <p className="p-detail"><strong>E-mail: </strong>{ngo.email}</p>
-                            <p className="p-detail">
-                                <strong>Telefone: </strong>{Masks.phoneMask(ngo.phone_number1) + " " + Masks.phoneMask(ngo.phone_number2)}</p>
+                            <p className="p-detail"><strong>Telefone: </strong>{Masks.phoneMask(ngo.phone_number1) + " " + Masks.phoneMask(ngo.phone_number2)}</p>
                             <p className="p-detail"><strong>Cidade: </strong>{this.getCity(ngo)}</p>
                         </div>
                         <Link className="btn btn-primary btn-lg detail" to={`/new/ong/${ngo.fantasy_name_url}`}>Saiba mais</Link>
@@ -62,16 +58,18 @@ class NgosList extends React.Component {
                 </div>
             );
         });
+    };
+
+    render() {
+        const {ngos} = this.props;
 
         return (
             <div className="container">
                 <div className="jumbotron">
                     <h1 className="display-4">Conheça as ONGs que fazem parte</h1>
-                    <p className="lead">Encontre aqui uma ONG para acompanhar suas atividades, consultar sua situação
-                        financeira e fazer doações.</p>
+                    <p className="lead">Encontre aqui uma ONG para acompanhar suas atividades, consultar sua situação financeira e fazer doações.</p>
                 </div>
-
-                {ngosList}
+                {ngos && this.ngosList(ngos)}
             </div>
         );
     }
