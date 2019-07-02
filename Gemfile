@@ -58,7 +58,6 @@ group :production do
   gem 'unicorn'
   gem 'sentry-raven'
   gem 'aws-sdk-s3'
-  gem 'appsignal'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
