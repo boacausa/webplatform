@@ -44,8 +44,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
-    appsignal (2.9.3)
-      rack
     arel (9.0.0)
     ast (2.4.0)
     autoprefixer-rails (9.5.0)
@@ -384,7 +382,6 @@ PLATFORMS
 
 DEPENDENCIES
   activestorage (>= 5.2.1.1)
-  appsignal
   aws-sdk-s3
   bootstrap (>= 4.3.1)
   bootstrap_sb_admin_base_v2

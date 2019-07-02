@@ -5,6 +5,9 @@ import {Provider} from 'react-redux';
 import configureStore from '../configureStore';
 import NgosList from "../containers/NgosList";
 import NgoPage from "../containers/NgoPage";
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({dsn: process.env.SENTRY_DSN});
 
 const store = configureStore();
 
