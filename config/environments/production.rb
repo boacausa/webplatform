@@ -99,5 +99,5 @@ Rails.application.configure do
 end
 
 Raven.configure do |config|
-  config.dsn = ENV['SENTRY_DNS']
+  config.dsn = ENV['SENTRY_DSN']
 end

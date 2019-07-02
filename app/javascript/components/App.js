@@ -7,7 +7,7 @@ import NgosList from "../containers/NgosList";
 import NgoPage from "../containers/NgoPage";
 import * as Sentry from '@sentry/browser';
 
-Sentry.init({dsn: process.env.SENTRY_DSN});
+Sentry.init({dsn: process.env.SENTRY_DSN_REACT});
 
 const store = configureStore();
 
