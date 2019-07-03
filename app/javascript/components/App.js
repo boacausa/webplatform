@@ -8,9 +8,7 @@ import NgoPage from "../containers/NgoPage";
 import * as Sentry from '@sentry/browser';
 import dotenv from 'dotenv';
 
-dotenv.config({silent: true});
-
-require('dotenv').config();
+dotenv.config({ silent: true });
 
 Sentry.init({ dsn: process.env.SENTRY_DSN_REACT });
 
