@@ -7,19 +7,13 @@ import NgosList from "../containers/NgosList";
 import NgoPage from "../containers/NgoPage";
 import * as Sentry from '@sentry/browser';
 
-const RELEASE = '0.1.0';
-
-if (process.env.NODE_ENV === 'production') {
-    Sentry.init({
-        dsn: process.env.SENTRY_DSN_REACT,
-        release: RELEASE,
-    });
-}
+Sentry.init({ dsn: process.env.SENTRY_DSN_REACT });
 
 const store = configureStore();
 
 class App extends React.Component {
     render() {
+        console.log("env", process.env.SENTRY_DSN_REACT);
         return (
             <Provider store={store}>
                 <BrowserRouter>
