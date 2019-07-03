@@ -7,13 +7,14 @@ import NgosList from "../containers/NgosList";
 import NgoPage from "../containers/NgoPage";
 import * as Sentry from '@sentry/browser';
 
+require('dotenv').config();
+
 Sentry.init({ dsn: process.env.SENTRY_DSN_REACT });
 
 const store = configureStore();
 
 class App extends React.Component {
     render() {
-        console.log("env", process.env.SENTRY_DSN_REACT);
         return (
             <Provider store={store}>
                 <BrowserRouter>
