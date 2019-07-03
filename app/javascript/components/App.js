@@ -6,6 +6,9 @@ import configureStore from '../configureStore';
 import NgosList from "../containers/NgosList";
 import NgoPage from "../containers/NgoPage";
 import * as Sentry from '@sentry/browser';
+import dotenv from 'dotenv';
+
+dotenv.config({silent: true});
 
 require('dotenv').config();
 
