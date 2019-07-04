@@ -16,8 +16,6 @@ const store = configureStore();
 
 class App extends React.Component {
     render() {
-        console.log("env", process.env.SENTRY_DSN_REACT);
-        console.log("NODE env", process.env.NODE_ENV);
         return (
             <Provider store={store}>
                 <BrowserRouter>
