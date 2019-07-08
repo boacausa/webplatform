@@ -8,6 +8,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-error-boundary": "^1.2.5",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-text-mask": "^5.4.3",
