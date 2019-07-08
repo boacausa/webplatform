@@ -16,6 +16,7 @@ const store = configureStore();
 
 class App extends React.Component {
     render() {
+        return <button onClick={methodDoesNotExist}>Break the world</button>;
         return (
             <Provider store={store}>
                 <BrowserRouter>
