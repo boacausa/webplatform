@@ -51,8 +51,6 @@ class NgoPage extends React.Component {
 
         if (!ngo) return (<div/>);
 
-        return <Robson/>;
-
         return (
             <div className="container">
                 <div className="jumbotron">
