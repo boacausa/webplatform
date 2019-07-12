@@ -4,3 +4,8 @@ pt-BR:
     ngos: ongs
     ngo_area: ong_area
     users: usuarios
+
+  activerecord:
+    attributes:
+      user:
+        password: Senha

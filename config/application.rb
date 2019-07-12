@@ -13,6 +13,8 @@ module Uberdo3setor
     # -- all .rb files in that directory are automatically loaded.
 
     config.autoload_paths += %W(#{config.root}/services #{config.root}/lib)
+    
+    config.i18n.default_locale = :'pt-BR'
 
     config.filter_parameters << :password
   end
