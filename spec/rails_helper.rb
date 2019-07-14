@@ -80,6 +80,8 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do |_|
+    # TO-DO: Configure specs to run on pt-BR as default locale.
+    I18n.default_locale = :en
     stub_const('ApplicationController::DEFAULT_LOCALE', 'en')
   end
 end
