@@ -1,32 +1,45 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import ngos from './reducers/ngos';
 
 const initialState = {
-    things: [
-    ]
+  things: [],
+  ngo: {}
 };
 
-function rootReducer(state, action) {
-    switch (action.type) {
-        case "GET_THINGS_SUCCESS":
-            return { things: action.json.things };
-        case "GET_NGOS_SUCCESS":
-            return { ngos: action.json.ngos };
-        case "GET_NGO_SUCCESS":
-            return { ngo: action.json.ngo };
-        default:
-            return state;
-    }
+function thingsReducer(state = {}, action) {
+  switch (action.type) {
+    case "GET_THINGS_SUCCESS":
+        return { ...action.json.things };
+    default:
+        return state;
+  }
 }
 
+function ngoReducer(state = {}, action) {
+  switch (action.type) {
+      case "GET_NGO_SUCCESS":
+          return { ...action.json.ngo };
+      default:
+          return state;
+  }
+}
+
+const rootReducer = combineReducers({
+  ngos,
+  things: thingsReducer,
+  ngo: ngoReducer
+});
+
 export default function configureStore() {
-    const store = createStore(
-        rootReducer,
-        initialState,
-        composeWithDevTools(
-            applyMiddleware(thunk)
-        )
-    );
-    return store;
+  const store = createStore(
+    rootReducer,
+    initialState,
+    composeWithDevTools(
+        applyMiddleware(thunk)
+    )
+  );
+
+  return store;
 }

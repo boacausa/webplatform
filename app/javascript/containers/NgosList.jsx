@@ -1,29 +1,10 @@
 import React from "react"
 import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {createStructuredSelector} from 'reselect';
 import Masks from "../utils/Masks";
 import {Link} from "react-router-dom";
-
-const GET_NGOS_REQUEST = 'GET_NGOS_REQUEST';
-const GET_NGOS_SUCCESS = 'GET_NGOS_SUCCESS';
-
-function fetchNgos() {
-    return dispatch => {
-        dispatch({type: GET_NGOS_REQUEST});
-        // TODO: how to make the path look better?
-        return fetch(`../v1/ngos.json`)
-            .then(response => response.json())
-            .then(json => dispatch(fetchNgosSuccess(json)))
-            .catch(error => console.log(error));
-    }
-}
-
-export function fetchNgosSuccess(json) {
-    return {
-        type: GET_NGOS_SUCCESS,
-        json
-    };
-}
+import { fetchNgos } from '../actions/ngos';
 
 class NgosList extends React.Component {
     componentWillMount() {
@@ -76,9 +57,9 @@ class NgosList extends React.Component {
 }
 
 const structuredSelector = createStructuredSelector({
-    ngos: state => state.ngos,
+    ngos: state => state.ngos.items
 });
 
-const mapDispatchToProps = {fetchNgos};
+const mapDispatchToProps = dispatch => bindActionCreators({ fetchNgos }, dispatch);
 
 export default connect(structuredSelector, mapDispatchToProps)(NgosList);
