@@ -5,8 +5,12 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-horizontal') do |f| %>
       <fieldset>
         <legend>Login</legend>
-        <%= devise_error_messages! %>
-
+        <% if flash[:alert].present? %>
+          <div class="alert alert-danger" role="alert">
+            <%= flash[:alert] %> 
+          </div>
+        <% end %>
+   
         <div class="form-group">
           <%= f.label :email, class: 'control-label' %><br />
           <%= f.email_field :email, class: 'form-control', autofocus: true %>
