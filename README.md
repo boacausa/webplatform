@@ -30,6 +30,12 @@ Link para testes: http://porumaboacausa.herokuapp.com
 
 * bundle exec rspec spec
 
+**Para rodar webpacker**
+
+_Estamos testando iniciativas para migrar a parte de front-end para ReactJS_
+
+* ./bin/webpack-dev-server
+
 ### Quero contribuir
 
 Quer contribuir como desenvolvedor no projeto? Da uma olhada nas nossas [issues](https://github.com/boacausa/webplatform/issues?q=is%3Aopen+is%3Aissue+-label%3Adiscussion+-label%3A%22%5Bzube%5D%3A+In+Review%22+-label%3Aidea)
