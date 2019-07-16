@@ -17,5 +17,7 @@ module Uberdo3setor
     config.i18n.default_locale = :'pt-BR'
 
     config.filter_parameters << :password
+
+    config.assets.initialize_on_precompile = false
   end
 end
