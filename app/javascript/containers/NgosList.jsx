@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import Masks from "../utils/Masks";
 import {Link} from "react-router-dom";
+import TestCssStuff from "../packs/test_css_stuff";
 
 const GET_NGOS_REQUEST = 'GET_NGOS_REQUEST';
 const GET_NGOS_SUCCESS = 'GET_NGOS_SUCCESS';
@@ -65,6 +66,7 @@ class NgosList extends React.Component {
 
         return (
             <div className="container">
+                <TestCssStuff/>
                 <div className="jumbotron">
                     <h1 className="display-4">Conheça as ONGs que fazem parte</h1>
                     <p className="lead">Encontre aqui uma ONG para acompanhar suas atividades, consultar sua situação financeira e fazer doações.</p>
