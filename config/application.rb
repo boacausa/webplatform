@@ -18,6 +18,6 @@ module Uberdo3setor
 
     config.filter_parameters << :password
 
-    config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = true
   end
 end
