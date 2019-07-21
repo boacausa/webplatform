@@ -1,20 +1,21 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
+import NavBar from './NavBar';
 
 const Header = () => (
-  <div className="row">
-    <div className="col-lg-12">
-      <h1 className="page-header">ONGs</h1>
+  <div className='row'>
+    <div className='col-lg-12'>
+      <h1 className='page-header'>ONGs</h1>
     </div>
   </div>
 );
 
 const Actions = () => (
-  <div className="panel panel-default">
-    <div className="panel-heading">
+  <div className='panel panel-default'>
+    <div className='panel-heading'>
       Ações
     </div>
-    <div className="panel-body">
-      <a href="<%= new_ngo_area_ngo_path %>" className="btn btn-primary">Cadastrar</a>
+    <div className='panel-body'>
+      <a href='<%= new_ngo_area_ngo_path %>' className='btn btn-primary'>Cadastrar</a>
     </div>
   </div>
 );
@@ -30,13 +31,13 @@ const ListItem = ({ id, social_name, fantasy_name, email, site }) => (
 );
 
 const List = ({ items, isFetched }) => (
-  <div className="panel panel-default">
-    <div className="panel-heading">
+  <div className='panel panel-default'>
+    <div className='panel-heading'>
       ONGs
     </div>
-    <div className="panel-body">
-      <div className="table-responsive">
-        <table className="table table-striped table-bordered table-hover">
+    <div className='panel-body'>
+      <div className='table-responsive'>
+        <table className='table table-striped table-bordered table-hover'>
           <thead>
           <tr>
             <th>#</th>
@@ -62,19 +63,23 @@ class NGOs extends PureComponent {
 
   render() {
     return (
-      <div>
-        <Header />
+      <Fragment>
+        <NavBar />
 
-        <div className="row">
-          <div className="col-lg-12">
-            <Actions />
-            <List
-              items={this.props.items}
-              isFetched={this.props.isFetched}
-            />
+        <div id='page-wrapper' style={{ minHeight: '931px' }}>
+          <Header />
+
+          <div className='row'>
+            <div className='col-lg-12'>
+              <Actions />
+              <List
+                items={this.props.items}
+                isFetched={this.props.isFetched}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

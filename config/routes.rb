@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   end
 
   get '*page', to: 'static#index', constraints: ->(req) do
-    !req.xhr? && req.format.html?
+    !req.xhr? && req.format.html? && req.url.exclude?('/ngo_area/new')
+  end
+
+  get '*page', to: 'ngo_area/react#index', constraints: ->(req) do
+    !req.xhr? && req.format.html? && req.url.include?('/ngo_area/new')
   end
 end
