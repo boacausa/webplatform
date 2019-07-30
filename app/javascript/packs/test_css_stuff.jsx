@@ -1,5 +1,5 @@
 import React from 'react'
-import * as styles from '../hello_react/styles/test-css-stuff.module.css'
+import * as styles from '../hello_react/styles/test-css-stuff.module.sass'
 
 const TestCssStuff = () => (
     <div className={styles.testCssStuff}>
