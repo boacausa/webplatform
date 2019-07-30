@@ -1,14 +1,14 @@
-const { environment } = require('@rails/webpacker')
-const merge = require('webpack-merge')
+const { environment } = require('@rails/webpacker');
+const merge = require('webpack-merge');
 
 const myCssLoaderOptions = {
     modules: true,
     sourceMap: true,
-    localIdentName: '[name]__[local]___[hash:base64:5]'
-}
+    localIdentName: '[name]__[local]__[hash:base64:5]',
+};
 
-const CSSLoader = environment.loaders.get('sass').use.find(el => el.loader === 'css-loader')
+const CSSLoader = environment.loaders.get('sass').use.find(el => el.loader === 'css-loader');
 
-CSSLoader.options = merge(CSSLoader.options, myCssLoaderOptions)
+CSSLoader.options = merge(CSSLoader.options, myCssLoaderOptions);
 
-module.exports = environment
+module.exports = environment;

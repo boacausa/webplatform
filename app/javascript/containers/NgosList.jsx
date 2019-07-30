@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import Masks from "../utils/Masks";
 import {Link} from "react-router-dom";
-import TestCssStuff from "../packs/test_css_stuff";
+import TestCssStuff from "../components/TestCssStuff/test_css_stuff";
 
 const GET_NGOS_REQUEST = 'GET_NGOS_REQUEST';
 const GET_NGOS_SUCCESS = 'GET_NGOS_SUCCESS';
