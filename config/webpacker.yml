@@ -91,6 +91,7 @@ production:
   compile: false
 
   # Extract and emit a css file
+  # TODO: this should be true, but does not work in production for some reason. Needs to investigate
   extract_css: false
 
   # Cache manifest.json for performance
