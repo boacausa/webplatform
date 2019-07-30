@@ -14,3 +14,7 @@ development:
 test:
   <<: *default
   database: boacausa_test
+
+production:
+  <<: *default
+  database: boacausa_production

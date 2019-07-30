@@ -5,10 +5,7 @@ import {Provider} from 'react-redux';
 import configureStore from '../configureStore';
 import NgosList from "../containers/NgosList";
 import NgoPage from "../containers/NgoPage";
-import dotenv from 'dotenv';
 import ErrorBoundary from "./ErrorBoundary";
-
-dotenv.config({ silent: true });
 
 const store = configureStore();
 
