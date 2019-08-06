@@ -64,7 +64,7 @@ class NgosList extends React.Component {
         const {ngos} = this.props;
 
         return (
-            <div className="container">
+            <div>
                 <div className="jumbotron">
                     <h1 className="display-4">Conheça as ONGs que fazem parte</h1>
                     <p className="lead">Encontre aqui uma ONG para acompanhar suas atividades, consultar sua situação financeira e fazer doações.</p>

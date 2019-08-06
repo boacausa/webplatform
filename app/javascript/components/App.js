@@ -6,7 +6,7 @@ import configureStore from '../configureStore';
 import NgosList from "../containers/NgosList";
 import NgoPage from "../containers/NgoPage";
 import ErrorBoundary from "./ErrorBoundary";
-import AdoptionList from "../containers/AdoptionList";
+import AdoptionList from "../containers/AdoptionList/AdoptionList";
 
 const store = configureStore();
 
