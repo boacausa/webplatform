@@ -3,6 +3,7 @@ import SimpleHeaderText from "../../components/SimpleHeaderText/SimpleHeaderText
 import styles from './AdoptionList.sass'
 import SimpleSubmitButton from "../../components/SimpleSubmitButton/SimpleSubmitButton";
 import SelectInput from "../../components/SelectInput/SelectInput";
+import TextInput from "../../components/TextInput/TextInput";
 
 class AdoptionList extends React.Component {
     render() {
@@ -16,6 +17,19 @@ class AdoptionList extends React.Component {
                     <SelectInput
                         label='Cidade'
                         placeholder='Selecione uma cidade'
+                        width='200px'
+                        marginRight='20px'
+                    />
+                    <SelectInput
+                        label='ONG'
+                        placeholder='Selecione uma ONG'
+                        width='300px'
+                        marginRight='20px'
+                    />
+                    <TextInput
+                        placeholder='Procure por palavras-chaves'
+                        width='350px'
+                        marginRight='20px'
                     />
                     <SimpleSubmitButton name='Procurar' />
                 </form>
