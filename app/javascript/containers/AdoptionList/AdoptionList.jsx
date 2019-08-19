@@ -4,6 +4,7 @@ import styles from './AdoptionList.sass'
 import SimpleSubmitButton from "../../components/SimpleSubmitButton/SimpleSubmitButton";
 import SelectInput from "../../components/SelectInput/SelectInput";
 import TextInput from "../../components/TextInput/TextInput";
+import AdoptionCard from "../AdoptionCard/AdoptionCard";
 
 class AdoptionList extends React.Component {
     render() {
@@ -33,6 +34,13 @@ class AdoptionList extends React.Component {
                     />
                     <SimpleSubmitButton name='Procurar' />
                 </form>
+                <div className={styles.adoptionCards}>
+                    <AdoptionCard/>
+                    <AdoptionCard/>
+                    <AdoptionCard/>
+                    <AdoptionCard/>
+                    <AdoptionCard/>
+                </div>
             </div>
         );
     }
