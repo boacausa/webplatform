@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './AdoptionCard.sass'
+import SimpleCircularButton from "../../components/SimpleCircularButton/SimpleCircularButton";
 
 const AdoptionCard = () => {
     return (
@@ -26,6 +27,9 @@ const AdoptionCard = () => {
                     <a className={styles.postTime}>4 mêses atrás</a>
                 </div>
             </div>
+        </div>
+        <div className={styles.adoptionButton}>
+            <SimpleCircularButton name='Adote' />
         </div>
       </div>
     );
