@@ -17,7 +17,14 @@ const AdoptionCard = () => {
                 aprender.
             </a>
             <div className={styles.postDetail}>
-
+                <div className={styles.ngoDetail}>
+                    <div className={styles.ngoPicture}>
+                    </div>
+                    <a className={styles.ngoName}>ONG Amigo Bicho</a>
+                </div>
+                <div>
+                    <a className={styles.postTime}>4 mêses atrás</a>
+                </div>
             </div>
         </div>
       </div>
