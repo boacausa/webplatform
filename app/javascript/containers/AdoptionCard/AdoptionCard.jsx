@@ -5,6 +5,8 @@ import SimpleCircularButton from "../../components/SimpleCircularButton/SimpleCi
 const AdoptionCard = () => {
     return (
       <div className={styles.AdoptionCard}>
+          <div className={styles.sexLabel}><a>Femea</a></div>
+          <div className={styles.ageLabel}><a>8 anos</a></div>
         <div className={styles.picture}>
 
         </div>
