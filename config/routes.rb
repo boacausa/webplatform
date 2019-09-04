@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'things', to: 'things#index'
     get 'ngos', to: 'ngos#index'
     get 'ngo/:id', to: 'ngos#show'
+    get 'pets_for_adoption', to: 'pets_for_adoption#index'
   end
 
   get '*page', to: 'static#index', constraints: ->(req) do

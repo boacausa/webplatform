@@ -5,9 +5,38 @@ import SimpleSubmitButton from "../../components/SimpleSubmitButton/SimpleSubmit
 import SelectInput from "../../components/SelectInput/SelectInput";
 import TextInput from "../../components/TextInput/TextInput";
 import AdoptionCard from "../AdoptionCard/AdoptionCard";
+import {createStructuredSelector} from "reselect";
+import {connect} from "react-redux";
+
+const GET_ADOPTION_REQUEST = 'GET_ADOPTION_REQUEST';
+const GET_ADOPTION_SUCCESS = 'GET_ADOPTION_SUCCESS';
+
+function fetchPetsForAdoption() {
+    return dispatch => {
+        dispatch({type: GET_ADOPTION_REQUEST});
+        return fetch(`../v1/pets_for_adoption.json`)
+            .then(response => response.json())
+            .then(json => dispatch(fetchPetsForAdoptionSuccess(json)))
+            .catch(error => console.log(error));
+    }
+}
+
+export function fetchPetsForAdoptionSuccess(json) {
+    return {
+        type: GET_ADOPTION_SUCCESS,
+        json
+    };
+}
 
 class AdoptionList extends React.Component {
+    componentWillMount() {
+        const {fetchPetsForAdoption} = this.props;
+        fetchPetsForAdoption();
+    }
+
     render() {
+        const {pets} = this.props;
+
         return (
             <div className={styles.AdoptionList}>
                 <SimpleHeaderText
@@ -35,15 +64,19 @@ class AdoptionList extends React.Component {
                     <SimpleSubmitButton name='Procurar' />
                 </form>
                 <div className={styles.adoptionCards}>
-                    <AdoptionCard/>
-                    <AdoptionCard/>
-                    <AdoptionCard/>
-                    <AdoptionCard/>
-                    <AdoptionCard/>
+                    {pets && pets.map(ngo => {
+                        return <AdoptionCard />;
+                    })}
                 </div>
             </div>
         );
     }
 }
 
-export default AdoptionList;
+const structuredSelector = createStructuredSelector({
+    pets: state => state.pets,
+});
+
+const mapDispatchToProps = {fetchPetsForAdoption};
+
+export default connect(structuredSelector, mapDispatchToProps)(AdoptionList);
