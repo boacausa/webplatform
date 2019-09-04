@@ -7,19 +7,14 @@ const AdoptionCard = (props) => {
         <div className={styles.AdoptionCard}>
             <div className={styles.sexLabel}><a>{props.sex === "f" ? "Fêmea" : "Macho"}</a></div>
             <div className={styles.ageLabel}><a>{props.age} anos</a></div>
-            <div className={styles.picture}>
-
-            </div>
+            <div className={styles.picture}></div>
             <div className={styles.cardContent}>
                 <a className={styles.city}>Içara, SC</a>
                 <a className={styles.petName}>{props.name}</a>
-                <a className={styles.petDescription}>
-                    {props.description}
-                </a>
+                <a className={styles.petDescription}>{props.description}</a>
                 <div className={styles.postDetail}>
                     <div className={styles.ngoDetail}>
-                        <div className={styles.ngoPicture}>
-                        </div>
+                        <div className={styles.ngoPicture}></div>
                         <a className={styles.ngoName}>ONG Amigo Bicho</a>
                     </div>
                     <div>
