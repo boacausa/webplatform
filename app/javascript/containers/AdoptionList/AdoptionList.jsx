@@ -64,8 +64,14 @@ class AdoptionList extends React.Component {
                     <SimpleSubmitButton name='Procurar' />
                 </form>
                 <div className={styles.adoptionCards}>
-                    {pets && pets.map(ngo => {
-                        return <AdoptionCard />;
+                    {pets && pets.map(pet => {
+                        return <AdoptionCard
+                            key={pet.id}
+                            name={pet.name}
+                            description={pet.description}
+                            age={pet.age}
+                            sex={pet.sex}
+                        />;
                     })}
                 </div>
             </div>
