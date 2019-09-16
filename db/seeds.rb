@@ -15,7 +15,13 @@ Ngo.create!(
   site: Faker::Internet.url,
   cnpj: CNPJ.generate,
   date_start: Faker::Date.backward(1000),
-  active: true
+  active: true,
+  city: Faker::Address.city,
+  state: Faker::Address.state,
+  zipcode: Faker::Address.zip_code,
+  address_number: Faker::Address.building_number,
+  address: Faker::Address.street_address,
+  neighborhood: Faker::Address.community,
 )
 
 Ngo.last.image.attach(io: File.open("public/images/ngo/amigobicho.png"), filename: 'amigobicho.png')
