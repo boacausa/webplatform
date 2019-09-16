@@ -1,7 +1,7 @@
 class V1::PetsForAdoptionController < ApplicationController
   def index
     render json: {
-      pets: Pet.actived
+      pets: ListPets.new.all
     }.to_json
   end
 end
