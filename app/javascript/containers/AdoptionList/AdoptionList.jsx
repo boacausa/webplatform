@@ -38,6 +38,7 @@ class AdoptionList extends React.Component {
                 key={pet.id}
                 name={pet.name}
                 description={pet.description}
+                posted_at={pet.created_at}
                 age={pet.age}
                 sex={pet.sex}
                 ngo={pet.ngo}
