@@ -10,14 +10,16 @@ TimeAgo.addLocale(br);
 
 const AdoptionCard = (props) => {
     var moment = require('moment');
-    const postedAtDateTime = moment(props.posted_at).toDate();
+    const postedAtDateTime = moment(props.postedAt).toDate();
     const timeAgo = new TimeAgo('pt-BR');
 
     return (
         <div className={styles.AdoptionCard}>
             <div className={styles.sexLabel}><a>{props.sex === "f" ? "Fêmea" : "Macho"}</a></div>
             <div className={styles.ageLabel}><a>{props.age} anos</a></div>
-            <div className={styles.picture}></div>
+            <div className={styles.pictureBox}>
+                <img className={styles.picture} src={props.petImage} alt='Imagem do pet' />
+            </div>
             <div className={styles.cardContent}>
                 <a className={styles.city}>Içara, SC</a>
                 <a className={styles.petName}>{props.name}</a>
