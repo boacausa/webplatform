@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './AdoptionCard.sass'
 import SimpleCircularButton from "../../components/SimpleCircularButton/SimpleCircularButton";
+import {Link} from "react-router-dom";
 
 const AdoptionCard = (props) => {
     return (
@@ -14,8 +15,8 @@ const AdoptionCard = (props) => {
                 <a className={styles.petDescription}>{props.description}</a>
                 <div className={styles.postDetail}>
                     <div className={styles.ngoDetail}>
-                        <div className={styles.ngoPicture}></div>
-                        <a className={styles.ngoName}>ONG Amigo Bicho</a>
+                        <img className={styles.ngoPicture} src={props.ngo.logo_path} alt='Imagem da ONG' />
+                        <Link className={styles.ngoName} to={`/new/ong/${props.ngo.fantasy_name}`}>{props.ngo.fantasy_name}</Link>
                     </div>
                     <div>
                         <a className={styles.postTime}>4 mêses atrás</a>

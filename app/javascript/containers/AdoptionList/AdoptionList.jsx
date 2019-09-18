@@ -40,6 +40,7 @@ class AdoptionList extends React.Component {
                 description={pet.description}
                 age={pet.age}
                 sex={pet.sex}
+                ngo={pet.ngo}
             />;
         })
     };
