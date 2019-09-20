@@ -11,7 +11,8 @@ class ListPets
     pets.map do |pet|
       pet.attributes.merge(
         logo_path: logo_path(pet),
-        ngo: NgoResponseAttributes.new(pet.ngo).attributes
+        ngo: NgoResponseAttributes.new(pet.ngo).attributes,
+        description_truncated: pet.description.truncate(240),
       )
     end
   end

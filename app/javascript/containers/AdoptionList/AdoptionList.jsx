@@ -37,7 +37,7 @@ class AdoptionList extends React.Component {
             return <AdoptionCard
                 key={pet.id}
                 name={pet.name}
-                description={pet.description}
+                description={pet.description_truncated}
                 postedAt={pet.created_at}
                 petImage={pet.logo_path}
                 age={pet.age}
