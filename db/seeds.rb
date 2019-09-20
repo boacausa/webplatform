@@ -68,8 +68,8 @@ ngo_ids = Ngo.all.pluck(:id)
   pet = Pet.create!(
       name: Faker::Name.first_name,
       age: Random.rand(10),
-      description: Faker::Lorem.sentence,
-      sex: 'f',
+      description: Faker::Lorem.paragraph_by_chars([100, 50, 200, 300, 500].sample),
+      sex: ['f', 'm'].sample,
       active: true,
       ngo_id: ngo_ids.sample
   )
