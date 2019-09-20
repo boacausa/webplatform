@@ -23,6 +23,17 @@ const AdoptionCard = (props) => {
         }
     }
 
+    function getCity(ngo) {
+        const city = ngo.city ? ngo.city : '';
+        const state = ngo.state ? ngo.state : '';
+
+        if (city === '' && state === '') {
+            return 'Endereço da ONG não cadastrado';
+        }
+
+        return city + ", " + state;
+    }
+
     return (
         <div className={styles.AdoptionCard}>
             <div className={styles.sexLabel}><a>{props.sex === "f" ? "Fêmea" : "Macho"}</a></div>
@@ -31,7 +42,7 @@ const AdoptionCard = (props) => {
                 <img className={styles.picture} src={props.petImage} alt='Imagem do pet' />
             </div>
             <div className={styles.cardContent}>
-                <a className={styles.city}>Içara, SC</a>
+                <a className={styles.city}>{getCity(props.ngo)}</a>
                 <a className={styles.petName}>{props.name}</a>
                 <a className={styles.petDescription}>{props.description}</a>
                 <div className={styles.postDetail}>
