@@ -13,10 +13,20 @@ const AdoptionCard = (props) => {
     const postedAtDateTime = moment(props.postedAt).toDate();
     const timeAgo = new TimeAgo('pt-BR');
 
+    function ageLabelText(age) {
+        if (age == null) {
+            return "0 anos";
+        } else if (age === 1) {
+            return `${age} ano`;
+        } else {
+            return `${age} anos`;
+        }
+    }
+
     return (
         <div className={styles.AdoptionCard}>
             <div className={styles.sexLabel}><a>{props.sex === "f" ? "Fêmea" : "Macho"}</a></div>
-            <div className={styles.ageLabel}><a>{props.age} anos</a></div>
+            <div className={styles.ageLabel}><a>{ageLabelText(props.age)}</a></div>
             <div className={styles.pictureBox}>
                 <img className={styles.picture} src={props.petImage} alt='Imagem do pet' />
             </div>
