@@ -7,6 +7,9 @@ const SelectInput = (props) => {
             <label>{props.label}</label>
             <select name="color">
                 <option value="">{props.placeholder}</option>
+                {props.options && props.options.length > 0 && props.options.map(opt => {
+                    return <option key={opt.id} value={opt.id}>{opt.name}</option>
+                })}
             </select>
         </div>
     );

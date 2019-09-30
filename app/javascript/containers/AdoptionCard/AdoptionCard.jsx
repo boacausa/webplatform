@@ -28,6 +28,7 @@ const AdoptionCard = (props) => {
         const state = ngo.state ? ngo.state : '';
 
         if (city === '' && state === '') {
+            // TODO: should be required on ngos form
             return 'Endereço da ONG não cadastrado';
         }
 

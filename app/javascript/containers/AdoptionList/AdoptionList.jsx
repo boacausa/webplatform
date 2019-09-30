@@ -4,7 +4,7 @@ import styles from './AdoptionList.sass'
 import AdoptionCard from "../AdoptionCard/AdoptionCard";
 import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
-import FilterBox from "./FilterBox/FilterBox";
+import AdoptionFilterBox from "./FilterBox/AdoptionFilterBox";
 
 const GET_ADOPTION_REQUEST = 'GET_ADOPTION_REQUEST';
 const GET_ADOPTION_SUCCESS = 'GET_ADOPTION_SUCCESS';
@@ -27,10 +27,7 @@ export function fetchPetsForAdoptionSuccess(json) {
 }
 
 class AdoptionList extends React.Component {
-    componentWillMount() {
-        const {fetchPetsForAdoption} = this.props;
-        fetchPetsForAdoption();
-    }
+
 
     petList = (pets) => {
         return pets.map(pet => {
@@ -56,7 +53,7 @@ class AdoptionList extends React.Component {
                     title='Encontre seu animalzinho'
                     subtitle='Encontre aqui os animais disponíveis para adoção. Clique em "Adote" para saber mais.'
                 />
-                <FilterBox/>
+                <AdoptionFilterBox/>
                 <div className={styles.adoptionCards}>
                     {pets && this.petList(pets)}
                 </div>

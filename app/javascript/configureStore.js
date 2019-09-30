@@ -17,6 +17,8 @@ function rootReducer(state, action) {
             return { ngo: action.json.ngo };
         case "GET_ADOPTION_SUCCESS":
             return { pets: action.json.pets };
+        case "GET_NGO_CITIES_SUCCESS":
+            return { cities: action.json.cities };
         default:
             return state;
     }
