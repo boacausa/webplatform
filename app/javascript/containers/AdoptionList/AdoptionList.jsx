@@ -27,7 +27,10 @@ export function fetchPetsForAdoptionSuccess(json) {
 }
 
 class AdoptionList extends React.Component {
-
+    componentWillMount() {
+        const {fetchPetsForAdoption} = this.props;
+        fetchPetsForAdoption();
+    }
 
     petList = (pets) => {
         return pets.map(pet => {
