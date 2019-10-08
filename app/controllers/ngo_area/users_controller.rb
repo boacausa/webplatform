@@ -12,9 +12,12 @@ class NgoArea::UsersController < NgoAreaController
   end
 
   def create
-    @user = User.create(params_user)
-
-    redirect_to ngo_area_users_path
+    @user = User.new(params_user)
+    if @user.save
+      redirect_to ngo_area_users_path
+    else
+      render action: :new
+    end
   end
 
   def edit
