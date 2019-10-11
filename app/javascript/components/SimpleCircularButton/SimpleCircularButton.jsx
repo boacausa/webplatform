@@ -3,7 +3,7 @@ import styles from './SimpleCircularButton.sass';
 
 const SimpleCircularButton = (props) => {
     return (
-        <button className={styles.SimpleCircularButton}>{props.name}</button>
+        <button onClick={props.clicked} className={styles.SimpleCircularButton}>{props.name}</button>
     );
 };
 

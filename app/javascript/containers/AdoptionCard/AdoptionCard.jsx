@@ -57,7 +57,7 @@ const AdoptionCard = (props) => {
                 </div>
             </div>
             <div className={styles.adoptionButton}>
-                <SimpleCircularButton name='Adote'/>
+                <SimpleCircularButton clicked={props.modalOpen} name='Adote'/>
             </div>
         </div>
     );
