@@ -11,6 +11,11 @@ import AdoptionList from "../containers/AdoptionList/AdoptionList";
 const store = configureStore();
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { currentUser: this.props.currentUser };
+    }
+
     render() {
         return (
             <ErrorBoundary>
@@ -21,7 +26,7 @@ class App extends React.Component {
                             <Route path="/hello" render={() => <HelloWorld greeting="Friend"/>}/>
                             <Route path="/new/ongs" render={() => <NgosList />}/>
                             <Route exact path="/new/ong/:id" component={NgoPage}/>
-                            <Route path="/new/adocao" render={() => <AdoptionList />}/>
+                            <Route path="/new/adocao" render={() => <AdoptionList currentUser={this.state.currentUser} />}/>
                         </Switch>
                     </BrowserRouter>
                 </Provider>

@@ -56,9 +56,12 @@ const AdoptionCard = (props) => {
                     </div>
                 </div>
             </div>
+            // TODO: implement behaviour of button when user is not logged in
+            { props.user ?
             <div className={styles.adoptionButton}>
                 <SimpleCircularButton clicked={props.modalOpen} name='Adote'/>
             </div>
+            : null}
         </div>
     );
 };
