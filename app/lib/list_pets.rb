@@ -12,7 +12,7 @@ class ListPets
       pet.attributes.merge(
         logo_path: logo_path(pet),
         ngo: NgoResponseAttributes.new(pet.ngo).attributes,
-        description_truncated: pet.description.truncate(240),
+        description_truncated: pet.description.truncate(200),
       )
     end
   end
