@@ -8,6 +8,8 @@ import NgoPage from "../containers/NgoPage";
 import ErrorBoundary from "./ErrorBoundary";
 import AdoptionList from "../containers/AdoptionList/AdoptionList";
 
+require('typeface-roboto');
+
 const store = configureStore();
 
 class App extends React.Component {

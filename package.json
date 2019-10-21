@@ -26,6 +26,7 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "sugarss": "^2.0.0",
+    "typeface-roboto": "0.0.75",
     "webpack-merge": "^4.2.1"
   },
   "devDependencies": {

@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './AdoptionCard.sass'
-import SimpleCircularButton from "../../components/SimpleCircularButton/SimpleCircularButton";
 import {Link} from "react-router-dom";
 import TimeAgo from 'javascript-time-ago'
 // Load pt-BR locale for time ago
 import br from 'javascript-time-ago/locale/pt'
+import AdoptionButton from "./AdoptionButton/AdoptionButton";
 
 TimeAgo.addLocale(br);
 
@@ -56,10 +56,10 @@ const AdoptionCard = (props) => {
                     </div>
                 </div>
             </div>
-            // TODO: implement behaviour of button when user is not logged in
+            {/*{ TODO: implement behaviour of button when user is not logged in }*/}
             { props.user ?
             <div className={styles.adoptionButton}>
-                <SimpleCircularButton clicked={props.modalOpen} name='Adote'/>
+                <AdoptionButton clicked={props.modalOpen} name='Adote'/>
             </div>
             : null}
         </div>
