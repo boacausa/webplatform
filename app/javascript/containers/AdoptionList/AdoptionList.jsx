@@ -56,7 +56,7 @@ class AdoptionList extends React.Component {
                 age={pet.age}
                 sex={pet.sex}
                 ngo={pet.ngo}
-                user={this.props.currentUser}
+                user={this.props.userEmail}
                 modalOpen={this.openAdoptingModalHandler}
             />;
         })

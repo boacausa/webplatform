@@ -15,7 +15,7 @@ const store = configureStore();
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { currentUser: this.props.currentUser };
+        this.state = { userEmail: this.props.userEmail };
     }
 
     render() {
@@ -28,7 +28,7 @@ class App extends React.Component {
                             <Route path="/hello" render={() => <HelloWorld greeting="Friend"/>}/>
                             <Route path="/new/ongs" render={() => <NgosList />}/>
                             <Route exact path="/new/ong/:id" component={NgoPage}/>
-                            <Route path="/new/adocao" render={() => <AdoptionList currentUser={this.state.currentUser} />}/>
+                            <Route path="/new/adocao" render={() => <AdoptionList userEmail={this.state.userEmail} />}/>
                         </Switch>
                     </BrowserRouter>
                 </Provider>
