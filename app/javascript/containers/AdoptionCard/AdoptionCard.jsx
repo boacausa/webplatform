@@ -35,22 +35,29 @@ const AdoptionCard = (props) => {
         return ngo.fantasy_name + ", " + city + "-" + state;
     }
 
+    function getPetDetail(sex, age) {
+        const sexDescription = sex === "f" ? "Fêmea" : "Macho";
+
+        return sexDescription + ", " + ageLabelText(age)
+    }
+
     return (
         <div className={styles.AdoptionCard}>
-            <div className={styles.sexLabel}><a>{props.sex === "f" ? "Fêmea" : "Macho"}</a></div>
-            <div className={styles.ageLabel}><a>{ageLabelText(props.age)}</a></div>
             <div className={styles.pictureBox}>
                 <img className={styles.picture} src={props.petImage} alt='Imagem do pet' />
             </div>
             <div className={styles.cardContent}>
                 <a className={styles.petName}>{props.name}</a>
+                <div className={styles.postDetail}>
+                    <a className={styles.smallText}>{getPetDetail(props.sex, props.age)}</a>
+                </div>
                 <a className={styles.petDescription}>{props.description}</a>
                 <div className={styles.postDetail}>
                     <div className={styles.ngoDetail}>
                         <img className={styles.ngoPicture} src={props.ngo.logo_path} alt='Imagem da ONG' />
-                        <Link className={styles.ngoName} to={`/new/ong/${props.ngo.fantasy_name}`}>{getNgoDescription(props.ngo)}</Link>
+                        <Link className={styles.smallText} to={`/new/ong/${props.ngo.fantasy_name}`}>{getNgoDescription(props.ngo)}</Link>
                     </div>
-                    <a className={styles.postTime}>{timeAgo.format(postedAtDateTime)}</a>
+                    <a className={styles.smallText}>{timeAgo.format(postedAtDateTime)}</a>
                 </div>
             </div>
             {/*{ TODO: implement behaviour of button when user is not logged in }*/}
