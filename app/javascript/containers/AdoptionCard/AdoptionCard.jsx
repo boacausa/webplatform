@@ -60,12 +60,14 @@ const AdoptionCard = (props) => {
                     <a className={styles.smallText}>{timeAgo.format(postedAtDateTime)}</a>
                 </div>
             </div>
-            {/*{ TODO: implement behaviour of button when user is not logged in }*/}
-            { props.user ?
-            <div className={styles.adoptionButton}>
-                <AdoptionButton clicked={props.modalOpen} name='Adote'/>
+            <div className={styles.adoptionCardBottom}>
+                {/*{ TODO: implement behaviour of button when user is not logged in }*/}
+                { props.user ?
+                <div className={styles.adoptionButton}>
+                    <AdoptionButton clicked={props.modalOpen} name='Adote'/>
+                </div>
+                : null}
             </div>
-            : null}
         </div>
     );
 };
