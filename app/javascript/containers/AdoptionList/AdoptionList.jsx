@@ -82,6 +82,11 @@ class AdoptionList extends React.Component {
                 <AdoptionFilterBox/>
                 <div className={styles.adoptionCards}>
                     {pets && this.petList(pets)}
+                    {/* Trick to align last row of cards with flexbox */}
+                    <i className={styles.fakeAdoptionCard} aria-hidden="true" />
+                    <i className={styles.fakeAdoptionCard} aria-hidden="true" />
+                    <i className={styles.fakeAdoptionCard} aria-hidden="true" />
+                    <i className={styles.fakeAdoptionCard} aria-hidden="true" />
                 </div>
             </div>
         );
