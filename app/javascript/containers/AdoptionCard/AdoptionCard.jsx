@@ -23,16 +23,16 @@ const AdoptionCard = (props) => {
         }
     }
 
-    function getCity(ngo) {
+    function getNgoDescription(ngo) {
         const city = ngo.city ? ngo.city : '';
         const state = ngo.state ? ngo.state : '';
 
         if (city === '' && state === '') {
             // TODO: should be required on ngos form
-            return 'Endereço da ONG não cadastrado';
+            return ngo.fantasy_name;
         }
 
-        return city + ", " + state;
+        return ngo.fantasy_name + ", " + city + "-" + state;
     }
 
     return (
@@ -43,17 +43,14 @@ const AdoptionCard = (props) => {
                 <img className={styles.picture} src={props.petImage} alt='Imagem do pet' />
             </div>
             <div className={styles.cardContent}>
-                <a className={styles.city}>{getCity(props.ngo)}</a>
                 <a className={styles.petName}>{props.name}</a>
                 <a className={styles.petDescription}>{props.description}</a>
                 <div className={styles.postDetail}>
                     <div className={styles.ngoDetail}>
                         <img className={styles.ngoPicture} src={props.ngo.logo_path} alt='Imagem da ONG' />
-                        <Link className={styles.ngoName} to={`/new/ong/${props.ngo.fantasy_name}`}>{props.ngo.fantasy_name}</Link>
+                        <Link className={styles.ngoName} to={`/new/ong/${props.ngo.fantasy_name}`}>{getNgoDescription(props.ngo)}</Link>
                     </div>
-                    <div>
-                        <a className={styles.postTime}>{timeAgo.format(postedAtDateTime)}</a>
-                    </div>
+                    <a className={styles.postTime}>{timeAgo.format(postedAtDateTime)}</a>
                 </div>
             </div>
             {/*{ TODO: implement behaviour of button when user is not logged in }*/}
