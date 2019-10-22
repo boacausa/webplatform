@@ -75,11 +75,11 @@ class AdoptionList extends React.Component {
                         <h1>Modal</h1>
                     </div>
                 </SimpleModal>
-                <SimpleHeaderText
-                    title='Encontre seu animalzinho'
-                    subtitle='Encontre aqui os animais disponíveis para adoção. Clique em "Adote" para saber mais.'
-                />
-                <AdoptionFilterBox/>
+                {/*<SimpleHeaderText*/}
+                {/*    title='Encontre seu animalzinho'*/}
+                {/*    subtitle='Encontre aqui os animais disponíveis para adoção. Clique em "Adote" para saber mais.'*/}
+                {/*/>*/}
+                {/*<AdoptionFilterBox/>*/}
                 <div className={styles.adoptionCards}>
                     {pets && this.petList(pets)}
                     {/* Trick to align last row of cards with flexbox */}
