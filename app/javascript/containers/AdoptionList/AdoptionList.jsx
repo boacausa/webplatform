@@ -63,7 +63,7 @@ class AdoptionList extends React.Component {
     };
 
     render() {
-        const {pets} = this.props;
+        const {pets, userEmail} = this.props;
 
         return (
             <div className={styles.AdoptionList}>
@@ -71,9 +71,16 @@ class AdoptionList extends React.Component {
                     show={this.state.adopting}
                     modalClosed={this.adoptingCancelHandler}
                 >
-                    <div>
-                        <h1>Modal</h1>
-                    </div>
+                    {userEmail ?
+                        <div>
+                            TODO
+                        </div>
+                    :
+                        <div>
+                            <p>Você precisa estar logado para adotar.</p>
+                            <a href="/users/sign_in">Ir para tela de login</a>
+                        </div>
+                    }
                 </SimpleModal>
                 {/*<SimpleHeaderText*/}
                 {/*    title='Encontre seu animalzinho'*/}
