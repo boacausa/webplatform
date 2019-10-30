@@ -6,6 +6,7 @@ import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
 import AdoptionFilterBox from "./FilterBox/AdoptionFilterBox";
 import SimpleModal from "../../components/SimpleModal/SimpleModal";
+import axios from 'axios';
 
 const GET_ADOPTION_REQUEST = 'GET_ADOPTION_REQUEST';
 const GET_ADOPTION_SUCCESS = 'GET_ADOPTION_SUCCESS';
@@ -37,8 +38,15 @@ class AdoptionList extends React.Component {
         fetchPetsForAdoption();
     }
 
-    openAdoptingModalHandler = () => {
-        this.setState({adopting: true});
+    addAdoptionInterestHandler = (userEmail, petId) => {
+        axios.post(`../v1/pets_for_adoption/register_interest`, { user_email: userEmail, pet_id: petId })
+            .then(function () {
+                this.setState({adopting: true});
+            })
+            .catch(function (error) {
+                // TODO: handle error
+                console.log(error);
+            });
     };
 
     adoptingCancelHandler = () => {
@@ -57,7 +65,7 @@ class AdoptionList extends React.Component {
                 sex={pet.sex}
                 ngo={pet.ngo}
                 user={this.props.userEmail}
-                modalOpen={this.openAdoptingModalHandler}
+                modalOpen={() => this.addAdoptionInterestHandler(this.props.userEmail, pet.id)}
             />;
         })
     };
@@ -73,7 +81,7 @@ class AdoptionList extends React.Component {
                 >
                     {userEmail ?
                         <div>
-                            TODO
+                            <p>Você está a uma pata mais próxima de adotar o seu animalzinho. A ONG está sabendo do seu interesse e entrará em contato quando tiver mais informações.</p>
                         </div>
                     :
                         <div>

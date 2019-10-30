@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get 'ngo_cities', to: 'ngos#cities'
     get 'ngo/:id', to: 'ngos#show'
     get 'pets_for_adoption', to: 'pets_for_adoption#index'
+    post 'pets_for_adoption/register_interest', to: 'pets_for_adoption#register_interest'
   end
 
   get '*page', to: 'static#index', constraints: ->(req) do
