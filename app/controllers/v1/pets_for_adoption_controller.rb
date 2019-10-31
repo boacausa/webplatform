@@ -11,11 +11,3 @@ class V1::PetsForAdoptionController < ApplicationController
     render json: {}, status: :ok
   end
 end
-
-
-class RegisterAdoptionInterest
-  def save!(user_email, pet_id)
-    puts "#{user_email} #{pet_id}"
-    # TODO
-  end
-end

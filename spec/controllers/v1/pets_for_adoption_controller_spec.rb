@@ -13,6 +13,7 @@ describe V1::PetsForAdoptionController do
 
   describe 'POST register_interest' do
     before do
+      allow_any_instance_of(::RegisterAdoptionInterest).to receive(:save!)
       post :register_interest, params: { user_email: "someone@email.com", pet_id: 321 }
     end
 
