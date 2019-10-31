@@ -12,5 +12,11 @@ describe RegisterAdoptionInterest do
 
       expect(AdoptionInterest.where(user_id: user.id, pet_id: pet.id).count).to eq(1)
     end
+
+    context "when user does not exists" do
+      it "raises an error" do
+        expect { subject.save!("undefined@email", pet.id) }.to raise_error(ActiveRecord::RecordNotFound, "Couldn't find User")
+      end
+    end
   end
 end
