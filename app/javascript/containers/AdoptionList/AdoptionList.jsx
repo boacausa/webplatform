@@ -6,7 +6,6 @@ import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
 import AdoptionFilterBox from "./FilterBox/AdoptionFilterBox";
 import SimpleModal from "../../components/SimpleModal/SimpleModal";
-import axios from 'axios';
 
 const GET_ADOPTION_REQUEST = 'GET_ADOPTION_REQUEST';
 const GET_ADOPTION_SUCCESS = 'GET_ADOPTION_SUCCESS';
@@ -30,7 +29,7 @@ export function fetchPetsForAdoptionSuccess(json) {
 
 class AdoptionList extends React.Component {
     state = {
-        adopting: false,
+        showAdoptingModal: false,
     };
 
     componentWillMount() {
@@ -39,18 +38,28 @@ class AdoptionList extends React.Component {
     }
 
     addAdoptionInterestHandler = (userEmail, petId) => {
-        axios.post(`../v1/pets_for_adoption/register_interest`, { user_email: userEmail, pet_id: petId })
-            .then(function () {
-                this.setState({adopting: true});
+        if (userEmail) {
+            let body = JSON.stringify({register_interest: {user_email: userEmail, pet_id: petId}});
+
+            fetch(`../v1/pets_for_adoption/register_interest`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: body,
             })
-            .catch(function (error) {
-                // TODO: handle error
-                console.log(error);
-            });
+                .then(response => console.log(response.json()))
+                .catch(function (error) {
+                    // TODO: handle error
+                    console.log(error);
+                });
+        }
+
+        this.setState({showAdoptingModal: true});
     };
 
     adoptingCancelHandler = () => {
-        this.setState({adopting: false});
+        this.setState({showAdoptingModal: false});
     };
 
     petList = (pets) => {
@@ -76,7 +85,7 @@ class AdoptionList extends React.Component {
         return (
             <div className={styles.AdoptionList}>
                 <SimpleModal
-                    show={this.state.adopting}
+                    show={this.state.showAdoptingModal}
                     modalClosed={this.adoptingCancelHandler}
                 >
                     {userEmail ?

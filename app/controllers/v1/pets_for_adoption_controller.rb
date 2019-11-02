@@ -1,4 +1,6 @@
 class V1::PetsForAdoptionController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     render json: {
       pets: ListPets.new.all
@@ -6,8 +8,22 @@ class V1::PetsForAdoptionController < ApplicationController
   end
 
   def register_interest
-    ::RegisterAdoptionInterest.new.save!(params[:user_email], params[:pet_id])
+    response = { success: "Finished with success" }
+    status = :ok
 
-    render json: {}, status: :ok
+    begin
+      ::RegisterAdoptionInterest.new.save!(register_interest_params[:user_email], register_interest_params[:pet_id])
+    rescue ActiveRecord::RecordNotFound
+      response = { error: "User not found" }
+      status = :not_found
+    end
+
+    render json: response.to_json, status: status
+  end
+
+  private
+
+  def register_interest_params
+    params.require(:register_interest).permit(:user_email, :pet_id)
   end
 end
