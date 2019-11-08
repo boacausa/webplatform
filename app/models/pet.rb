@@ -11,7 +11,7 @@ class Pet < ApplicationRecord
   
   validates :name, :sex, :ngo, presence: true
 
-  scope :actived, -> { where(active: true) }
+  scope :active, -> { where(active: true) }
 
   def days_ago
     created_at

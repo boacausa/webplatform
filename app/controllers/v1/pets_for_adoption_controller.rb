@@ -3,7 +3,7 @@ class V1::PetsForAdoptionController < ApplicationController
 
   def index
     render json: {
-      pets: ListPets.new.all(Pet.actived, params[:user_email])
+      pets: ListPets.new.all(Pet.active, params[:user_email])
     }.to_json
   end
 

@@ -1,7 +1,7 @@
 # TODO: add specs
 class ListNgos
   def all
-    ngos = Ngo.actived
+    ngos = Ngo.active
     add_extra_fields(ngos)
   end
 

@@ -35,7 +35,7 @@
   <% end %>
   <div class="form-group">
     <label>ONGs</label>
-    <% Ngo.actived.each do |ngo| %>
+    <% Ngo.active.each do |ngo| %>
       <div class="checkbox">
         <label>
           <%= check_box_tag 'user[ngo_ids][]', ngo.id, f.object.ngos.include?(ngo) -%>
