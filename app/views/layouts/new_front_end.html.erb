@@ -27,8 +27,8 @@
           <li class="nav-item <%= current_page?(ngos_path) ? 'active' : '' %>">
             <a class="nav-link" href="<%=ngos_path%>">ONGS</a>
           </li>
-          <li class="nav-item <%= current_page?(adoption_index_path) ? 'active' : '' %>">
-            <a class="nav-link" href="<%=adoption_index_path%>">ADOTE</a>
+          <li class="nav-item <%= current_page?("/adocao") ? 'active' : '' %>">
+            <a class="nav-link" href="/adocao">ADOTE</a>
           </li>
         </ul>
         <ul class="navbar-nav navbar-right">

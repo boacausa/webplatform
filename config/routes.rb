@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'home/index'
 
   localized do
-    resources :adoption, only: %i[index show edit new]
     resources :ngos, only: %i[index show]
 
     namespace :ngo_area do

@@ -28,7 +28,7 @@ class App extends React.Component {
                             <Route path="/hello" render={() => <HelloWorld greeting="Friend"/>}/>
                             <Route path="/new/ongs" render={() => <NgosList />}/>
                             <Route exact path="/new/ong/:id" component={NgoPage}/>
-                            <Route path="/new/adocao" render={() => <AdoptionList userEmail={this.state.userEmail} />}/>
+                            <Route path="/adocao" render={() => <AdoptionList userEmail={this.state.userEmail} />}/>
                         </Switch>
                     </BrowserRouter>
                 </Provider>
