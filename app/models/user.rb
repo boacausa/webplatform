@@ -7,6 +7,7 @@ class User < ApplicationRecord
   devise :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
   has_and_belongs_to_many :ngos
+  has_many :adoption_interests
 
   def self.from_omniauth(auth)
     user = User.find_by(email: auth.info.email)

@@ -1,5 +1,6 @@
 class Pet < ApplicationRecord
   belongs_to :ngo
+  has_many :adoption_interests
 
   SEX = {
     f: 'Fêmea',
@@ -10,7 +11,7 @@ class Pet < ApplicationRecord
   
   validates :name, :sex, :ngo, presence: true
 
-  scope :actived, -> { where(active: true) }
+  scope :active, -> { where(active: true) }
 
   def days_ago
     created_at

@@ -8,7 +8,7 @@ class Ngo < ApplicationRecord
 
   validates :fantasy_name, presence: true
 
-  scope :actived, -> { where(active: true) }
+  scope :active, -> { where(active: true) }
   scope :find_by_fantasy_name, ->(name) { where('replace(lower(fantasy_name), \' \', \'\') = ?', name) }
 
   def self.from_user(user)

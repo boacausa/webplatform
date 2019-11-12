@@ -1,3 +1,4 @@
+# in process of being deprecated
 class PetList
   def self.execute(user)
     if user.admin?

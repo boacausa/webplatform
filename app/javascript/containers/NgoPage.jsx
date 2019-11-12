@@ -52,7 +52,7 @@ class NgoPage extends React.Component {
         if (!ngo) return (<div/>);
 
         return (
-            <div className="container">
+            <div>
                 <div className="jumbotron">
                     <div style={{width: '100%', height: '60px'}}>
                         <h1 style={{float: 'left', marginTop: '2px'}}>{ngo.fantasy_name}</h1>

@@ -6,11 +6,18 @@ import configureStore from '../configureStore';
 import NgosList from "../containers/NgosList";
 import NgoPage from "../containers/NgoPage";
 import ErrorBoundary from "./ErrorBoundary";
-import AdoptionList from "../containers/AdoptionList";
+import AdoptionList from "../containers/AdoptionList/AdoptionList";
+
+require('typeface-roboto');
 
 const store = configureStore();
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { userEmail: this.props.userEmail };
+    }
+
     render() {
         return (
             <ErrorBoundary>
@@ -21,7 +28,7 @@ class App extends React.Component {
                             <Route path="/hello" render={() => <HelloWorld greeting="Friend"/>}/>
                             <Route path="/new/ongs" render={() => <NgosList />}/>
                             <Route exact path="/new/ong/:id" component={NgoPage}/>
-                            <Route path="/new/adocao" render={() => <AdoptionList />}/>
+                            <Route path="/new/adocao" render={() => <AdoptionList userEmail={this.state.userEmail} />}/>
                         </Switch>
                     </BrowserRouter>
                 </Provider>
