@@ -61,9 +61,8 @@ const AdoptionCard = (props) => {
                 </div>
             </div>
             <div className={styles.adoptionCardBottom}>
-                {/*{ TODO: implement behaviour of button when user is not logged in }*/}
                 <div className={styles.adoptionButton}>
-                    <AdoptionButton clicked={props.modalOpen} name='Adote'/>
+                    <AdoptionButton clicked={props.modalOpen} userRegisteredInterest={props.userRegisteredInterest} />
                 </div>
             </div>
         </div>

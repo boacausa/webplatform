@@ -1,5 +1,4 @@
 import React from "react"
-import SimpleHeaderText from "../../components/SimpleHeaderText/SimpleHeaderText";
 import styles from './AdoptionList.sass'
 import AdoptionCard from "../AdoptionCard/AdoptionCard";
 import {createStructuredSelector} from "reselect";
@@ -10,10 +9,13 @@ import SimpleModal from "../../components/SimpleModal/SimpleModal";
 const GET_ADOPTION_REQUEST = 'GET_ADOPTION_REQUEST';
 const GET_ADOPTION_SUCCESS = 'GET_ADOPTION_SUCCESS';
 
-function fetchPetsForAdoption() {
+function fetchPetsForAdoption(userEmail) {
     return dispatch => {
         dispatch({type: GET_ADOPTION_REQUEST});
-        return fetch(`../v1/pets_for_adoption.json`)
+
+        const params = userEmail ? "user_email=" + userEmail : null;
+
+        return fetch(`../v1/pets_for_adoption.json?` + params)
             .then(response => response.json())
             .then(json => dispatch(fetchPetsForAdoptionSuccess(json)))
             .catch(error => console.log(error));
@@ -33,8 +35,8 @@ class AdoptionList extends React.Component {
     };
 
     componentWillMount() {
-        const {fetchPetsForAdoption} = this.props;
-        fetchPetsForAdoption();
+        const {fetchPetsForAdoption, userEmail} = this.props;
+        fetchPetsForAdoption(userEmail);
     }
 
     addAdoptionInterestHandler = (userEmail, petId) => {
@@ -74,6 +76,7 @@ class AdoptionList extends React.Component {
                 sex={pet.sex}
                 ngo={pet.ngo}
                 user={this.props.userEmail}
+                userRegisteredInterest={pet.user_registered_interest}
                 modalOpen={() => this.addAdoptionInterestHandler(this.props.userEmail, pet.id)}
             />;
         })
@@ -99,11 +102,6 @@ class AdoptionList extends React.Component {
                         </div>
                     }
                 </SimpleModal>
-                {/*<SimpleHeaderText*/}
-                {/*    title='Encontre seu animalzinho'*/}
-                {/*    subtitle='Encontre aqui os animais disponíveis para adoção. Clique em "Adote" para saber mais.'*/}
-                {/*/>*/}
-                {/*<AdoptionFilterBox/>*/}
                 <div className={styles.adoptionCards}>
                     {pets && this.petList(pets)}
                     {/* Trick to align last row of cards with flexbox */}
