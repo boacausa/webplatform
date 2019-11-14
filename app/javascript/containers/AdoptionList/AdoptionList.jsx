@@ -93,7 +93,7 @@ class AdoptionList extends React.Component {
                 >
                     {userEmail ?
                         <div>
-                            <p>Você está a uma pata mais próxima de adotar o seu animalzinho. A ONG está sabendo do seu interesse e entrará em contato quando tiver mais informações.</p>
+                            <p>Você está a poucas patas de me adotar. A ONG acabou de saber sobre o seu interesse e entrará em contato em breve. PS: Mal posso esperar por esse momento :)</p>
                         </div>
                     :
                         <div>
