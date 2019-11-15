@@ -39,9 +39,9 @@ class AdoptionList extends React.Component {
         fetchPetsForAdoption(userEmail);
     }
 
-    addAdoptionInterestHandler = (userEmail, petId) => {
+    addAdoptionInterestHandler = (userEmail, pet) => {
         if (userEmail) {
-            let body = JSON.stringify({register_interest: {user_email: userEmail, pet_id: petId}});
+            let body = JSON.stringify({register_interest: {user_email: userEmail, pet_id: pet.id}});
 
             fetch(`../v1/pets_for_adoption/register_interest`, {
                 method: "POST",
@@ -50,7 +50,10 @@ class AdoptionList extends React.Component {
                 },
                 body: body,
             })
-                .then(response => console.log(response.json()))
+                .then(response => {
+                    console.log(response.json());
+                    this.props.fetchPetsForAdoption(userEmail);
+                })
                 .catch(function (error) {
                     // TODO: handle error
                     console.log(error);
@@ -77,7 +80,7 @@ class AdoptionList extends React.Component {
                 ngo={pet.ngo}
                 user={this.props.userEmail}
                 userRegisteredInterest={pet.user_registered_interest}
-                modalOpen={() => this.addAdoptionInterestHandler(this.props.userEmail, pet.id)}
+                modalOpen={() => this.addAdoptionInterestHandler(this.props.userEmail, pet)}
             />;
         })
     };
