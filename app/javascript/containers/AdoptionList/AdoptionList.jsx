@@ -1,5 +1,4 @@
 import React from "react"
-import SimpleHeaderText from "../../components/SimpleHeaderText/SimpleHeaderText";
 import styles from './AdoptionList.sass'
 import AdoptionCard from "../AdoptionCard/AdoptionCard";
 import {createStructuredSelector} from "reselect";
@@ -10,10 +9,13 @@ import SimpleModal from "../../components/SimpleModal/SimpleModal";
 const GET_ADOPTION_REQUEST = 'GET_ADOPTION_REQUEST';
 const GET_ADOPTION_SUCCESS = 'GET_ADOPTION_SUCCESS';
 
-function fetchPetsForAdoption() {
+function fetchPetsForAdoption(userEmail) {
     return dispatch => {
         dispatch({type: GET_ADOPTION_REQUEST});
-        return fetch(`../v1/pets_for_adoption.json`)
+
+        const params = userEmail ? "user_email=" + userEmail : null;
+
+        return fetch(`../v1/pets_for_adoption.json?` + params)
             .then(response => response.json())
             .then(json => dispatch(fetchPetsForAdoptionSuccess(json)))
             .catch(error => console.log(error));
@@ -33,13 +35,13 @@ class AdoptionList extends React.Component {
     };
 
     componentWillMount() {
-        const {fetchPetsForAdoption} = this.props;
-        fetchPetsForAdoption();
+        const {fetchPetsForAdoption, userEmail} = this.props;
+        fetchPetsForAdoption(userEmail);
     }
 
-    addAdoptionInterestHandler = (userEmail, petId) => {
+    addAdoptionInterestHandler = (userEmail, pet) => {
         if (userEmail) {
-            let body = JSON.stringify({register_interest: {user_email: userEmail, pet_id: petId}});
+            let body = JSON.stringify({register_interest: {user_email: userEmail, pet_id: pet.id}});
 
             fetch(`../v1/pets_for_adoption/register_interest`, {
                 method: "POST",
@@ -48,7 +50,10 @@ class AdoptionList extends React.Component {
                 },
                 body: body,
             })
-                .then(response => console.log(response.json()))
+                .then(response => {
+                    console.log(response.json());
+                    this.props.fetchPetsForAdoption(userEmail);
+                })
                 .catch(function (error) {
                     // TODO: handle error
                     console.log(error);
@@ -74,7 +79,8 @@ class AdoptionList extends React.Component {
                 sex={pet.sex}
                 ngo={pet.ngo}
                 user={this.props.userEmail}
-                modalOpen={() => this.addAdoptionInterestHandler(this.props.userEmail, pet.id)}
+                userRegisteredInterest={pet.user_registered_interest}
+                modalOpen={() => this.addAdoptionInterestHandler(this.props.userEmail, pet)}
             />;
         })
     };
@@ -90,7 +96,7 @@ class AdoptionList extends React.Component {
                 >
                     {userEmail ?
                         <div>
-                            <p>Você está a uma pata mais próxima de adotar o seu animalzinho. A ONG está sabendo do seu interesse e entrará em contato quando tiver mais informações.</p>
+                            <p>Você está a poucas patas de me adotar. A ONG acabou de saber sobre o seu interesse e entrará em contato em breve. PS: Mal posso esperar por esse momento :)</p>
                         </div>
                     :
                         <div>
@@ -99,11 +105,6 @@ class AdoptionList extends React.Component {
                         </div>
                     }
                 </SimpleModal>
-                {/*<SimpleHeaderText*/}
-                {/*    title='Encontre seu animalzinho'*/}
-                {/*    subtitle='Encontre aqui os animais disponíveis para adoção. Clique em "Adote" para saber mais.'*/}
-                {/*/>*/}
-                {/*<AdoptionFilterBox/>*/}
                 <div className={styles.adoptionCards}>
                     {pets && this.petList(pets)}
                     {/* Trick to align last row of cards with flexbox */}

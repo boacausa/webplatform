@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'home/index'
 
   localized do
-    resources :adoption, only: %i[index show edit new]
     resources :ngos, only: %i[index show]
 
     namespace :ngo_area do
@@ -16,7 +15,6 @@ Rails.application.routes.draw do
   end
 
   namespace :v1, defaults: { format: 'json' } do
-    get 'things', to: 'things#index'
     get 'ngos', to: 'ngos#index'
     get 'ngo_cities', to: 'ngos#cities'
     get 'ngo/:id', to: 'ngos#show'
