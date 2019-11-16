@@ -24,7 +24,7 @@
             <tr>
               <td><%=adoption_interest.user.email%></td>
               <td><a href="<%= edit_ngo_area_pet_path(adoption_interest.pet) %>"><%=adoption_interest.pet.name%></a></td>
-              <td><%=adoption_interest.created_at%></td>
+              <td><%=I18n.l(adoption_interest.created_at, format: :default)%></td>
             </tr>
             <% end %>
             </tbody>
