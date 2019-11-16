@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :ngos, only: %i[index new create edit update]
       resources :pets, only: %i[index new create edit update destroy]
       resources :users, only: %i[index new create edit update destroy]
+      resources :adoption_interests, only: %i[index]
     end
   end
 
