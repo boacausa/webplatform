@@ -69,7 +69,9 @@
 
 <script>
   var user_phone = document.getElementById("user_phone");
-  user_phone.onkeyup = mascara;
+  if (user_phone) {
+      user_phone.onkeyup = mascara;
+  }
 
   function mascara(){
     setTimeout("execmascara()",1);
