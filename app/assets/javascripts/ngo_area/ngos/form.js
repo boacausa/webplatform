@@ -2,16 +2,21 @@
 
 var phone_number1 = document.getElementById("ngo_phone_number1");
 var phone_number2 = document.getElementById("ngo_phone_number2");
-phone_number1.onkeyup = mask;
-phone_number2.onkeyup = mask;
+
+if (phone_number1 && phone_number2) {
+    phone_number1.onkeyup = mask;
+    phone_number2.onkeyup = mask;
+}
 
 function mask(){
     setTimeout("execmask()",1);
 }
 
 function execmask(){
-    phone_number1.value=mtel(phone_number1.value);
-    phone_number2.value=mtel(phone_number2.value);
+    if (phone_number1 && phone_number2) {
+        phone_number1.value = mtel(phone_number1.value);
+        phone_number2.value = mtel(phone_number2.value);
+    }
 }
 
 function mtel(v){
