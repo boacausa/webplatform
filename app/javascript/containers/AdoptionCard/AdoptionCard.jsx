@@ -43,9 +43,7 @@ const AdoptionCard = (props) => {
 
     return (
         <div className={styles.AdoptionCard}>
-            <div className={styles.pictureBox}>
-                <img className={styles.picture} src={props.petImage} alt='Imagem do pet' />
-            </div>
+            <div className={styles.pictureBox} style={{backgroundImage: `url(${props.petImage})`}} />
             <div className={styles.cardContent}>
                 <a className={styles.petName}>{props.name}</a>
                 <div className={styles.postDetail}>
