@@ -14,7 +14,9 @@
           <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
-              <th>Email Usuário</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
               <th>Pet</th>
               <th>Data</th>
             </tr>
@@ -22,7 +24,9 @@
             <tbody>
             <% @adoption_interests.each do |adoption_interest| %>
             <tr>
+              <td><%=adoption_interest.user.name%></td>
               <td><%=adoption_interest.user.email%></td>
+              <td><%=adoption_interest.user.phone%></td>
               <td><a href="<%= edit_ngo_area_pet_path(adoption_interest.pet) %>"><%=adoption_interest.pet.name%></a></td>
               <td><%=I18n.l(adoption_interest.created_at, format: :default)%></td>
             </tr>
