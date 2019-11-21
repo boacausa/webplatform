@@ -16,6 +16,8 @@ module Uberdo3setor
     
     config.i18n.default_locale = :'pt-BR'
 
+    config.time_zone = 'America/Sao_Paulo'
+
     config.filter_parameters << :password
   end
 end
