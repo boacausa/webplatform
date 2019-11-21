@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './AdoptionCard.sass'
-import {Link} from "react-router-dom";
 import TimeAgo from 'javascript-time-ago'
 // Load pt-BR locale for time ago
 import br from 'javascript-time-ago/locale/pt'
@@ -53,7 +52,8 @@ const AdoptionCard = (props) => {
                 <div className={styles.postDetail}>
                     <div className={styles.ngoDetail}>
                         <img className={styles.ngoPicture} src={props.ngo.logo_path} alt='Imagem da ONG' />
-                        <Link className={styles.smallText} to={`/new/ong/${props.ngo.fantasy_name}`}>{getNgoDescription(props.ngo)}</Link>
+                        {/* TODO: Use react route Link component after implementing new ngo page*/}
+                        <a className={styles.smallText} href={`/ongs/${props.ngo.fantasy_name_url}`}>{getNgoDescription(props.ngo)}</a>
                     </div>
                     <a className={styles.smallText}>{timeAgo.format(postedAtDateTime)}</a>
                 </div>
