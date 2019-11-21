@@ -9,7 +9,7 @@ const AdoptionButton = (props) => {
             onClick={props.clicked}
             className={buttonStyle}
             disabled={props.userRegisteredInterest}
-        >Adote</button>
+        >Adotar</button>
     );
 };
 
