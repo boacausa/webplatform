@@ -3,6 +3,7 @@ puts 'Deleting old registers'
 Pet.delete_all
 Ngo.delete_all
 User.delete_all
+AdoptionInterest.delete_all
 
 puts 'Creating NGOs'
 
@@ -14,7 +15,7 @@ Ngo.create!(
   email: Faker::Internet.email,
   site: Faker::Internet.url,
   cnpj: CNPJ.generate,
-  date_start: Faker::Date.backward(1000),
+  date_start: Faker::Date.backward(days: 1000),
   active: true,
   city: Faker::Address.city,
   state: Faker::Address.state,
@@ -34,7 +35,7 @@ Ngo.create!(
   email: Faker::Internet.email,
   site: Faker::Internet.url,
   cnpj: CNPJ.generate,
-  date_start: Faker::Date.backward(1000),
+  date_start: Faker::Date.backward(days: 1000),
   active: true
 )
 
@@ -68,7 +69,7 @@ ngo_ids = Ngo.all.pluck(:id)
   pet = Pet.create!(
       name: Faker::Name.first_name,
       age: Random.rand(10),
-      description: Faker::Lorem.paragraph_by_chars([100, 50, 200, 300, 500].sample),
+      description: Faker::Lorem.paragraph_by_chars(number: [100, 50, 200, 300, 500].sample),
       sex: ['f', 'm'].sample,
       active: true,
       ngo_id: ngo_ids.sample
