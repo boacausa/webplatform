@@ -22,6 +22,7 @@ class SimpleModal extends React.Component {
                         opacity: this.props.show ? '1' : '0'
                     }}
                 >
+                    <a onClick={this.props.modalClosed} className={styles.closeButton}>x</a>
                     {this.props.children}
                 </div>
             </div>
