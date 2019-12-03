@@ -19,5 +19,7 @@ module Uberdo3setor
     config.time_zone = 'America/Sao_Paulo'
 
     config.filter_parameters << :password
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
