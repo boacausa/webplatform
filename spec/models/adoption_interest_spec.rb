@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe AdoptionInterest, type: :model do
+  describe '#notify_user' do
+    it 'enqueues a job' do
+      FactoryBot.create(:adoption_interest)
+      expect(NotifyAdoptionInterest).to have_been_enqueued.exactly(:once)
+    end
+  end
+
   describe '.by_ngo_user' do
     let(:ngo_1) { FactoryBot.create(:ngo) }
     let(:ngo_2) { FactoryBot.create(:ngo) }
