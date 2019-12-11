@@ -42,7 +42,7 @@
             <li>
               <a href="<%= ngo_area_adoption_interests_path %>">
                 <div>
-                  <strong><%= notification.adoption_interest.user.name %></strong> acabou de registrar interesse no pet <strong><%= notification.adoption_interest.pet.name %></strong>
+                  <strong><%= notification.adoption_interest.user.name || notification.adoption_interest.user.email %></strong> acabou de registrar interesse no pet <strong><%= notification.adoption_interest.pet.name %></strong>
                   <span class="pull-right text-muted small"><%= time_ago_in_words(notification.created_at) %></span>
                 </div>
               </a>
