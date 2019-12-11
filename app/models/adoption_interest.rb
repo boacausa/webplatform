@@ -15,6 +15,6 @@ class AdoptionInterest < ApplicationRecord
   private
 
   def notify_user
-    NotifyAdoptionInterest.perform_later(user)
+    NotifyAdoptionInterest.perform_later(self)
   end
 end
