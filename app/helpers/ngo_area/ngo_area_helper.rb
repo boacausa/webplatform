@@ -1,5 +1,8 @@
 module NgoArea::NgoAreaHelper
   def adoption_interest_notification(user)
-    AdoptionInterestNotification.where(user: user, read: false)
+    AdoptionInterestNotification
+      .joins(adoption_interest: [:user, :pet])
+      .includes(adoption_interest: [:user, :pet])
+      .where(user: user, read: false)
   end
 end
