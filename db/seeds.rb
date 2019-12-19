@@ -44,18 +44,21 @@ Ngo.last.image.attach(io: File.open("public/images/ngo/amigobicho.png"), filenam
 puts 'Creating Users'
 
 User.create!(
+  name: 'Usuário admin',
   email: 'admin@boacausa.com',
   password: '123456789',
   group: :admin,
 )
 
 ngo_user = User.create!(
+  name: 'Usuário da ONG',
   email: 'ngo@boacausa.com',
   password: '123456789',
   group: :ngo
 )
 
 User.create!(
+  name: 'Usuário normal',
   email: 'user@boacausa.com',
   password: '123456789',
 )

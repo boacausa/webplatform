@@ -9,4 +9,12 @@ class AdoptionInterest < ApplicationRecord
       self.joins(:pet).where(pets: { ngo: user.ngos })
     end
   end
+
+  after_create :notify_user
+
+  private
+
+  def notify_user
+    NotifyAdoptionInterest.perform_later(self)
+  end
 end

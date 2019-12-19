@@ -1,0 +1,7 @@
+FactoryBot.define do
+  factory :adoption_interest_notification do
+    user
+    adoption_interest
+    read { false }
+  end
+end

@@ -35,33 +35,26 @@
     <ul class="nav navbar-top-links navbar-right">
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+          <i class="fa fa-bell fa-fw">
+            <% if adoption_interest_notification(current_user).length > 0 %>
+              <span class="notification-badger" />
+            <% end %>
+          </i>
         </a>
         <ul class="dropdown-menu dropdown-alerts">
+          <% adoption_interest_notification(current_user).each do |notification| %>
+            <li>
+              <a href="<%= ngo_area_mark_notification_as_read_path(notification_id: notification) %>">
+                <div>
+                  <strong><%= notification.adoption_interest.user.name || notification.adoption_interest.user.email %></strong> acabou de registrar interesse no pet <strong><%= notification.adoption_interest.pet.name %></strong>
+                  <span class="pull-right text-muted small"><%= time_ago_in_words(notification.created_at) %></span>
+                </div>
+              </a>
+            </li>
+          <% end %>
           <li>
-            <!-- TODO: add adoption request link -->
-            <a href="#">
-              <div>
-                <strong>Tiago Giusti</strong> acabou de registrar interesse no pet <strong>Tobby</strong>
-                <!-- TODO: add adoption request time -->
-                <span class="pull-right text-muted small">4 minutes ago</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div>
-                <strong>Caroline Salib</strong> acabou de registrar interesse no pet <strong>Robson</strong>
-                <span class="pull-right text-muted small">4 minutes ago</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="text-center" href="#">
-              <!-- TODO: add adoption request link -->
-              <!-- TODO: clean notifications -->
-              <strong>Veja mais</strong>
-              <i class="fa fa-angle-right"></i>
+            <a class="text-center" href="<%= ngo_area_adoption_interests_path %>">
+              <strong>Ir para interessados em adoção</strong>
             </a>
           </li>
         </ul>
