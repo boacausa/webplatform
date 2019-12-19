@@ -20,6 +20,8 @@ Rails.application.routes.draw do
       resources :pets, only: %i[index new create edit update destroy]
       resources :users, only: %i[index new create edit update destroy]
       resources :adoption_interests, only: %i[index]
+
+      get 'mark_notification_as_read/:notification_id', to: 'adoption_interests#mark_notification_as_read', as: 'mark_notification_as_read'
     end
   end
 

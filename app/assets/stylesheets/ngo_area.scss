@@ -1,2 +1,13 @@
 @import 'font-awesome';
 @import 'bootstrap_sb_admin_base_v2';
+
+.notification-badger {
+  background-color: #e74a3b;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  display: inline-block;
+  position: absolute;
+  right: 1rem;
+  margin-top: 0.75rem;
+}

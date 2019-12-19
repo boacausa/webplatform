@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :adoption_interest_notification do
-    user { nil }
-    adoption_interest { nil }
+    user
+    adoption_interest
     read { false }
   end
 end
