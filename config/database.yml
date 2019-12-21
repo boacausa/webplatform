@@ -17,4 +17,4 @@ test:
 
 production:
   <<: *default
-  database: boacausa_production
+  url: <%= ENV['DATABASE_URL'] %>

@@ -52,11 +52,11 @@
               </a>
             </li>
           <% end %>
-          <li>
-            <a class="text-center" href="<%= ngo_area_adoption_interests_path %>">
-              <strong>Ir para interessados em adoção</strong>
-            </a>
-          </li>
+          <% unless adoption_interest_notification(current_user).length > 0 %>
+            <li>
+              <p style="text-align: center">Sem novos interesssados em adoção</p>
+            </li>
+          <% end %>
         </ul>
       </li>
       <li class="dropdown">
