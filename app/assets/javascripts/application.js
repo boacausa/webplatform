@@ -16,3 +16,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+// Avoid weird url after login using omniauth facebook/google
+if (window.location.href.indexOf("#") > 0) {
+    window.location = window.location.href.replace(/#.*/, "");
+}
