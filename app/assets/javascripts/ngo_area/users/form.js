@@ -8,7 +8,9 @@ if (phone_number) {
     }
 
     function execmask() {
-        phone_number.value = mtel(phone_number.value);
+        if (phone_number && phone_number.value) {
+            phone_number.value = mtel(phone_number.value);
+        }
     }
 
     function mtel(v) {
