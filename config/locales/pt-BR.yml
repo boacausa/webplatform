@@ -4,6 +4,8 @@ pt-BR:
     ngos: ongs
     ngo_area: ong_area
     users: usuarios
+    new: novo
+    adoption_interests: inderessados_adocao
 
   activerecord:
     attributes:
