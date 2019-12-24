@@ -1,6 +1,7 @@
 class AdoptionInterest < ApplicationRecord
   belongs_to :user
   belongs_to :pet
+  has_many :adoption_interest_notifications, dependent: :destroy
 
   scope :by_ngo_user, -> (user) do
     if user.admin?
