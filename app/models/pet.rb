@@ -1,6 +1,6 @@
 class Pet < ApplicationRecord
   belongs_to :ngo
-  has_many :adoption_interests
+  has_many :adoption_interests, dependent: :destroy
 
   SEX = {
     f: 'Fêmea',
