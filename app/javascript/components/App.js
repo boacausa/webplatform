@@ -22,8 +22,8 @@ class App extends React.Component {
         return (
             <ErrorBoundary>
                 <Provider store={store}>
-                    <Navigation/>
                     <BrowserRouter>
+                        <Navigation/>
                         <Switch>
                             <Route exact path="/" render={() => ("Home!")}/>
                             <Route path="/new/ongs" render={() => <NgosList />}/>
