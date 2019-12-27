@@ -6,6 +6,7 @@ import NgosList from "../containers/NgosList";
 import NgoPage from "../containers/NgoPage";
 import ErrorBoundary from "./ErrorBoundary";
 import AdoptionList from "../containers/AdoptionList/AdoptionList";
+import Navigation from "./Navigation/Navigation";
 
 require('typeface-roboto');
 
@@ -21,6 +22,7 @@ class App extends React.Component {
         return (
             <ErrorBoundary>
                 <Provider store={store}>
+                    <Navigation/>
                     <BrowserRouter>
                         <Switch>
                             <Route exact path="/" render={() => ("Home!")}/>
