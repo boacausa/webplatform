@@ -23,7 +23,7 @@ class App extends React.Component {
             <ErrorBoundary>
                 <Provider store={store}>
                     <BrowserRouter>
-                        <Navigation/>
+                        <Navigation userEmail={this.state.userEmail} />
                         <Switch>
                             <Route exact path="/" render={() => ("Home!")}/>
                             <Route path="/new/ongs" render={() => <NgosList />}/>
