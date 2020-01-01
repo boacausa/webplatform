@@ -8,10 +8,13 @@ const Navigation = (props) => {
     }
 
     function userButtons() {
-        // TODO: User pic
         // TODO: Link to admin panel
+        // TODO: Link to edit user
 
-        return <p>{props.userEmail}</p>;
+        return <div className={styles.userProperties}>
+            <span className={styles.userPicture} />
+            <a className={styles.moreButton} />
+        </div>;
     }
 
     return <nav className={styles.Navigation}>
