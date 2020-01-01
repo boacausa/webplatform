@@ -1,15 +1,18 @@
+@import "../../variables/colors"
+@import "../../variables/fonts"
+
 .Navigation
-  background-color: #5DD5E6
+  background-color: $menu-color
   height: 60px
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12)
 
   .title
-    font-family: Roboto // TODO: extract to a var
+    font-family: $font-family
     font-style: normal
     font-weight: 500
     font-size: 20px
     line-height: 23px
-    color: #FFFFFF
+    color: $link-color
     position: absolute
     width: 96px
     height: 24px
@@ -17,21 +20,25 @@
     top: 21px
 
   .links
-    font-family: Roboto // TODO: extract to a var
+    position: absolute
+    left: 40%
+    top: 12px
+    display: flex
+    justify-content: space-between
+    width: 280px
+
+  .link
+    font-family: $font-family
     font-style: normal
     font-weight: normal
     font-size: 20px
     line-height: 23px
-    color: #FFFFFF
-    position: absolute
-    left: 45%
-    top: 21px
-    display: flex
-    justify-content: space-between
-    width: 240px
+    color: $link-color
+    text-align: center
+    padding: 10px
 
   .linkActive
     width: 88px
     height: 41px
-    background: #FCCE81 // TODO: extract to a var
+    background: $active-color
     border-radius: 45px

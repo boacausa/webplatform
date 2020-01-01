@@ -6,9 +6,9 @@ const Navigation = () => {
     return <nav className={styles.Navigation}>
         <h1 className={styles.title}>Boa Causa</h1>
         <div className={styles.links}>
-            <NavLink exact activeClassName={styles.linkActive} to="/">Home</NavLink>
-            <NavLink activeClassName={styles.linkActive} to="/ongs">ONGs</NavLink>
-            <NavLink activeClassName={styles.linkActive} to="/adocao">Adocão</NavLink>
+            <NavLink exact className={styles.link} activeClassName={styles.linkActive} to="/">Home</NavLink>
+            <NavLink className={styles.link} activeClassName={styles.linkActive} to="/ongs">ONGs</NavLink>
+            <NavLink className={styles.link} activeClassName={styles.linkActive} to="/adocao">Adoção</NavLink>
         </div>
     </nav>;
 };
