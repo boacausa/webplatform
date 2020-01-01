@@ -1,5 +1,6 @@
 @import "../../variables/colors"
 @import "../../variables/fonts"
+@import "../../variables/sizes"
 
 .Navigation
   background-color: $menu-color
@@ -42,3 +43,7 @@
     height: 41px
     background: $active-color
     border-radius: 45px
+
+  @media #{$phone}
+    .links
+      display: none
