@@ -68,12 +68,24 @@
     top: 12px
 
   .moreButton
-    background: url(../../images/more.svg) no-repeat
+    position: absolute
+    top: 12px
     width: 10px
     height: 40px
-    position: absolute
     right: 10px
-    top: 24px
+    background-color: transparent
+    border: 0
+    align-items: center
+
+  .moreButton:focus
+    outline: none
+
+  .moreIcon
+    background: url(../../images/more.svg) no-repeat
+    width: 4px
+    height: 16px
+    display: inline-block
+    margin-top: 6px
 
   @media #{$phone}
     .links
