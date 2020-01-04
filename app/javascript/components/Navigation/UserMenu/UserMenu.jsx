@@ -2,11 +2,18 @@ import React from 'react';
 import styles from "./UserMenu.sass";
 
 const UserMenu = () => {
-    // TODO: Link to admin panel
-    // TODO: Link to edit user
-    return <ul className={styles.UserMenu}>
-        <li className={styles.menuRow}>Configurações</li>
-    </ul>
+    function redirectToNgoArea() {
+        window.open("/ong_area/ongs", "_blank")
+    }
+
+    return <div className={styles.UserMenu}>
+        <ul className={styles.menuBorder}>
+            <li className={styles.menuRow}>Configurações</li>
+
+             {/*TODO: Only if is ngo user*/}
+            <li onClick={() => redirectToNgoArea()} className={styles.menuRow}>Área da ONG</li>
+        </ul>
+    </div>
 };
 
 export default UserMenu;

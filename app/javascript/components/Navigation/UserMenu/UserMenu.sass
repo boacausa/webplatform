@@ -1,17 +1,27 @@
+@import "../../../variables/fonts"
+
 .UserMenu
   position: absolute
-  min-width: 160px
+  min-width: 200px
   top: 56px
   right: 12px
   transform-origin: right top
-  z-index: 8
+  z-index: 2
   background: #fff
   color: rgba(0,0,0,.87)
-  padding: 0
+
+  .menuBorder
+    padding: 8px 0
+    margin: 0
 
   .menuRow
     cursor: pointer
-    height: 32px
+    height: 48px
     position: relative
     text-align: left
     list-style-type: none
+    padding: 12px 30px
+    font-family: $font-family
+
+  .menuRow:hover
+    background: rgba(0,0,0,.04)
