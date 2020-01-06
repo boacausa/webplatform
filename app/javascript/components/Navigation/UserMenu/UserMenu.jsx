@@ -6,6 +6,10 @@ const UserMenu = (props) => {
         window.open("/ong_area/ongs", "_blank")
     }
 
+    function redirectToLogOut() {
+        window.location.href = "/users/sign_out";
+    }
+
     function ngoAreaLink() {
         if (props.user.group === "admin" || props.user.group === "ngo") {
             return <li onClick={() => redirectToNgoArea()} className={styles.menuRow}>Área da ONG</li>
@@ -16,6 +20,7 @@ const UserMenu = (props) => {
         <ul className={styles.menuBorder}>
             <li className={styles.menuRow}>Configurações</li>
             {ngoAreaLink()}
+            <li onClick={() => redirectToLogOut()} className={styles.menuRow}>Sair</li>
         </ul>
     </div>
 };

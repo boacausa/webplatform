@@ -35,7 +35,7 @@
               <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá, <%= current_user.email %></a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
                 <%= link_to('Área da ONG', ngo_area_ngos_path, class: 'dropdown-item') if current_user.ngo_privileges? %>
-                <%= link_to('Sair', destroy_user_session_path, method: :delete, class: 'dropdown-item') %>
+                <%= link_to('Sair', destroy_user_session_path, class: 'dropdown-item') %>
               </div>
             <% else %>
               <%= link_to('Entrar', new_user_session_path) %>
