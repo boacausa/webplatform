@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Navigation.sass';
 import {NavLink} from "react-router-dom";
 import UserMenu from "./UserMenu/UserMenu";
+import OutsideComponentHandler from "../OutsideComponentHandler";
 
 class Navigation extends React.Component {
     state = {
@@ -16,13 +17,21 @@ class Navigation extends React.Component {
         this.setState({userMenuActive: !this.state.userMenuActive});
     };
 
+    userMenu = () => {
+        return <OutsideComponentHandler
+            onClickOutside={() => this.toggleMoreButtonHandler()}
+        >
+            <UserMenu />
+        </OutsideComponentHandler>
+    };
+
     userButtons = () => {
         return <div className={styles.userProperties}>
             <span className={styles.userPicture} />
             <button className={styles.moreButton} onClick={() => this.toggleMoreButtonHandler()}>
                 <i className={styles.moreIcon} aria-hidden="true" />
             </button>
-            {this.state.userMenuActive && <UserMenu />}
+            {this.state.userMenuActive && this.userMenu()}
         </div>;
     };
 
