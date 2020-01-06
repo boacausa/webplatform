@@ -1,9 +1,10 @@
 puts 'Deleting old registers'
 
-Pet.delete_all
-Ngo.delete_all
-User.delete_all
-AdoptionInterest.delete_all
+AdoptionInterestNotification.destroy_all
+AdoptionInterest.destroy_all
+Pet.destroy_all
+Ngo.destroy_all
+User.destroy_all
 
 puts 'Creating NGOs'
 
@@ -18,7 +19,7 @@ Ngo.create!(
   date_start: Faker::Date.backward(days: 1000),
   active: true,
   city: Faker::Address.city,
-  state: Faker::Address.state,
+  state: Faker::Address.state_abbr,
   zipcode: Faker::Address.zip_code,
   address_number: Faker::Address.building_number,
   address: Faker::Address.street_address,

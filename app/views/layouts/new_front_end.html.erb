@@ -12,41 +12,7 @@
     <%= stylesheet_link_tag 'ngos', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="background-color: #F2F3F3;">
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="<%=root_path%>"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item <%= current_page?(root_path) ? 'active' : '' %>">
-            <a class="nav-link" href="<%=root_path%>">SOBRE</a>
-          </li>
-          <li class="nav-item <%= current_page?(ngos_path) ? 'active' : '' %>">
-            <a class="nav-link" href="<%=ngos_path%>">ONGS</a>
-          </li>
-          <li class="nav-item <%= current_page?("/adocao") ? 'active' : '' %>">
-            <a class="nav-link" href="/adocao">ADOTE</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav navbar-right">
-          <li class="nav-item dropdown">
-            <% if user_signed_in? %>
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá, <%= current_user.email %></a>
-              <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <%= link_to('Área da ONG', ngo_area_ngos_path, class: 'dropdown-item') if current_user.ngo_privileges? %>
-                <%= link_to('Sair', destroy_user_session_path, method: :delete, class: 'dropdown-item') %>
-              </div>
-            <% else %>
-              <%= link_to('Entrar', new_user_session_path) %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
+  <body style="background-color: #F2F3F3; padding-top: 0;">
     <%= yield %>
   </body>
 </html>
