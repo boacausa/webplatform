@@ -21,7 +21,7 @@ class Navigation extends React.Component {
         return <OutsideComponentHandler
             onClickOutside={() => this.toggleMoreButtonHandler()}
         >
-            <UserMenu />
+            <UserMenu user={this.props.user} />
         </OutsideComponentHandler>
     };
 
@@ -44,7 +44,7 @@ class Navigation extends React.Component {
                     <NavLink className={styles.link} activeClassName={styles.linkActive} to="/ongs">ONGs</NavLink>
                     <NavLink className={styles.link} activeClassName={styles.linkActive} to="/adocao">Adoção</NavLink>
                 </div>
-                {this.props.userEmail ? this.userButtons() : this.loginButton()}
+                {this.props.user.email ? this.userButtons() : this.loginButton()}
             </nav>
         );
     };

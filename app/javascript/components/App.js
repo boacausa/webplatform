@@ -15,7 +15,12 @@ const store = configureStore();
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { userEmail: this.props.userEmail };
+        this.state = {
+            user: {
+                email: this.props.userEmail,
+                group: this.props.userGroup,
+            }
+        };
     }
 
     render() {
@@ -23,12 +28,12 @@ class App extends React.Component {
             <ErrorBoundary>
                 <Provider store={store}>
                     <BrowserRouter>
-                        <Navigation userEmail={this.state.userEmail} />
+                        <Navigation user={this.state.user} />
                         <Switch>
                             <Route exact path="/" render={() => ("Home!")}/>
                             <Route path="/new/ongs" render={() => <NgosList />}/>
                             <Route exact path="/new/ong/:id" component={NgoPage}/>
-                            <Route path="/adocao" render={() => <AdoptionList userEmail={this.state.userEmail} />}/>
+                            <Route path="/adocao" render={() => <AdoptionList userEmail={this.state.user.email} />}/>
                         </Switch>
                     </BrowserRouter>
                 </Provider>
