@@ -20,6 +20,7 @@ const UserMenu = (props) => {
         <ul className={styles.menuBorder}>
             <li className={styles.menuRow}>Configurações</li>
             {ngoAreaLink()}
+            <hr className={styles.menuDivisor} />
             <li onClick={() => redirectToLogOut()} className={styles.menuRow}>Sair</li>
         </ul>
     </div>
