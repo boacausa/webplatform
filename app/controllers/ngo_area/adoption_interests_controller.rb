@@ -1,6 +1,6 @@
 class NgoArea::AdoptionInterestsController < NgoAreaController
   def index
-    @adoption_interests = AdoptionInterest.by_ngo_user(current_user)
+    @adoption_interests = AdoptionInterest.by_ngo_user(current_user).order(created_at: :desc)
   end
 
   def mark_notification_as_read
