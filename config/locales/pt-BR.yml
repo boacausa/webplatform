@@ -5,7 +5,7 @@ pt-BR:
     ngo_area: ong_area
     users: usuarios
     new: novo
-    adoption_interests: inderessados_adocao
+    adoption_interests: interessados_adocao
 
   activerecord:
     attributes:
