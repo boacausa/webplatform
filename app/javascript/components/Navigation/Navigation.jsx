@@ -38,13 +38,15 @@ class Navigation extends React.Component {
     render() {
         return (
             <nav className={styles.Navigation}>
-                <h1 className={styles.title}>Boa Causa</h1>
-                <div className={styles.links}>
+                <div className={styles.titleBox}><h1 className={styles.title}>Boa Causa</h1></div>
+                <div className={styles.linksBox}>
                     <NavLink exact className={styles.link} activeClassName={styles.linkActive} to="/">Home</NavLink>
                     <NavLink className={styles.link} activeClassName={styles.linkActive} to="/ongs">ONGs</NavLink>
                     <NavLink className={styles.link} activeClassName={styles.linkActive} to="/adocao">Adoção</NavLink>
                 </div>
-                {this.props.user.email ? this.userButtons() : this.loginButton()}
+                <div className={styles.buttonBox}>
+                    {this.props.user.email ? this.userButtons() : this.loginButton()}
+                </div>
             </nav>
         );
     };
