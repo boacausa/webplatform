@@ -19,6 +19,13 @@ pt-BR:
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
+      models:
+        user:
+          attributes:
+            email:
+              invalid_email: 'não é válido'
+            cpf:
+              invalid_cpf: 'não é válido'
 
   date:
     abbr_day_names:
