@@ -38,7 +38,13 @@ class Navigation extends React.Component {
     render() {
         return (
             <nav className={styles.Navigation}>
-                <div className={styles.titleBox}><h1 className={styles.title}>Boa Causa</h1></div>
+                <div className={styles.titleBox}>
+                    <div className={styles.logoBox}>
+                        {/* Temporary until we have a logo */}
+                        <p style={{fontSize: "14px", paddingTop: "8px", paddingLeft: "4px", fontFamily: "Roboto", color: "grey"}}>Logo</p>
+                    </div>
+                    <h1 className={styles.title}>Boa Causa</h1>
+                </div>
                 <div className={styles.linksBox}>
                     <NavLink exact className={styles.link} activeClassName={styles.linkActive} to="/">Home</NavLink>
                     <NavLink className={styles.link} activeClassName={styles.linkActive} to="/ongs">ONGs</NavLink>
