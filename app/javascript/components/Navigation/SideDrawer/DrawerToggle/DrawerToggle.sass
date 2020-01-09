@@ -1,0 +1,22 @@
+@import "../../../../variables/sizes"
+
+.DrawerToggle
+    width: 30px
+    height: 100%
+    display: flex
+    flex-flow: column
+    justify-content: space-around
+    align-items: center
+    padding: 20px 0
+    box-sizing: border-box
+    cursor: pointer
+    margin-right: 20px
+
+.DrawerToggle div
+    width: 90%
+    height: 3px
+    background-color: white
+
+@media #{$bigger-than-phone}
+    .DrawerToggle
+        display: none

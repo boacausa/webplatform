@@ -3,6 +3,7 @@ import styles from './Navigation.sass';
 import {NavLink} from "react-router-dom";
 import UserMenu from "./UserMenu/UserMenu";
 import OutsideComponentHandler from "../OutsideComponentHandler";
+import DrawerToggle from "./SideDrawer/DrawerToggle/DrawerToggle";
 
 class Navigation extends React.Component {
     state = {
@@ -53,6 +54,7 @@ class Navigation extends React.Component {
                 <div className={styles.buttonBox}>
                     {this.props.user.email ? this.userButtons() : this.loginButton()}
                 </div>
+                <DrawerToggle clicked={this.props.toggleDrawerButtonHandler} />
             </nav>
         );
     };
