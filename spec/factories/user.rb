@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :user do
     name { Faker::Name.name }
     last_name { Faker::Name.last_name }
+    cpf { CPF.generate }
     email { Faker::Internet.email }
     password { Faker::Internet.password }
     group { nil }

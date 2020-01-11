@@ -1,38 +1,54 @@
 <div class="col-lg-12">
-  <div class="form-group">
-    <%= label_tag(:name, 'Nome') %>
+  <%= form_error_tag(@user) %>
+
+  <div class="form-group <%= form_group_error_class(@user, :name)%>">
+    <%= label_tag(:name, 'Nome', class: 'control-label') %>
     <%= f.text_field :name, class: 'form-control' %>
+    <%= field_error_tag(@user, :name) %>
   </div>
-  <div class="form-group">
-    <%= label_tag(:last_name, 'Sobrenome') %>
+
+  <div class="form-group <%= form_group_error_class(@user, :last_name)%>">
+    <%= label_tag(:last_name, 'Sobrenome', class: 'control-label') %>
     <%= f.text_field :last_name, class: 'form-control' %>
+    <%= field_error_tag(@user, :last_name) %>
   </div>
-  <div class="form-group">
-    <%= label_tag(:email, 'E-mail') %>
+
+  <div class="form-group <%= form_group_error_class(@user, :email)%>">
+    <%= label_tag(:email, 'E-mail', class: 'control-label') %>
     <%= f.text_field :email, class: 'form-control', disabled: params[:action] == 'edit' %>
+    <%= field_error_tag(@user, :email) %>
   </div>
-  <div class="form-group">
-    <%= label_tag(:cpf, 'CPF') %>
+
+  <div class="form-group <%= form_group_error_class(@user, :cpf)%>">
+    <%= label_tag(:cpf, 'CPF', class: 'control-label') %>
     <%= f.text_field :cpf, class: 'form-control' %>
+    <%= field_error_tag(@user, :cpf) %>
   </div>
+
   <div class="form-group">
     <%= label_tag(:phone, 'Telefone') %>
     <%= f.text_field :phone, class: 'form-control', maxlength: 15  %>
   </div>
+
   <div class="form-group">
     <%= label_tag(:group, 'Grupo') %>
     <%= f.select :group, user_groups_for_select, { include_blank: 'Nenhum' } , class: 'form-control' %>
   </div>
-  <% if params[:action] == 'new' %>
-    <div class="form-group">
-      <%= label_tag(:password) %>
+
+  <% if params[:action] == 'new' || params[:action] == 'create' %>
+    <div class="form-group <%= form_group_error_class(@user, :password) %>">
+      <%= label_tag(:password,'Senha', class: 'control-label') %>
       <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      <%= field_error_tag(@user, :password) %>
     </div>
-    <div class="form-group">
-      <%= label_tag(:password_confirmation) %>
+
+    <div class="form-group <%= form_group_error_class(@user, :password_confirmation) %>">
+      <%= label_tag(:password_confirmation,'Confirmar Senha', class: 'control-label') %>
       <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+      <%= field_error_tag(@user, :password_confirmation) %>
     </div>
   <% end %>
+
   <div class="form-group">
     <label>ONGs</label>
     <% Ngo.active.each do |ngo| %>
@@ -45,6 +61,7 @@
     <% end %>
   </div>
 </div>
+
 <div class="col-lg-12">
   <div class="form-group">
     <%= f.submit 'Salvar', class: 'btn btn-success' %>

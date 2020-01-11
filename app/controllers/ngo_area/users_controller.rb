@@ -12,9 +12,12 @@ class NgoArea::UsersController < NgoAreaController
   end
 
   def create
-    @user = User.create(params_user)
-
-    redirect_to ngo_area_users_path
+    @user = User.new(params_user)
+    if @user.save
+      redirect_to ngo_area_users_path
+    else
+      render action: :new
+    end
   end
 
   def edit
@@ -23,9 +26,13 @@ class NgoArea::UsersController < NgoAreaController
 
   def update
     @user = User.find(params[:id])
-    @user.update params_user
+    @user.update(params_user)
 
-    redirect_to ngo_area_users_path
+    if current_user == @user && !@user.admin?
+      redirect_to home_index_path
+    else
+      redirect_to ngo_area_users_path
+    end
   end
 
   private
