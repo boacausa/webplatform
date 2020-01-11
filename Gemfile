@@ -8,6 +8,7 @@ end
 
 gem 'coffee-rails', '~> 4.2'
 gem 'cpf_cnpj'
+gem 'validators'
 gem 'faker'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
