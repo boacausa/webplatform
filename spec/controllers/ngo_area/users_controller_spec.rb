@@ -62,17 +62,36 @@ describe NgoArea::UsersController do
     end
   end
 
-  describe 'GET #update' do
-    before do
-      get :update, params: { id: subject.id, user: attributes_for(:user) }
+  describe 'PATCH #update' do
+    context 'when current user updates another user' do
+      before do
+        patch :update, params: { id: subject.id, user: attributes_for(:user) }
+      end
+
+      it 'returns 302 code status' do
+        expect(response).to have_http_status(:found)
+      end
+
+      it 'redirects to index' do
+        expect(response).to redirect_to(action: :index)
+      end
     end
 
-    it 'returns 302 code status' do
-      expect(response).to have_http_status(:found)
-    end
+    context 'when current user loses admin privileges' do
+      before do
+        admin = create(:user, :admin_privileges)
+        allow(controller).to receive(:current_user) { admin }
 
-    it 'redirects to index' do
-      expect(response).to redirect_to(action: :index)
+        patch :update, params: { id: admin.id, user: attributes_for(:user) }
+      end
+
+      it 'returns 302 code status' do
+        expect(response).to have_http_status(:found)
+      end
+
+      it 'redirects to Home' do
+        expect(response).to redirect_to(home_index_path)
+      end
     end
   end
 end
