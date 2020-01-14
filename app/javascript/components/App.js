@@ -39,7 +39,11 @@ class App extends React.Component {
                 <Provider store={store}>
                     <BrowserRouter>
                         <Navigation toggleDrawerButton={this.toggleDrawerButtonHandler} user={this.state.user} />
-                        <SideNavigation visible={this.state.sideNavigationVisible} close={this.sideDrawerCloseHandler} />
+                        <SideNavigation
+                            user={this.state.user}
+                            visible={this.state.sideNavigationVisible}
+                            close={this.sideDrawerCloseHandler}
+                        />
                         <Switch>
                             <Route exact path="/" render={() => window.location.href = '/'}/>
                             <Route exact path="/ongs" render={() => window.location.href = '/ongs'}/>
