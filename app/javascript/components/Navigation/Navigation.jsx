@@ -54,7 +54,7 @@ class Navigation extends React.Component {
                 <div className={styles.buttonBox}>
                     {this.props.user.email ? this.userButtons() : this.loginButton()}
                 </div>
-                <HamburgerButton clicked={this.props.toggleDrawerButton} />
+                {this.props.user.email ? <HamburgerButton clicked={this.props.toggleDrawerButton} /> : null}
             </nav>
         );
     };
