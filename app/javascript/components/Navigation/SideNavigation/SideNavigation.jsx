@@ -1,21 +1,24 @@
 import React from 'react';
-// import Logo from '../../Logo/Logo';
-// import NavigationItems from "../NavigationItems/NavigationItems";
-import classes from './SideNavigation.sass';
+import styles from './SideNavigation.sass';
 import Backdrop from "../../Backdrop/Backdrop";
-// import Aux from '../../../hoc/Aux/Aux';
+import LineDivisor from "../../LineDivisor/LineDivisor";
 
 const sideNavigation = (props) => {
-    let attachedClasses = [classes.SideNavigation, classes.Close];
+    let attachedClasses = [styles.SideNavigation, styles.Close];
 
     if (props.visible) {
-        attachedClasses = [classes.SideNavigation, classes.Open];
+        attachedClasses = [styles.SideNavigation, styles.Open];
     }
 
     return (
         <div>
             <Backdrop show={props.visible} clicked={props.close} />
             <div className={attachedClasses.join(' ')}>
+                <div className={styles.userProperties}>
+                    <span className={styles.userPicture} />
+                    <p>{props.user.email}</p>
+                </div>
+                <LineDivisor />
                 {/*<div className={classes.Logo}>*/}
                 {/*    <Logo />*/}
                 {/*</div>*/}
