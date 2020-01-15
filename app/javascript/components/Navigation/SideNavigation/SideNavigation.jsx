@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './SideNavigation.sass';
 import Backdrop from "../../Backdrop/Backdrop";
 import LineDivisor from "../../LineDivisor/LineDivisor";
+import {NavLink} from "react-router-dom";
 
 const sideNavigation = (props) => {
     let attachedClasses = [styles.SideNavigation, styles.Close];
@@ -19,12 +20,12 @@ const sideNavigation = (props) => {
                     <p>{props.user.email}</p>
                 </div>
                 <LineDivisor />
-                {/*<div className={classes.Logo}>*/}
-                {/*    <Logo />*/}
-                {/*</div>*/}
-                {/*<nav>*/}
-                {/*    <NavigationItems />*/}
-                {/*</nav>*/}
+                <div className={styles.linksBox}>
+                    <NavLink exact className={styles.link} activeClassName={styles.linkActive} to="/">Home</NavLink>
+                    <NavLink className={styles.link} activeClassName={styles.linkActive} to="/ongs">ONGs</NavLink>
+                    <NavLink className={styles.link} activeClassName={styles.linkActive} to="/adocao">Adoção</NavLink>
+                </div>
+                <LineDivisor />
             </div>
         </div>
     );

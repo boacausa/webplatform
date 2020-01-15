@@ -1,5 +1,6 @@
 @import "../../../variables/sizes"
 @import "../../../variables/fonts"
+@import "../../../variables/colors"
 
 .SideNavigation
     position: fixed
@@ -29,6 +30,25 @@
     height: 50px
     z-index: 999999
     display: block
+
+.linksBox
+    display: flex
+    flex-direction: column
+    margin: 12px 0
+
+.link
+    padding: 10px 24px
+    font-family: $font-family
+    text-decoration: none
+    font-size: 18px
+    color: $black
+    //&:focus
+    //    text-decoration: none
+    //    color: $menu-color
+
+.linkActive
+    background-color: $lightGrey
+    text-decoration: none
 
 @media #{$bigger-than-phone}
     .SideNavigation
