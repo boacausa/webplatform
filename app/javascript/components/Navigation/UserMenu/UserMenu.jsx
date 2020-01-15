@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./UserMenu.sass";
+import LineDivisor from "../../LineDivisor/LineDivisor";
 
 const UserMenu = (props) => {
     function redirectToNgoArea() {
@@ -20,7 +21,7 @@ const UserMenu = (props) => {
         <ul className={styles.menuBorder}>
             <li className={styles.menuRow}>Configurações</li>
             {ngoAreaLink()}
-            <hr className={styles.menuDivisor} />
+            <LineDivisor />
             <li onClick={() => redirectToLogOut()} className={styles.menuRow}>Sair</li>
         </ul>
     </div>
