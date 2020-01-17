@@ -8,10 +8,11 @@ class Pet < ApplicationRecord
   }.freeze
 
   has_one_attached :image
-  
+
   validates :name, :sex, :ngo, presence: true
 
   scope :active, -> { where(active: true) }
+  scope :by_sex, ->(sex) { where(sex: sex) }
 
   def days_ago
     created_at

@@ -76,7 +76,7 @@ class NgosList extends React.Component {
 }
 
 const structuredSelector = createStructuredSelector({
-    ngos: state => state.ngos,
+    ngos: state => state.app.ngos,
 });
 
 const mapDispatchToProps = {fetchNgos};

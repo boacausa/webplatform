@@ -2,9 +2,11 @@ import React from "react";
 import styles from "./AdoptionFilterBox.sass";
 import SelectInput from "../../../components/SelectInput/SelectInput";
 import TextInput from "../../../components/TextInput/TextInput";
-import SimpleSubmitButton from "../../../components/SimpleSubmitButton/SimpleSubmitButton";
+import Button from "../../../components/Button/Button";
 import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
+import setSexFilter from '../../../actions/adoptionFilters';
+import { fetchPetsForAdoption } from '../AdoptionList'
 
 const GET_NGO_CITIES_REQUEST = 'GET_NGO_CITIES_REQUEST';
 const GET_NGO_CITIES_SUCCESS = 'GET_NGO_CITIES_SUCCESS';
@@ -32,10 +34,14 @@ class AdoptionFilterBox extends React.Component {
         fetchCitiesForAdoption();
     }
 
+    onSexChange = (e) => {
+        this.props.setSexFilter(e.target.value);
+    };
+
     render() {
         const cities = this.props;
         return (
-            <form className={styles.FilterBox}>
+            <div className={styles.FilterBox}>
                 <SelectInput
                     label='Cidade'
                     placeholder='Selecione uma cidade'
@@ -49,24 +55,37 @@ class AdoptionFilterBox extends React.Component {
                     width='300px'
                     marginRight='20px'
                 />
+                <SelectInput
+                    label='Sexo'
+                    placeholder='Selecione um Sexo'
+                    width='200px'
+                    marginRight='20px'
+                    name='sex'
+                    options={[{ id: 'f', name: 'Fêmea' }, { id: 'm', name: 'Macho' }]}
+                    value={this.props.adoptionFilters.sex}
+                    onChange={this.onSexChange}
+                />
                 <TextInput
                     placeholder='Procure por palavras-chaves'
                     width='350px'
                     marginRight='20px'
                 />
-                <SimpleSubmitButton name='Procurar'/>
-            </form>
+                <Button children='Procurar' onClick={this.props.fetchPetsForAdoption} />
+            </div>
         );
     }
 }
 
 
-const structuredSelector = createStructuredSelector({
-    cities: state => state.cities,
+const mapStateToProps = createStructuredSelector({
+    cities: state => state.app.cities,
+    adoptionFilters: state => state.adoptionFilters
 });
 
-const mapDispatchToProps = {fetchCitiesForAdoption};
+const mapDispatchToProps = {
+  fetchPetsForAdoption,
+  fetchCitiesForAdoption,
+  setSexFilter,
+};
 
-export default connect(structuredSelector, mapDispatchToProps)(AdoptionFilterBox);
-
-
+export default connect(mapStateToProps, mapDispatchToProps)(AdoptionFilterBox);
