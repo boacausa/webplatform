@@ -42,9 +42,11 @@
     text-decoration: none
     font-size: 18px
     color: $black
-    //&:focus
-    //    text-decoration: none
-    //    color: $menu-color
+    &:hover, &:active, &:visited, &:focus
+        text-decoration: none
+        color: black
+    &:active
+        color: $menu-color
 
 .linkActive
     background-color: $lightGrey
