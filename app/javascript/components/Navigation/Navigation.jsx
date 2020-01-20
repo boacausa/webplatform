@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Navigation.sass';
-import {NavLink} from "react-router-dom";
 import UserMenu from "./UserMenu/UserMenu";
 import OutsideComponentHandler from "../OutsideComponentHandler";
 import HamburgerButton from "./SideNavigation/HamburgerButton/HamburgerButton";
