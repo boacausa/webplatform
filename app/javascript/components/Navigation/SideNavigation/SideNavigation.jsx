@@ -4,6 +4,7 @@ import Backdrop from "../../Backdrop/Backdrop";
 import LineDivisor from "../../LineDivisor/LineDivisor";
 import {NavLink} from "react-router-dom";
 import {redirectToLogOut, redirectToNgoArea} from "../../../utils/ServerLinks";
+import NavigationLinks from "../NavigationLinks/NavigationLinks";
 
 const sideNavigation = (props) => {
     let attachedClasses = [styles.SideNavigation, styles.Close];
@@ -59,11 +60,7 @@ const sideNavigation = (props) => {
             <Backdrop show={props.visible} clicked={props.close} />
             <div className={attachedClasses.join(' ')}>
                 {userProperties(props.user)}
-                <div className={styles.linksBox}>
-                    <NavLink exact className={styles.link} activeClassName={styles.linkActive} to="/">Home</NavLink>
-                    <NavLink className={styles.link} activeClassName={styles.linkActive} to="/ongs">ONGs</NavLink>
-                    <NavLink className={styles.link} activeClassName={styles.linkActive} to="/adocao">Adoção</NavLink>
-                </div>
+                <NavigationLinks styles={styles} />
                 {settings(props.user)}
                 <LineDivisor />
                 {loginLogout(props.user)}

@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import UserMenu from "./UserMenu/UserMenu";
 import OutsideComponentHandler from "../OutsideComponentHandler";
 import HamburgerButton from "./SideNavigation/HamburgerButton/HamburgerButton";
+import NavigationLinks from "./NavigationLinks/NavigationLinks";
 
 class Navigation extends React.Component {
     state = {
@@ -46,11 +47,7 @@ class Navigation extends React.Component {
                     </div>
                     <h1 className={styles.title}>Boa Causa</h1>
                 </div>
-                <div className={styles.linksBox}>
-                    <NavLink exact className={styles.link} activeClassName={styles.linkActive} to="/">Home</NavLink>
-                    <NavLink className={styles.link} activeClassName={styles.linkActive} to="/ongs">ONGs</NavLink>
-                    <NavLink className={styles.link} activeClassName={styles.linkActive} to="/adocao">Adoção</NavLink>
-                </div>
+                <NavigationLinks styles={styles} />
                 <div className={styles.buttonBox}>
                     {this.props.user.email ? this.userButtons() : this.loginButton()}
                 </div>
