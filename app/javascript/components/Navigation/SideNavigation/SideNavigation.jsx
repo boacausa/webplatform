@@ -12,9 +12,45 @@ const sideNavigation = (props) => {
         attachedClasses = [styles.SideNavigation, styles.Open];
     }
 
-    function ngoAreaLink() {
-        if (props.user.group === "admin" || props.user.group === "ngo") {
+    function ngoAreaLink(user) {
+        if (user.group === "admin" || user.group === "ngo") {
             return <a onClick={() => redirectToNgoArea()} className={styles.link}>Área da ONG</a>
+        }
+    }
+
+    function userProperties(user) {
+        if (user.email) {
+            return <div>
+                <div className={styles.userProperties}>
+                    <span className={styles.userPicture} />
+                    <p>{user.email}</p>
+                </div>
+                <LineDivisor />
+            </div>
+        }
+    }
+
+    function settings(user) {
+        if (user.email) {
+            return <div>
+                <LineDivisor />
+                <div className={styles.linksBox}>
+                    <a className={styles.link}>Configurações</a>
+                    {ngoAreaLink(user)}
+                </div>
+            </div>
+        }
+    }
+
+    function loginLogout(user) {
+        if (user.email) {
+            return <div className={styles.linksBox}>
+                <a onClick={() => redirectToLogOut()} className={styles.link}>Sair</a>
+            </div>
+        } else {
+            return <div className={styles.linksBox}>
+                <a href="/users/sign_in" className={styles.link}>Entrar</a>
+            </div>
         }
     }
 
@@ -22,26 +58,15 @@ const sideNavigation = (props) => {
         <div>
             <Backdrop show={props.visible} clicked={props.close} />
             <div className={attachedClasses.join(' ')}>
-                <div className={styles.userProperties}>
-                    <span className={styles.userPicture} />
-                    <p>{props.user.email}</p>
-                </div>
-                <LineDivisor />
-                {/* TODO: this need to be visible if user is not logged in */}
+                {userProperties(props.user)}
                 <div className={styles.linksBox}>
                     <NavLink exact className={styles.link} activeClassName={styles.linkActive} to="/">Home</NavLink>
                     <NavLink className={styles.link} activeClassName={styles.linkActive} to="/ongs">ONGs</NavLink>
                     <NavLink className={styles.link} activeClassName={styles.linkActive} to="/adocao">Adoção</NavLink>
                 </div>
+                {settings(props.user)}
                 <LineDivisor />
-                <div className={styles.linksBox}>
-                    <a className={styles.link}>Configurações</a>
-                    {ngoAreaLink()}
-                </div>
-                <LineDivisor />
-                <div className={styles.linksBox}>
-                    <a onClick={() => redirectToLogOut()} className={styles.link}>Sair</a>
-                </div>
+                {loginLogout(props.user)}
             </div>
         </div>
     );
