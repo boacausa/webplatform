@@ -5,7 +5,7 @@ import TextInput from "../../../components/TextInput/TextInput";
 import Button from "../../../components/Button/Button";
 import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
-import setSexFilter from '../../../actions/adoptionFilters';
+import { setSexFilter, setDescriptionFilter } from '../../../actions/adoptionFilters';
 import { fetchPetsForAdoption } from '../AdoptionList'
 
 const GET_NGO_CITIES_REQUEST = 'GET_NGO_CITIES_REQUEST';
@@ -38,6 +38,10 @@ class AdoptionFilterBox extends React.Component {
         this.props.setSexFilter(e.target.value);
     };
 
+    onDescriptionChange = (e) => {
+      this.props.setDescriptionFilter(e.target.value);
+  };
+
     render() {
         const cities = this.props;
         return (
@@ -69,6 +73,8 @@ class AdoptionFilterBox extends React.Component {
                     placeholder='Procure por palavras-chaves'
                     width='350px'
                     marginRight='20px'
+                    value={this.props.adoptionFilters.description}
+                    onChange={this.onDescriptionChange}
                 />
                 <Button children='Procurar' onClick={this.props.fetchPetsForAdoption} />
             </div>
@@ -86,6 +92,7 @@ const mapDispatchToProps = {
   fetchPetsForAdoption,
   fetchCitiesForAdoption,
   setSexFilter,
+  setDescriptionFilter
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdoptionFilterBox);

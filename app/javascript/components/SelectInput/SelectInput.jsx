@@ -7,7 +7,7 @@ const SelectInput = (props) => (
     <select name={props.name} onChange={props.onChange}>
       <option value="">{props.placeholder}</option>
       {props.options && props.options.length > 0 && props.options.map(opt => {
-        return <option key={opt.id} value={opt.id}>{opt.name}</option>
+        return <option key={opt.id} value={opt.id} selected={props.value === opt.id}>{opt.name}</option>
       })}
     </select>
   </div>

@@ -4,6 +4,7 @@ class V1::PetsForAdoptionController < ApplicationController
   def index
     pets = Pet.active
     pets = pets.by_sex(params[:sex]) if params[:sex].present?
+    pets = pets.by_description(params[:description]) if params[:description].present?
 
     render json: {
       pets: ListPets.new.all(pets, params[:user_email])

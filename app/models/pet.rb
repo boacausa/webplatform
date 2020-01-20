@@ -13,6 +13,7 @@ class Pet < ApplicationRecord
 
   scope :active, -> { where(active: true) }
   scope :by_sex, ->(sex) { where(sex: sex) }
+  scope :by_description, ->(description) { where('description LIKE ?', "%#{description}%") }
 
   def days_ago
     created_at
