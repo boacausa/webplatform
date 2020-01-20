@@ -2,7 +2,8 @@ import { types } from '../actions/adoptionFilters';
 
 const adoptionFiltersReducerDefaultState = {
   sex: '',
-  description: ''
+  description: '',
+  city: ''
 };
 
 export default (state = adoptionFiltersReducerDefaultState, action) => {
@@ -16,6 +17,11 @@ export default (state = adoptionFiltersReducerDefaultState, action) => {
       return {
         ...state,
         description: action.description
+      };
+    case types.SET_CITY_FILTER:
+      return {
+        ...state,
+        city: action.city
       };
     default:
       return state;
