@@ -1,24 +1,14 @@
 import { types } from '../actions/adoptionFilters';
 
 const adoptionFiltersReducerDefaultState = {
-  sex: '',
-  description: '',
   city: '',
-  ngo_id: ''
+  ngo_id: '',
+  sex: '',
+  description: ''
 };
 
 export default (state = adoptionFiltersReducerDefaultState, action) => {
   switch (action.type) {
-    case types.SET_SEX_FILTER:
-      return {
-        ...state,
-        sex: action.sex
-      };
-    case types.SET_DESCRIPTION_FILTER:
-      return {
-        ...state,
-        description: action.description
-      };
     case types.SET_CITY_FILTER:
       return {
         ...state,
@@ -28,6 +18,16 @@ export default (state = adoptionFiltersReducerDefaultState, action) => {
       return {
         ...state,
         ngo_id: action.ngo_id
+      };
+    case types.SET_SEX_FILTER:
+      return {
+        ...state,
+        sex: action.sex
+      };
+    case types.SET_DESCRIPTION_FILTER:
+      return {
+        ...state,
+        description: action.description
       };
     default:
       return state;

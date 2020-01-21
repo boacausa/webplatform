@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import styles from "./AdoptionFilterBox.sass";
 import SelectInput from "../../../components/SelectInput/SelectInput";
 import TextInput from "../../../components/TextInput/TextInput";
 import Button from "../../../components/Button/Button";
 import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
-import { setSexFilter, setDescriptionFilter, setCityFilter, setNgoIdFilter } from '../../../actions/adoptionFilters';
+import { setCityFilter, setNgoIdFilter, setSexFilter, setDescriptionFilter } from '../../../actions/adoptionFilters';
 import { fetchPetsForAdoption } from '../AdoptionList'
 import { fetchNgos } from '../../NgosList'
 
@@ -30,19 +31,24 @@ export function fetchCitiesForAdoptionSuccess(json) {
 }
 
 class AdoptionFilterBox extends React.Component {
+    static propTypes = {
+      cities: PropTypes.array,
+      ngos: PropTypes.array,
+      adoptionFilters: PropTypes.object,
+      fetchPetsForAdoption: PropTypes.func,
+      fetchCitiesForAdoption: PropTypes.func,
+      fetchNgos: PropTypes.func,
+      setCityFilter: PropTypes.func,
+      setNgoIdFilter: PropTypes.func,
+      setSexFilter: PropTypes.func,
+      setDescriptionFilter: PropTypes.func
+    }
+
     componentWillMount() {
         const {fetchCitiesForAdoption, fetchNgos} = this.props;
         fetchNgos();
         fetchCitiesForAdoption();
     }
-
-    onSexChange = (e) => {
-        this.props.setSexFilter(e.target.value);
-    };
-
-    onDescriptionChange = (e) => {
-      this.props.setDescriptionFilter(e.target.value);
-    };
 
     onCityChange = (e) => {
       this.props.setCityFilter(e.target.value);
@@ -52,6 +58,13 @@ class AdoptionFilterBox extends React.Component {
       this.props.setNgoIdFilter(e.target.value);
     };
 
+    onSexChange = (e) => {
+        this.props.setSexFilter(e.target.value);
+    };
+
+    onDescriptionChange = (e) => {
+      this.props.setDescriptionFilter(e.target.value);
+    };
 
     render() {
         const { cities, ngos } = this.props;
@@ -101,7 +114,6 @@ class AdoptionFilterBox extends React.Component {
     }
 }
 
-
 const mapStateToProps = createStructuredSelector({
     cities: state => state.app.cities,
     ngos: state => state.app.ngos,
@@ -112,10 +124,10 @@ const mapDispatchToProps = {
   fetchPetsForAdoption,
   fetchCitiesForAdoption,
   fetchNgos,
-  setSexFilter,
-  setDescriptionFilter,
   setCityFilter,
-  setNgoIdFilter
+  setNgoIdFilter,
+  setSexFilter,
+  setDescriptionFilter
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdoptionFilterBox);

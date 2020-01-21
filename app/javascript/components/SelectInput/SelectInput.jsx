@@ -1,16 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './SelectInput.sass';
 
-const SelectInput = (props) => (
-  <div className={styles.SelectInput} style={{width: props.width, marginRight: props.marginRight}}>
-    <label>{props.label}</label>
-    <select name={props.name} onChange={props.onChange}>
-      <option value="">{props.placeholder}</option>
-      {props.options && props.options.length > 0 && props.options.map(opt => {
-        return <option key={opt.id} value={opt.id} selected={props.value === opt.id}>{opt.name}</option>
-      })}
+const SelectInput = ({ label, name, placeholder, value, options, width, marginRight, onChange }) => (
+  <div className={styles.SelectInput} style={{ width, marginRight }}>
+    <label>{label}</label>
+    <select name={name} value={value} onChange={onChange}>
+      <option value=''>{placeholder}</option>
+      {options && options.length > 0 && options.map(option => (
+        <option key={option.id} value={option.id}>{option.name}</option>
+      ))}
     </select>
   </div>
 );
+
+SelectInput.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      name: PropTypes.string
+    })
+  ),
+  width: PropTypes.string,
+  marginRight: PropTypes.string,
+  onChange: PropTypes.func.isRequired
+}
 
 export default SelectInput;

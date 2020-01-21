@@ -11,32 +11,16 @@ const GET_ADOPTION_SUCCESS = 'GET_ADOPTION_SUCCESS';
 
 export function fetchPetsForAdoption() {
   return (dispatch, getState) => {
-    const userEmail = getState().app.user.email;
-    const sex = getState().adoptionFilters.sex;
-    const description = getState().adoptionFilters.description;
-    const city = getState().adoptionFilters.city;
-    const ngo_id = getState().adoptionFilters.ngo_id;
+    const { userEmail, city, ngo_id, sex, description } = getState().adoptionFilters;
     dispatch({type: GET_ADOPTION_REQUEST});
 
-    let params = [];
-    if (userEmail) {
-      params.push(`user_email=${userEmail}`);
-    }
-    if (sex) {
-      params.push(`sex=${sex}`);
-    }
-
-    if (description) {
-      params.push(`description=${description}`);
-    }
-
-    if (city) {
-      params.push(`city=${city}`);
-    }
-
-    if (ngo_id) {
-      params.push(`ngo_id=${ngo_id}`);
-    }
+    let params = [
+      `user_email=${userEmail}`,
+      `city=${city}`,
+      `ngo_id=${ngo_id}`,
+      `sex=${sex}`,
+      `description=${description}`
+    ];
 
     const urlParams = params.join('&');
 
