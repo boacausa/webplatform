@@ -6,6 +6,7 @@ class V1::PetsForAdoptionController < ApplicationController
     pets = pets.by_sex(params[:sex]) if params[:sex].present?
     pets = pets.by_description(params[:description]) if params[:description].present?
     pets = pets.by_city(params[:city]) if params[:city].present?
+    pets = pets.by_ngo_id(params[:ngo_id]) if params[:ngo_id].present?
 
     render json: {
       pets: ListPets.new.all(pets, params[:user_email])

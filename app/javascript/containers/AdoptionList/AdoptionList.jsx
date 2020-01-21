@@ -15,6 +15,7 @@ export function fetchPetsForAdoption() {
     const sex = getState().adoptionFilters.sex;
     const description = getState().adoptionFilters.description;
     const city = getState().adoptionFilters.city;
+    const ngo_id = getState().adoptionFilters.ngo_id;
     dispatch({type: GET_ADOPTION_REQUEST});
 
     let params = [];
@@ -31,6 +32,10 @@ export function fetchPetsForAdoption() {
 
     if (city) {
       params.push(`city=${city}`);
+    }
+
+    if (ngo_id) {
+      params.push(`ngo_id=${ngo_id}`);
     }
 
     const urlParams = params.join('&');

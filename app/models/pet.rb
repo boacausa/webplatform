@@ -15,6 +15,7 @@ class Pet < ApplicationRecord
   scope :by_sex, ->(sex) { where(sex: sex) }
   scope :by_description, ->(description) { where('description LIKE ?', "%#{description}%") }
   scope :by_city, ->(city) { includes(:ngo).where(ngos: { city: city }) }
+  scope :by_ngo_id, ->(ngo_id) { where(ngo_id: ngo_id) }
 
   def days_ago
     created_at

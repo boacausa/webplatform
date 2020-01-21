@@ -5,6 +5,8 @@ import adoptionFiltersReducer from './reducers/adoptionFilters'
 
 const appReducerDefaultState = {
   user: { email: null, group: null },
+  ngos: [],
+  pets: []
 };
 
 function appReducer(state = appReducerDefaultState, action) {
@@ -28,7 +30,7 @@ const rootReducer = combineReducers({
 });
 
 export default function configureStore(user) {
-  const preloadedState = { app: { user } };
+  const preloadedState = { app: { ...appReducerDefaultState, user } };
 
   const store = createStore(
     rootReducer,
