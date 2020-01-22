@@ -34,23 +34,29 @@
 .linksBox
     display: flex
     flex-direction: column
-    margin: 12px 0
+    margin: 12px 10px
 
 .link
     padding: 10px 24px
     font-family: $font-family
     text-decoration: none
     font-size: 18px
-    color: $black
-    &:hover, &:active, &:visited, &:focus
+    color: $darkFontColor
+    border-radius: 5px
+    &:hover
         text-decoration: none
-        color: black
-    &:active
-        color: $menuColor
+        color: $darkFontColor
+        background-color: rgba($lightGrey, 0.5)
 
 .linkActive
-    background-color: $lightGrey
+    background: rgba($menuColor, 0.15)
     text-decoration: none
+    color: $menuColorStronger
+    &:hover
+        background: rgba($menuColor, 0.15)
+        text-decoration: none
+        color: $menuColorStronger
+
 
 @media #{$biggerThanPhone}
     .SideNavigation
