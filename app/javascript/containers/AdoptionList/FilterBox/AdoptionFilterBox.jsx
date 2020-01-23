@@ -6,7 +6,7 @@ import TextInput from "../../../components/TextInput/TextInput";
 import Button from "../../../components/Button/Button";
 import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
-import { setCityFilter, setNgoIdFilter, setSexFilter, setDescriptionFilter } from '../../../actions/adoptionFilters';
+import { setCityFilter, setNgoIdFilter, setSexFilter, setNameOrDescriptionFilter } from '../../../actions/adoptionFilters';
 import { fetchPetsForAdoption } from '../AdoptionList'
 import { fetchNgos } from '../../NgosList'
 
@@ -41,7 +41,7 @@ class AdoptionFilterBox extends React.Component {
       setCityFilter: PropTypes.func,
       setNgoIdFilter: PropTypes.func,
       setSexFilter: PropTypes.func,
-      setDescriptionFilter: PropTypes.func
+      setNameOrDescriptionFilter: PropTypes.func
     }
 
     componentWillMount() {
@@ -62,8 +62,8 @@ class AdoptionFilterBox extends React.Component {
         this.props.setSexFilter(e.target.value);
     };
 
-    onDescriptionChange = (e) => {
-      this.props.setDescriptionFilter(e.target.value);
+    onNameOrDescriptionChange = (e) => {
+      this.props.setNameOrDescriptionFilter(e.target.value);
     };
 
     render() {
@@ -88,7 +88,7 @@ class AdoptionFilterBox extends React.Component {
                     width='300px'
                     marginRight='20px'
                     options={ngoOptions}
-                    value={this.props.adoptionFilters.ngo_id}
+                    value={this.props.adoptionFilters.ngoId}
                     onChange={this.onNgoChange}
                 />
                 <SelectInput
@@ -105,8 +105,8 @@ class AdoptionFilterBox extends React.Component {
                     placeholder='Procure por palavras-chaves'
                     width='350px'
                     marginRight='20px'
-                    value={this.props.adoptionFilters.description}
-                    onChange={this.onDescriptionChange}
+                    value={this.props.adoptionFilters.nameOrDescription}
+                    onChange={this.onNameOrDescriptionChange}
                 />
                 <Button children='Procurar' onClick={this.props.fetchPetsForAdoption} />
             </div>
@@ -127,7 +127,7 @@ const mapDispatchToProps = {
   setCityFilter,
   setNgoIdFilter,
   setSexFilter,
-  setDescriptionFilter
+  setNameOrDescriptionFilter
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdoptionFilterBox);

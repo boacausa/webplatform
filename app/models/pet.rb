@@ -13,7 +13,13 @@ class Pet < ApplicationRecord
 
   scope :active, -> { where(active: true) }
   scope :by_sex, ->(sex) { where(sex: sex) }
-  scope :by_description, ->(description) { where('pets.description LIKE ?', "%#{description}%") }
+  scope :by_name_or_description, lambda { |name_or_description|
+    where(
+      'pets.name ILIKE ? OR pets.description ILIKE ?',
+      "%#{name_or_description}%",
+      "%#{name_or_description}%"
+    )
+  }
   scope :by_city, ->(city) { includes(:ngo).where(ngos: { city: city }) }
   scope :by_ngo_id, ->(ngo_id) { where(ngo_id: ngo_id) }
 

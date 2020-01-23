@@ -11,15 +11,15 @@ const GET_ADOPTION_SUCCESS = 'GET_ADOPTION_SUCCESS';
 
 export function fetchPetsForAdoption() {
   return (dispatch, getState) => {
-    const { userEmail, city, ngo_id, sex, description } = getState().adoptionFilters;
+    const { userEmail, city, ngoId, sex, nameOrDescription } = getState().adoptionFilters;
     dispatch({type: GET_ADOPTION_REQUEST});
 
     let params = [
       `user_email=${userEmail}`,
       `city=${city}`,
-      `ngo_id=${ngo_id}`,
+      `ngo_id=${ngoId}`,
       `sex=${sex}`,
-      `description=${description}`
+      `name_or_description=${nameOrDescription}`
     ];
 
     const urlParams = params.join('&');

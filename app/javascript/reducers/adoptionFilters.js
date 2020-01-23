@@ -2,9 +2,9 @@ import { types } from '../actions/adoptionFilters';
 
 const adoptionFiltersReducerDefaultState = {
   city: '',
-  ngo_id: '',
+  ngoId: '',
   sex: '',
-  description: ''
+  nameOrDescription: ''
 };
 
 export default (state = adoptionFiltersReducerDefaultState, action) => {
@@ -17,17 +17,17 @@ export default (state = adoptionFiltersReducerDefaultState, action) => {
     case types.SET_NGO_ID_FILTER:
       return {
         ...state,
-        ngo_id: action.ngo_id
+        ngoId: action.ngoId
       };
     case types.SET_SEX_FILTER:
       return {
         ...state,
         sex: action.sex
       };
-    case types.SET_DESCRIPTION_FILTER:
+    case types.SET_NAME_OR_DESCRIPTION_FILTER:
       return {
         ...state,
-        description: action.description
+        nameOrDescription: action.nameOrDescription
       };
     default:
       return state;
