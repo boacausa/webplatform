@@ -7,8 +7,7 @@ class NgosController < UserAreaController
     @ngo = if StringValidation.only_numbers?(params[:id])
              Ngo.find(params[:id])
            else
-             fantasy_name = params[:id].downcase.gsub(/\s+/, '')
-             Ngo.find_by_fantasy_name(fantasy_name).first
+             Ngo.find_by(fantasy_name_url: params[:id])
            end
 
     unless @ngo.present?
