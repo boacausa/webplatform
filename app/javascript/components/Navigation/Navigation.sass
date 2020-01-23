@@ -3,9 +3,22 @@
 @import "../../variables/sizes"
 
 .Navigation
-  background-color: $menu-color
+  background-color: $menuColor
   height: 64px
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12)
+  display: flex
+  justify-content: space-between
+
+  .logoBox
+    background-color: white
+    width: 40px
+    height: 40px
+    margin: 12px 20px
+    border-radius: 100%
+
+  .titleBox
+    height: inherit
+    width: 200px
 
   .title
     font-family: $font-family
@@ -13,43 +26,44 @@
     font-weight: 500
     font-size: 20px
     line-height: 23px
-    color: $link-color
+    color: $linkColor
     position: absolute
     width: 96px
     height: 24px
     left: 80px
     top: 21px
 
-  .links
-    position: absolute
-    left: 40%
-    top: 12px
+  .linksBox
     display: flex
     justify-content: space-between
-    width: 280px
+    width: 240px
 
   .link
     font-family: $font-family
     font-style: normal
     font-weight: normal
-    font-size: 20px
+    font-size: 18px
     line-height: 23px
-    color: $link-color
+    color: $linkColor
     text-align: center
     padding: 10px
+    margin-top: 12px
 
   .linkActive
     width: 88px
     height: 41px
-    background: $active-color
+    background: $activeColor
     border-radius: 45px
-    top: 12px
+
+  .buttonBox
+    height: inherit
+    width: 200px
 
   .loginButton
     font-family: $font-family
     font-style: normal
     line-height: 23px
-    color: $link-color
+    color: $linkColor
     font-size: 20px
     position: absolute
     padding: 10px
@@ -88,5 +102,13 @@
     margin-top: 6px
 
   @media #{$phone}
-    .links
+    .linksBox,
+    .moreButton,
+    .userPicture,
+    .loginButton
       display: none
+
+  @media #{$tablet}
+    .buttonBox
+      width: 100px
+

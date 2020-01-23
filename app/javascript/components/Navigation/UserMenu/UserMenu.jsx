@@ -1,15 +1,9 @@
 import React from 'react';
 import styles from "./UserMenu.sass";
+import LineDivisor from "../../LineDivisor/LineDivisor";
+import {redirectToLogOut, redirectToNgoArea} from "../../../utils/ServerLinks";
 
 const UserMenu = (props) => {
-    function redirectToNgoArea() {
-        window.open("/ong_area/ongs", "_blank")
-    }
-
-    function redirectToLogOut() {
-        window.location.href = "/users/sign_out";
-    }
-
     function ngoAreaLink() {
         if (props.user.group === "admin" || props.user.group === "ngo") {
             return <li onClick={() => redirectToNgoArea()} className={styles.menuRow}>Área da ONG</li>
@@ -20,7 +14,7 @@ const UserMenu = (props) => {
         <ul className={styles.menuBorder}>
             <li className={styles.menuRow}>Configurações</li>
             {ngoAreaLink()}
-            <hr className={styles.menuDivisor} />
+            <LineDivisor />
             <li onClick={() => redirectToLogOut()} className={styles.menuRow}>Sair</li>
         </ul>
     </div>
