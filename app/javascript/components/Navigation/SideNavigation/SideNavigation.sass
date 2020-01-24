@@ -1,0 +1,70 @@
+@import "../../../variables/sizes"
+@import "../../../variables/fonts"
+@import "../../../variables/colors"
+
+.SideNavigation
+    position: fixed
+    width: 80%
+    max-width: 80%
+    height: 100%
+    left: 100%
+    top: 0
+    z-index: 200
+    background-color: white
+    box-sizing: border-box
+    transition: transform 0.3s ease-out
+
+.userProperties
+    font-family: $font-family
+    height: 100px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    margin-top: 24px
+    margin-left: 24px
+
+.userPicture
+    background: url(../../../images/user_no_picture_dark.svg) no-repeat
+    background-size: cover
+    width: 50px
+    height: 50px
+    z-index: 999999
+    display: block
+
+.linksBox
+    display: flex
+    flex-direction: column
+    margin: 12px 10px
+
+.link
+    padding: 10px 24px
+    font-family: $font-family
+    text-decoration: none
+    font-size: 18px
+    color: $darkFontColor
+    border-radius: 5px
+    &:hover
+        text-decoration: none
+        color: $darkFontColor
+        background-color: rgba($lightGrey, 0.5)
+
+.linkActive
+    background: rgba($menuColor, 0.15)
+    text-decoration: none
+    color: $menuColorStronger
+    &:hover
+        background: rgba($menuColor, 0.15)
+        text-decoration: none
+        color: $menuColorStronger
+
+
+@media #{$biggerThanPhone}
+    .SideNavigation
+        display: none
+
+.Open
+    transform: translateX(0)
+    left: 20%
+
+.Close
+    transform: translateX(100%)

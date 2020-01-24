@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Navigation.sass';
-import {NavLink} from "react-router-dom";
 import UserMenu from "./UserMenu/UserMenu";
 import OutsideComponentHandler from "../OutsideComponentHandler";
+import HamburgerButton from "./SideNavigation/HamburgerButton/HamburgerButton";
+import NavigationLinks from "./NavigationLinks/NavigationLinks";
 
 class Navigation extends React.Component {
     state = {
@@ -38,13 +39,18 @@ class Navigation extends React.Component {
     render() {
         return (
             <nav className={styles.Navigation}>
-                <h1 className={styles.title}>Boa Causa</h1>
-                <div className={styles.links}>
-                    <NavLink exact className={styles.link} activeClassName={styles.linkActive} to="/">Home</NavLink>
-                    <NavLink className={styles.link} activeClassName={styles.linkActive} to="/ongs">ONGs</NavLink>
-                    <NavLink className={styles.link} activeClassName={styles.linkActive} to="/adocao">Adoção</NavLink>
+                <div className={styles.titleBox}>
+                    <div className={styles.logoBox}>
+                        {/* Temporary until we have a logo */}
+                        <p style={{fontSize: "14px", paddingTop: "8px", paddingLeft: "4px", fontFamily: "Roboto", color: "grey"}}>Logo</p>
+                    </div>
+                    <h1 className={styles.title}>Boa Causa</h1>
                 </div>
-                {this.props.user.email ? this.userButtons() : this.loginButton()}
+                <NavigationLinks styles={styles} />
+                <div className={styles.buttonBox}>
+                    {this.props.user.email ? this.userButtons() : this.loginButton()}
+                </div>
+                <HamburgerButton clicked={this.props.toggleDrawerButton} />
             </nav>
         );
     };
