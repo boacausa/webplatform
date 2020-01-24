@@ -4,6 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import adoptionFiltersReducer from './reducers/adoptionFilters'
 
 const appReducerDefaultState = {
+  sideNavigationVisible: false,
   user: { email: null, group: null },
   ngos: [],
   pets: []

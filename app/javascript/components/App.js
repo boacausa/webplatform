@@ -11,8 +11,6 @@ import SideNavigation from "./Navigation/SideNavigation/SideNavigation";
 
 require('typeface-roboto');
 
-const store = configureStore();
-
 class App extends React.Component {
     toggleDrawerButtonHandler = () => {
         this.setState({sideNavigationVisible: !this.state.sideNavigationVisible});
@@ -23,17 +21,17 @@ class App extends React.Component {
     };
 
     render() {
-        const user = this.props.user;
+        const {user, sideNavigationVisible} = this.props;
         const store = configureStore(user);
 
         return (
             <ErrorBoundary>
                 <Provider store={store}>
                     <BrowserRouter>
-                        <Navigation toggleDrawerButton={this.toggleDrawerButtonHandler} user={this.state.user} />
+                        <Navigation toggleDrawerButton={this.toggleDrawerButtonHandler} user={user} />
                         <SideNavigation
                             user={user}
-                            visible={this.state.sideNavigationVisible}
+                            visible={sideNavigationVisible}
                             close={this.sideDrawerCloseHandler}
                         />
                         <Switch>
