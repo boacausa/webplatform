@@ -55,6 +55,7 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'rubocop', '~> 0.62.0', require: false
+  gem 'byebug'
 end
 
 group :production do

@@ -9,17 +9,28 @@ import SimpleModal from "../../components/SimpleModal/SimpleModal";
 const GET_ADOPTION_REQUEST = 'GET_ADOPTION_REQUEST';
 const GET_ADOPTION_SUCCESS = 'GET_ADOPTION_SUCCESS';
 
-function fetchPetsForAdoption(userEmail) {
-    return dispatch => {
-        dispatch({type: GET_ADOPTION_REQUEST});
+export function fetchPetsForAdoption() {
+  return (dispatch, getState) => {
+    const { userEmail, city, ngoId, sex, nameOrDescription } = getState().adoptionFilters;
+    dispatch({type: GET_ADOPTION_REQUEST});
 
-        const params = userEmail ? "user_email=" + userEmail : null;
+    let params = [
+      `user_email=${userEmail}`,
+      `city=${city}`,
+      `ngo_id=${ngoId}`,
+      `sex=${sex}`,
+      `name_or_description=${nameOrDescription}`
+    ];
 
-        return fetch(`../v1/pets_for_adoption.json?` + params)
-            .then(response => response.json())
-            .then(json => dispatch(fetchPetsForAdoptionSuccess(json)))
-            .catch(error => console.log(error));
-    }
+    const urlParams = params.join('&');
+
+    return (
+      fetch(`../v1/pets_for_adoption.json?` + urlParams)
+        .then(response => response.json())
+        .then(json => dispatch(fetchPetsForAdoptionSuccess(json)))
+        .catch(error => console.log(error))
+    );
+  }
 }
 
 export function fetchPetsForAdoptionSuccess(json) {
@@ -35,8 +46,7 @@ class AdoptionList extends React.Component {
     };
 
     componentWillMount() {
-        const {fetchPetsForAdoption, userEmail} = this.props;
-        fetchPetsForAdoption(userEmail);
+      this.props.fetchPetsForAdoption();
     }
 
     addAdoptionInterestHandler = (userEmail, pet) => {
@@ -105,6 +115,9 @@ class AdoptionList extends React.Component {
                         </div>
                     }
                 </SimpleModal>
+
+                <AdoptionFilterBox />
+
                 <div className={styles.adoptionCards}>
                     {pets && this.petList(pets)}
                     {/* Trick to align last row of cards with flexbox */}
@@ -118,10 +131,11 @@ class AdoptionList extends React.Component {
     }
 }
 
-const structuredSelector = createStructuredSelector({
-    pets: state => state.pets,
+const mapStateToProps = createStructuredSelector({
+    pets: state => state.app.pets,
+    userEmail: state => state.app.user.email
 });
 
 const mapDispatchToProps = {fetchPetsForAdoption};
 
-export default connect(structuredSelector, mapDispatchToProps)(AdoptionList);
+export default connect(mapStateToProps, mapDispatchToProps)(AdoptionList);

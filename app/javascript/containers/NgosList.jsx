@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 const GET_NGOS_REQUEST = 'GET_NGOS_REQUEST';
 const GET_NGOS_SUCCESS = 'GET_NGOS_SUCCESS';
 
-function fetchNgos() {
+export function fetchNgos() {
     return dispatch => {
         dispatch({type: GET_NGOS_REQUEST});
         // TODO: how to make the path look better?
@@ -76,7 +76,7 @@ class NgosList extends React.Component {
 }
 
 const structuredSelector = createStructuredSelector({
-    ngos: state => state.ngos,
+    ngos: state => state.app.ngos,
 });
 
 const mapDispatchToProps = {fetchNgos};

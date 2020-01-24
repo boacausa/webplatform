@@ -69,14 +69,9 @@ class NgoPage extends React.Component {
 }
 
 const structuredSelector = createStructuredSelector({
-    ngo: state => state.ngo,
+    ngo: state => state.app.ngo,
 });
 
 const mapDispatchToProps = {fetchNgo};
 
 export default connect(structuredSelector, mapDispatchToProps)(NgoPage);
-
-
-
-
-

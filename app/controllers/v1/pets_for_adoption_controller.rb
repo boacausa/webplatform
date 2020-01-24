@@ -2,8 +2,14 @@ class V1::PetsForAdoptionController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
+    pets = Pet.active
+    pets = pets.by_sex(params[:sex]) if params[:sex].present?
+    pets = pets.by_name_or_description(params[:name_or_description]) if params[:name_or_description].present?
+    pets = pets.by_city(params[:city]) if params[:city].present?
+    pets = pets.by_ngo_id(params[:ngo_id]) if params[:ngo_id].present?
+
     render json: {
-      pets: ListPets.new.all(Pet.active, params[:user_email])
+      pets: ListPets.new.all(pets, params[:user_email])
     }.to_json
   end
 
