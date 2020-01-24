@@ -27,10 +27,10 @@ describe NgosController do
       end
     end
 
-    context 'when using the ngo fantasy name' do
+    context 'when using the ngo fantasy name URL' do
       before do
         ngo = create(:ngo)
-        get :show, params: { id: ngo.fantasy_name }
+        get :show, params: { id: ngo.fantasy_name_url }
       end
 
       it 'returns 200 code status' do

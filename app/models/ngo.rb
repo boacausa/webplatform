@@ -1,5 +1,6 @@
 class Ngo < ApplicationRecord
   attr_accessor :logo_path
+  before_save :set_fantasy_name_url
 
   include PhoneFormat
 
@@ -9,7 +10,6 @@ class Ngo < ApplicationRecord
   validates :fantasy_name, presence: true
 
   scope :active, -> { where(active: true) }
-  scope :find_by_fantasy_name, ->(name) { where('replace(lower(fantasy_name), \' \', \'\') = ?', name) }
 
   def self.from_user(user)
     if user.admin?
@@ -39,9 +39,9 @@ class Ngo < ApplicationRecord
     bank.present? && account.present? && agency.present?
   end
 
-  def fantasy_name_url
-    return unless fantasy_name.present?
+  private
 
-    fantasy_name.downcase.gsub(/\s+/, '')
+  def set_fantasy_name_url
+    self.fantasy_name_url = fantasy_name.parameterize
   end
 end

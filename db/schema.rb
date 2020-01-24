@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_141118) do
+ActiveRecord::Schema.define(version: 2020_01_23_192419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_141118) do
     t.string "state"
     t.string "payment_type"
     t.text "payment_form"
-    t.text "terms_and_conditions"
+    t.string "fantasy_name_url"
   end
 
   create_table "ngos_users", id: false, force: :cascade do |t|
