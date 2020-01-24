@@ -26,4 +26,18 @@ describe Ngo do
       end
     end
   end
+
+  describe 'callbacks' do
+    describe 'before_save' do
+      let(:fantasy_name) { 'Associação  Torrense de Proteção aos Animais – ATPA' }
+      let(:expected_fantasy_name_url) { 'associacao-torrense-de-protecao-aos-animais-atpa' }
+
+      it 'sets fantasy_name_url based on fantasy_name' do
+        ngo1.fantasy_name = fantasy_name
+        ngo1.save
+
+        expect(ngo1.fantasy_name_url).to eql(expected_fantasy_name_url)
+      end
+    end
+  end
 end
