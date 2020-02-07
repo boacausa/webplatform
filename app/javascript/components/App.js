@@ -8,6 +8,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import AdoptionList from "../containers/AdoptionList/AdoptionList";
 import Navigation from "./Navigation/Navigation";
 import SideNavigation from "./Navigation/SideNavigation/SideNavigation";
+import HomePage from "../containers/HomePage/HomePage";
 
 require('typeface-roboto');
 
@@ -35,7 +36,7 @@ class App extends React.Component {
                             close={this.sideDrawerCloseHandler}
                         />
                         <Switch>
-                            <Route exact path="/" render={() => window.location.href = '/'} />
+                            <Route exact path="/" component={HomePage} />
                             <Route exact path="/ongs" render={() => window.location.href = '/ongs'} />
                             <Route path="/new/ongs" render={() => <NgosList />} />
                             <Route exact path="/new/ong/:id" component={NgoPage} />
