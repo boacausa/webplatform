@@ -7,8 +7,9 @@ import Button from "../../../components/Button/Button";
 import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
 import { setCityFilter, setNgoIdFilter, setSexFilter, setNameOrDescriptionFilter } from '../../../actions/adoptionFilters';
-import { fetchPetsForAdoption } from '../AdoptionList'
-import { fetchNgos } from '../../NgosList'
+import { fetchPetsForAdoption } from '../AdoptionList';
+import { fetchNgos } from '../../NgosList';
+import cx from "classnames";
 
 const GET_NGO_CITIES_REQUEST = 'GET_NGO_CITIES_REQUEST';
 const GET_NGO_CITIES_SUCCESS = 'GET_NGO_CITIES_SUCCESS';
@@ -81,6 +82,7 @@ class AdoptionFilterBox extends React.Component {
                     options={cities}
                     value={this.props.adoptionFilters.city}
                     onChange={this.onCityChange}
+                    classStyleModifier={cx(styles.InputCity, styles.MobileSize)}
                 />
                 <SelectInput
                     label='ONG'
@@ -90,6 +92,7 @@ class AdoptionFilterBox extends React.Component {
                     options={ngoOptions}
                     value={this.props.adoptionFilters.ngoId}
                     onChange={this.onNgoChange}
+                    classStyleModifier={styles.MobileSize}
                 />
                 <SelectInput
                     label='Sexo'
@@ -100,6 +103,7 @@ class AdoptionFilterBox extends React.Component {
                     options={[{ id: 'f', name: 'Fêmea' }, { id: 'm', name: 'Macho' }]}
                     value={this.props.adoptionFilters.sex}
                     onChange={this.onSexChange}
+                    classStyleModifier={styles.MobileSize}
                 />
                 <TextInput
                     placeholder='Procure por palavras-chaves'
@@ -107,8 +111,13 @@ class AdoptionFilterBox extends React.Component {
                     marginRight='20px'
                     value={this.props.adoptionFilters.nameOrDescription}
                     onChange={this.onNameOrDescriptionChange}
+                    classStyleModifier={styles.MobileSize}
                 />
-                <Button children='Procurar' onClick={this.props.fetchPetsForAdoption} />
+                <Button
+                    children='Procurar'
+                    onClick={this.props.fetchPetsForAdoption}
+                    classStyleModifier={styles.MobileSize}
+                />
             </div>
         );
     }

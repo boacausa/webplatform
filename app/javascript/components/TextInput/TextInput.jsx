@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './TextInput.sass';
+import cx from "classnames";
 
-const TextInput = ({ value, placeholder, width, marginRight, onChange }) => (
-  <div className={styles.TextInput} style={{ width, marginRight }}>
+const TextInput = ({ value, placeholder, width, marginRight, onChange, classStyleModifier }) => (
+  <div className={cx(styles.TextInput, classStyleModifier)} style={{ width, marginRight }}>
       <input value={value} placeholder={placeholder} onChange={onChange} />
   </div>
 );
