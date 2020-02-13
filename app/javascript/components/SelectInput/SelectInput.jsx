@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SelectInput.sass';
+import cx from "classnames";
 
-const SelectInput = ({ label, name, placeholder, value, options, width, marginRight, onChange }) => (
-  <div className={styles.SelectInput} style={{ width, marginRight }}>
+const SelectInput = ({ label, name, placeholder, value, options, width, marginRight, onChange, classStyleModifier }) => (
+  <div className={cx(styles.SelectInput, classStyleModifier)} style={{ width, marginRight }}>
     <label>{label}</label>
     <select name={name} value={value} onChange={onChange}>
       <option value=''>{placeholder}</option>
