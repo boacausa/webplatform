@@ -15,8 +15,8 @@ const NavigationLinks = (props) => {
 
     return (
         <div className={props.styles.linksBox}>
-            {navLink('Home', '/', true)}
-            {navLink('NGOs', '/ongs')}
+            {navLink('Início', '/', true)}
+            {navLink('ONGs', '/ongs')}
             {navLink('Adoção', '/adocao')}
         </div>
     )
