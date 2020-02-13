@@ -13,6 +13,10 @@ import HomePage from "../containers/HomePage/HomePage";
 require('typeface-roboto');
 
 class App extends React.Component {
+    state = {
+        sideNavigationVisible: false
+    };
+
     toggleDrawerButtonHandler = () => {
         this.setState({sideNavigationVisible: !this.state.sideNavigationVisible});
     };
@@ -22,7 +26,7 @@ class App extends React.Component {
     };
 
     render() {
-        const {user, sideNavigationVisible} = this.props;
+        const {user} = this.props;
         const store = configureStore(user);
 
         return (
@@ -32,7 +36,7 @@ class App extends React.Component {
                         <Navigation toggleDrawerButton={this.toggleDrawerButtonHandler} user={user} />
                         <SideNavigation
                             user={user}
-                            visible={sideNavigationVisible}
+                            visible={this.state.sideNavigationVisible}
                             close={this.sideDrawerCloseHandler}
                         />
                         <Switch>

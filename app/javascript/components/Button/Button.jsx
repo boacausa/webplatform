@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Button.sass';
+import cx from "classnames";
 
-const Button = ({ children, onClick }) => (
+const Button = ({ children, onClick, classStyleModifier }) => (
   <button
     children={children}
-    className={styles.Button}
+    className={cx(styles.Button, classStyleModifier)}
     onClick={onClick}
   />
 );
