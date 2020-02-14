@@ -9,8 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  root 'home#index'
-  get 'home/index'
+  root 'static#index'
 
   localized do
     resources :ngos, only: %i[index show]
