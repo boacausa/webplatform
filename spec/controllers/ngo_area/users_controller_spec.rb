@@ -90,7 +90,7 @@ describe NgoArea::UsersController do
       end
 
       it 'redirects to Home' do
-        expect(response).to redirect_to(home_index_path)
+        expect(response).to redirect_to(root_path)
       end
     end
   end
