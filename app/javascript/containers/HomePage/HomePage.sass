@@ -1,1 +1,34 @@
+@import "../../variables/colors"
+@import "../../variables/fonts"
+@import "../../variables/sizes"
+
 .HomePage
+  .initialBox
+    background-color: $menuColor
+    width: 100%
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24)
+    padding: 60px 140px 100px
+
+  .insideBorder
+    border: 4px solid white
+    height: 100%
+    display: flex
+    justify-content: space-around
+    flex-direction: column
+
+  .titleBox
+    font-family: $font-family
+    color: white
+    margin-left: 80px
+
+  .title
+    text-transform: uppercase
+    font-size: 36px
+
+  .subtitle
+    font-size: 18px
+    font-weight: 400
+
+  @media #{$phone}
+    .initialBox
+      padding: 20px 40px 80px
