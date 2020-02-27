@@ -13,6 +13,10 @@ class HomePage extends Component {
                             <h2 className={classes.subtitle}> Para fazer do mundo um lugar melhor para todos.</h2>
                         </div>
                     </div>
+                    <div className={classes.petImages}>
+                        <span className={classes.dogImage} />
+                        <span className={classes.catImage} />
+                    </div>
                 </div>
             </div>
         );
