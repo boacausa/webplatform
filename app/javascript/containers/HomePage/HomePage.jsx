@@ -1,22 +1,14 @@
 import React, {Component} from "react"
 import classes from './HomePage.sass'
+import homePageImage from './../../images/home_page_desktop.png';
 
 class HomePage extends Component {
     render() {
-
+        // TODO: image for phone
         return (
             <div className={classes.HomePage}>
                 <div className={classes.initialBox} style={styles.initialBoxHeight}>
-                    <div className={classes.insideBorder}>
-                        <div className={classes.titleBox}>
-                            <h1 className={classes.title}>Por uma boa causa</h1>
-                            <h2 className={classes.subtitle}> Para fazer do mundo um lugar melhor para todos.</h2>
-                        </div>
-                    </div>
-                    <div className={classes.petImages}>
-                        <span className={classes.dogImage} />
-                        <span className={classes.catImage} />
-                    </div>
+                    <img src={homePageImage} alt="Home page image" className={classes.petImages} />
                 </div>
             </div>
         );
