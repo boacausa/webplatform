@@ -1,19 +1,24 @@
-import React, {Component} from "react"
+import React from "react"
 import classes from './HomePage.sass'
-import homePageImage from './../../images/home_page_desktop.png';
+import homePageImageDesktop from './../../images/home_page_desktop.png';
+import homePageImagePhone from './../../images/home_page_phone.png';
 
-class HomePage extends Component {
-    render() {
-        // TODO: image for phone
-        return (
-            <div className={classes.HomePage}>
-                <div className={classes.initialBox} style={styles.initialBoxHeight}>
-                    <img src={homePageImage} alt="Home page image" className={classes.petImages} />
-                </div>
-            </div>
-        );
+const SIZE_PHONE = window.innerWidth < 599;
+
+const HomePage = () => {
+    let homePageImage = homePageImageDesktop;
+
+    if (SIZE_PHONE) {
+        homePageImage = homePageImagePhone;
     }
-}
+    return (
+        <div className={classes.HomePage}>
+            <div className={classes.initialBox} style={styles.initialBoxHeight}>
+                <img src={homePageImage} alt="Home page image" className={classes.petImages} />
+            </div>
+        </div>
+    );
+};
 
 const styles = {
   initialBoxHeight: {
