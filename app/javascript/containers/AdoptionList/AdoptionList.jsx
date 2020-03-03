@@ -5,6 +5,9 @@ import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
 import AdoptionFilterBox from "./FilterBox/AdoptionFilterBox";
 import SimpleModal from "../../components/SimpleModal/SimpleModal";
+import {setErrorDialogMessage} from "../../actions/dialogMessage";
+
+const axios = require('axios');
 
 const GET_ADOPTION_REQUEST = 'GET_ADOPTION_REQUEST';
 const GET_ADOPTION_SUCCESS = 'GET_ADOPTION_SUCCESS';
@@ -51,27 +54,24 @@ class AdoptionList extends React.Component {
     }
 
     addAdoptionInterestHandler = (userEmail, pet) => {
-        if (userEmail) {
-            let body = JSON.stringify({register_interest: {user_email: userEmail, pet_id: pet.id}});
-
-            fetch(`../v1/pets_for_adoption/register_interest`, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: body,
-            })
-                .then(response => {
-                    console.log(response.json());
-                    this.props.fetchPetsForAdoption(userEmail);
-                })
-                .catch(function (error) {
-                    // TODO: handle error
-                    console.log(error);
-                });
+        if (!userEmail) {
+            return;
         }
 
-        this.setState({showAdoptingModal: true});
+        axios
+            .post(`../v1/pets_for_adoption/register_interest`, {
+                params: {register_interest: {user_email: userEmail, pet_id: pet.id}}
+            })
+            .then(() => {
+                console.log('then');
+                this.props.fetchPetsForAdoption(userEmail);
+                this.setState({showAdoptingModal: true});
+            })
+            .catch((error) => {
+                this.props.setErrorDialogMessage(error);
+                console.log('error');
+                console.log(error);
+            });
     };
 
     adoptingCancelHandler = () => {
@@ -137,6 +137,9 @@ const mapStateToProps = createStructuredSelector({
     userEmail: state => state.app.user.email
 });
 
-const mapDispatchToProps = {fetchPetsForAdoption};
+const mapDispatchToProps = {
+    fetchPetsForAdoption,
+    setErrorDialogMessage
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdoptionList);

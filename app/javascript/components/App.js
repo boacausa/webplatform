@@ -8,6 +8,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import AdoptionList from "../containers/AdoptionList/AdoptionList";
 import Navigation from "./Navigation/Navigation";
 import SideNavigation from "./Navigation/SideNavigation/SideNavigation";
+import DialogMessage from "./DialogMessage/DialogMessage";
 
 require('typeface-roboto');
 
@@ -46,6 +47,7 @@ class App extends React.Component {
                             <Route path="/adocao" component={AdoptionList} />
                         </Switch>
                     </BrowserRouter>
+                    <DialogMessage />
                 </Provider>
             </ErrorBoundary>
         );
