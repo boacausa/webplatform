@@ -63,14 +63,11 @@ class AdoptionList extends React.Component {
                 params: {register_interest: {user_email: userEmail, pet_id: pet.id}}
             })
             .then(() => {
-                console.log('then');
                 this.props.fetchPetsForAdoption(userEmail);
                 this.setState({showAdoptingModal: true});
             })
             .catch((error) => {
-                this.props.setErrorDialogMessage(error);
-                console.log('error');
-                console.log(error);
+                this.props.setErrorDialogMessage({error});
             });
     };
 

@@ -2,7 +2,8 @@ import { types } from '../actions/dialogMessage';
 
 const dialogMessageReducerDefaultState = {
   type: null,
-  message: null
+  message: null,
+  error: null,
 };
 
 export default (state = dialogMessageReducerDefaultState, action) => {
@@ -11,6 +12,7 @@ export default (state = dialogMessageReducerDefaultState, action) => {
       return {
         ...state,
         message: action.message,
+        error: action.error,
         type: "ERROR",
       };
     case types.CLEAN_DIALOG_MESSAGE:
