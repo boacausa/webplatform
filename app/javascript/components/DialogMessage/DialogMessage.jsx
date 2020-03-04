@@ -4,6 +4,7 @@ import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
 import {cleanDialogMessage} from "../../actions/dialogMessage";
 import * as Sentry from "@sentry/browser";
+import classes from './DialogMessage.sass';
 
 const DialogMessage = ({dialogMessage, cleanDialogMessage}) => {
     if (!dialogMessage.message) {
@@ -12,7 +13,7 @@ const DialogMessage = ({dialogMessage, cleanDialogMessage}) => {
 
     Sentry.captureException(dialogMessage.error);
 
-    return <SimpleModal show={true} modalClosed={cleanDialogMessage}>
+    return <SimpleModal show={true} modalClosed={cleanDialogMessage} classStyleModifier={classes.DialogMessageError}>
         <p>{dialogMessage.message}</p>
     </SimpleModal>
 };
