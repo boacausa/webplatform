@@ -15,7 +15,7 @@ class SimpleModal extends React.Component {
     render() {
         return (
             <div>
-                <Backdrop show={this.props.show} clicked={this.props.modalClosed}/>
+                {this.props.showBackdrop && <Backdrop show={this.props.show} clicked={this.props.modalClosed}/>}
                 <div
                     className={cx(classes.SimpleModal, this.props.classStyleModifier)}
                     style={{
@@ -30,5 +30,9 @@ class SimpleModal extends React.Component {
         )
     }
 }
+
+SimpleModal.defaultProps = {
+    showBackdrop: true,
+};
 
 export default SimpleModal;

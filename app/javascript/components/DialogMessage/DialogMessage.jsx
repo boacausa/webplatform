@@ -13,7 +13,12 @@ const DialogMessage = ({dialogMessage, cleanDialogMessage}) => {
 
     Sentry.captureException(dialogMessage.error);
 
-    return <SimpleModal show={true} modalClosed={cleanDialogMessage} classStyleModifier={classes.DialogMessageError}>
+    return <SimpleModal
+        show={true}
+        modalClosed={cleanDialogMessage}
+        classStyleModifier={classes.DialogMessageError}
+        showBackdrop={false}
+    >
         <p>{dialogMessage.message}</p>
     </SimpleModal>
 };
