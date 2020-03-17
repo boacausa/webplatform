@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './SimpleModal.sass';
+import classes from './SimpleModal.sass';
 import Backdrop from '../Backdrop/Backdrop';
+import cx from "classnames";
 
 class SimpleModal extends React.Component {
     shouldComponentUpdate(nextProps) {
@@ -14,20 +15,24 @@ class SimpleModal extends React.Component {
     render() {
         return (
             <div>
-                <Backdrop show={this.props.show} clicked={this.props.modalClosed}/>
+                {this.props.showBackdrop && <Backdrop show={this.props.show} clicked={this.props.modalClosed}/>}
                 <div
-                    className={styles.SimpleModal}
+                    className={cx(classes.SimpleModal, this.props.classStyleModifier)}
                     style={{
                         transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
                         opacity: this.props.show ? '1' : '0'
                     }}
                 >
-                    <a onClick={this.props.modalClosed} className={styles.closeButton}>x</a>
+                    <a onClick={this.props.modalClosed} className={classes.closeButton}>x</a>
                     {this.props.children}
                 </div>
             </div>
         )
     }
 }
+
+SimpleModal.defaultProps = {
+    showBackdrop: true,
+};
 
 export default SimpleModal;

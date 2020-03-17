@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import adoptionFiltersReducer from './reducers/adoptionFilters'
+import dialogMessage from "./reducers/dialogMessage";
 
 const appReducerDefaultState = {
   sideNavigationVisible: false,
@@ -27,7 +28,8 @@ function appReducer(state = appReducerDefaultState, action) {
 
 const rootReducer = combineReducers({
   app: appReducer,
-  adoptionFilters: adoptionFiltersReducer
+  adoptionFilters: adoptionFiltersReducer,
+  dialogMessage: dialogMessage,
 });
 
 export default function configureStore(user) {
