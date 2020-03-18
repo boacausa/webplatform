@@ -1,29 +1,28 @@
 import React from "react"
 import classes from './HomePage.sass'
-import homePageImageDesktop from './../../images/home_page_desktop.png';
-import homePageImagePhone from './../../images/home_page_phone.png';
-
-const SIZE_PHONE = window.innerWidth < 599;
+import homePageDog from './../../images/home_page_dog.svg';
+import homePageCat from './../../images/home_page_cat.svg';
 
 const HomePage = () => {
-    let homePageImage = homePageImageDesktop;
-
-    if (SIZE_PHONE) {
-        homePageImage = homePageImagePhone;
-    }
     return (
         <div className={classes.HomePage}>
             <div className={classes.initialBox} style={styles.initialBoxHeight}>
-                <img src={homePageImage} alt="Home page image" className={classes.petImages} />
+                <div className={classes.insideBorder}>
+                    <div />
+                    <div className={classes.petImages}>
+                        <img src={homePageDog} alt="Imagem de um cachorro" className={classes.imageDog} />
+                        <img src={homePageCat} alt="Imagem de um gato" className={classes.imageCat} />
+                    </div>
+                </div>
             </div>
         </div>
     );
 };
 
 const styles = {
-  initialBoxHeight: {
-      height: (window.innerHeight * 0.75) + "px"
-  }
+    initialBoxHeight: {
+        height: (window.innerHeight * 0.75) + "px"
+    }
 };
 
 export default HomePage;
