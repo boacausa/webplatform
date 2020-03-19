@@ -1,0 +1,75 @@
+@import "../../variables/colors"
+@import "../../variables/fonts"
+@import "../../variables/sizes"
+
+.HomePage
+  .initialBox
+    background-color: $menuColor
+    width: 100%
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24)
+    padding: 60px 140px 100px
+
+  .insideBorder
+    border: 4px solid white
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+  .texts
+    font-family: $font-family
+    color: white
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    width: 470px
+    height: 470px
+    margin: auto
+    text-align: right
+
+  .beforeTitle
+    font-weight: 200
+
+  .title
+    font-weight: 500
+
+  .petImages
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+  .imageDog
+    width: 200px
+    height: 300px
+
+  .imageCat
+    width: 300px
+    height: 300px
+
+  @media #{$phone}
+    .initialBox
+      padding: 20px 40px 80px
+
+    .texts
+      width: 260px
+      height: 400px
+
+    .beforeTitle
+      font-size: 24px
+
+    .title
+      font-size: 24px
+
+    .paragraph
+      font-size: 14px
+
+    .imageDog
+      width: 90px
+      height: 160px
+
+    .imageCat
+      width: 140px
+      height: 160px
+

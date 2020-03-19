@@ -12,7 +12,9 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, email: true
-  validates :cpf, presence: true, cpf: true
+  # TODO: Consider remove because of LGPD
+  # is blocking sign up. Do we really need CPF?
+  # validates :cpf, presence: true, cpf: true
 
   def self.from_omniauth(auth)
     user = User.find_by(email: auth.info.email)

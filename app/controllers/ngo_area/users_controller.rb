@@ -29,7 +29,7 @@ class NgoArea::UsersController < NgoAreaController
     @user.update(params_user)
 
     if current_user == @user && !@user.admin?
-      redirect_to home_index_path
+      redirect_to root_path
     else
       redirect_to ngo_area_users_path
     end
