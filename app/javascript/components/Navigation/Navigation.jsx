@@ -4,6 +4,8 @@ import UserMenu from "./UserMenu/UserMenu";
 import OutsideComponentHandler from "../OutsideComponentHandler";
 import HamburgerButton from "./SideNavigation/HamburgerButton/HamburgerButton";
 import NavigationLinks from "./NavigationLinks/NavigationLinks";
+import userNoPictureImage from './../../images/user_no_picture.svg';
+import moreButtonImage from './../../images/more.svg';
 
 class Navigation extends React.Component {
     state = {
@@ -28,9 +30,9 @@ class Navigation extends React.Component {
 
     userButtons = () => {
         return <div className={styles.userProperties}>
-            <span className={styles.userPicture} />
+            <img src={userNoPictureImage} alt="Foto do usuário" className={styles.userPicture} />
             <button className={styles.moreButton} onClick={() => this.toggleMoreButtonHandler()}>
-                <i className={styles.moreIcon} aria-hidden="true" />
+                <img src={moreButtonImage} alt="More button" className={styles.moreIcon} />
             </button>
             {this.state.userMenuActive && this.userMenu()}
         </div>;
