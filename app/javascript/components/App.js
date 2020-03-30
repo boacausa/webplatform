@@ -10,6 +10,7 @@ import Navigation from "./Navigation/Navigation";
 import SideNavigation from "./Navigation/SideNavigation/SideNavigation";
 import HomePage from "../containers/HomePage/HomePage";
 import DialogMessage from "./DialogMessage/DialogMessage";
+import UserSettings from "../containers/UserSettings/UserSettings";
 
 require('typeface-roboto');
 
@@ -46,7 +47,7 @@ class App extends React.Component {
                             <Route path="/new/ongs" render={() => <NgosList />} />
                             <Route exact path="/new/ong/:id" component={NgoPage} />
                             <Route path="/adocao" component={AdoptionList} />
-                            <Route path="/settings" render={() => <div>Settings</div>} />
+                            <Route path="/settings" component={UserSettings} />
                         </Switch>
                     </BrowserRouter>
                     <DialogMessage />
