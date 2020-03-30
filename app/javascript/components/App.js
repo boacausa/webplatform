@@ -46,6 +46,7 @@ class App extends React.Component {
                             <Route path="/new/ongs" render={() => <NgosList />} />
                             <Route exact path="/new/ong/:id" component={NgoPage} />
                             <Route path="/adocao" component={AdoptionList} />
+                            <Route path="/settings" render={() => <div>Settings</div>} />
                         </Switch>
                     </BrowserRouter>
                     <DialogMessage />
