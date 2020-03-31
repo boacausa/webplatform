@@ -43,6 +43,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.7'
   gem 'rails-controller-testing'
+  gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'rspec_junit_formatter'
 end
