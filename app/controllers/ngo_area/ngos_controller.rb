@@ -9,8 +9,11 @@ class NgoArea::NgosController < NgoAreaController
 
   def create
     @ngo = Ngo.create(params_ngo)
-
-    redirect_to ngo_area_ngos_path
+    if @ngo.save
+      redirect_to ngo_area_ngos_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -19,9 +22,11 @@ class NgoArea::NgosController < NgoAreaController
 
   def update
     @ngo = Ngo.find(params[:id])
-    @ngo.update params_ngo
-
-    redirect_to ngo_area_ngos_path
+    if @ngo.update(params_ngo)
+      redirect_to ngo_area_ngos_path
+    else
+      render :edit
+    end
   end
 
   private

@@ -8,6 +8,12 @@ class Ngo < ApplicationRecord
   has_one_attached :image
 
   validates :fantasy_name, presence: true
+  validates :zipcode, presence: true
+  validates :address_number, presence: true
+  validates :address, presence: true
+  validates :neighborhood, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
 
   scope :active, -> { where(active: true) }
 

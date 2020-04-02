@@ -10,6 +10,16 @@ describe Ngo do
     user
   end
 
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:fantasy_name) }
+    it { is_expected.to validate_presence_of(:zipcode) }
+    it { is_expected.to validate_presence_of(:address_number) }
+    it { is_expected.to validate_presence_of(:address) }
+    it { is_expected.to validate_presence_of(:neighborhood) }
+    it { is_expected.to validate_presence_of(:city) }
+    it { is_expected.to validate_presence_of(:state) }
+  end
+
   describe '.from_user' do
     context 'when user is not admin' do
       it 'returns just one ngo' do

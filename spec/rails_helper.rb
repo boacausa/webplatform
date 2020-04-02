@@ -86,4 +86,11 @@ RSpec.configure do |config|
     I18n.default_locale = :en
     stub_const("#{ApplicationController}::DEFAULT_LOCALE", 'en')
   end
+
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
 end
