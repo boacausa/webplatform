@@ -17,11 +17,15 @@ const UserSettings = () => {
                 </div>
 
                 <div className={classes.formInputs}>
-                    <TextInputWithLabel className={classes.textInput} label="Nome Completo" />
-                    <TextInputWithLabel className={classes.textInput} label="Email" />
-                    <TextInputWithLabel className={classes.textInput} label="Telefone" />
-                    <TextInputWithLabel className={classes.textInput} label="Senha" />
-                    <TextInputWithLabel className={classes.textInput} label="Confirmação de senha" />
+                    <div>
+                        <TextInputWithLabel className={classes.textInput} label="Nome Completo" />
+                        <TextInputWithLabel className={classes.textInput} label="Email" />
+                        <TextInputWithLabel className={classes.textInput} label="Telefone" />
+                    </div>
+                    <div>
+                        <TextInputWithLabel className={classes.textInput} label="Senha" />
+                        <TextInputWithLabel className={classes.textInput} label="Confirmação de senha" />
+                    </div>
                 </div>
             </div>
         </div>
