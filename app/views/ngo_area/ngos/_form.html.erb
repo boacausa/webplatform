@@ -1,11 +1,14 @@
-<div class="col-lg-6">
+ <%= form_error_tag(@ngo) %>
+
+<div class="col-lg-6" >
   <div class="form-group">
     <%= label_tag(:social_name, 'Razão Social') %>
     <%= f.text_field :social_name, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group <%= form_group_error_class(@ngo, :fantasy_name)%>">
     <%= label_tag(:fantasy_name, 'Nome Fantasia') %>
     <%= f.text_field :fantasy_name, class: 'form-control' %>
+    <%= field_error_tag(@ngo, :fantasy_name) %>
   </div>
   <div class="form-group">
     <%= label_tag(:email, 'E-mail') %>
@@ -63,29 +66,35 @@
 </div>
 <div class="col-lg-6">
   <h1>Endereço</h1>
-  <div class="form-group">
+  <div class="form-group <%= form_group_error_class(@ngo, :zipcode)%>">
     <%= label_tag(:zipcode, 'CEP') %>
     <%= f.number_field :zipcode, class: 'form-control' %>
+    <%= field_error_tag(@ngo, :zipcode) %>
   </div>
-  <div class="form-group">
+  <div class="form-group <%= form_group_error_class(@ngo, :address_number)%>">
     <%= label_tag(:address_number, 'Número ') %>
     <%= f.number_field :address_number, class: 'form-control' %>
+    <%= field_error_tag(@ngo, :address_number) %>
   </div>
-  <div class="form-group">
+  <div class="form-group <%= form_group_error_class(@ngo, :address)%>">
     <%= label_tag(:address, 'Endereço') %>
-    <%= f.text_field :address, class: 'form-control', :readonly => true %>
+    <%= f.text_field :address, class: 'form-control' %>
+    <%= field_error_tag(@ngo, :address) %>
   </div>
-  <div class="form-group">
+  <div class="form-group <%= form_group_error_class(@ngo, :neighborhood)%>">
     <%= label_tag(:neighborhood, 'Bairro') %>
-    <%= f.text_field :neighborhood, class: 'form-control', :readonly => true %>
+    <%= f.text_field :neighborhood, class: 'form-control' %>
+    <%= field_error_tag(@ngo, :neighborhood) %>
   </div>
-  <div class="form-group">
+  <div class="form-group <%= form_group_error_class(@ngo, :city)%>">
     <%= label_tag(:city, 'Cidade') %>
     <%= f.text_field :city, class: 'form-control', :readonly => true %>
+    <%= field_error_tag(@ngo, :city) %>
   </div>
-  <div class="form-group">
+  <div class="form-group <%= form_group_error_class(@ngo, :state)%>">
     <%= label_tag(:state, 'Estado') %>
     <%= f.text_field :state, class: 'form-control', :readonly => true %>
+    <%= field_error_tag(@ngo, :state) %>
   </div>
   <h1>Conta bancária</h1>
   <div class="form-group">
