@@ -31,6 +31,16 @@ const UserSettings = (props) => {
     }, []);
 
 
+    const inputChangedHandler = (event, inputIdentifier) => {
+        const updatedUserSettings = {
+            ...userSettings
+        };
+
+        updatedUserSettings[inputIdentifier] = event.target.value;
+
+        setUserSettings(updatedUserSettings)
+    }
+
     return (
         <div className={classes.UserSettings}>
             <SecondLevelNavigation>
@@ -49,16 +59,19 @@ const UserSettings = (props) => {
                             className={classes.textInput}
                             label="Nome Completo"
                             value={userSettings.name}
+                            onChange={(event) => inputChangedHandler(event, 'name')}
                          />
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Email"
                             value={userSettings.email}
+                            onChange={(event) => inputChangedHandler(event, 'email')}
                         />
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Telefone"
                             value={userSettings.phone}
+                            onChange={(event) => inputChangedHandler(event, 'phone')}
                         />
                     </div>
                     <div>
@@ -66,11 +79,13 @@ const UserSettings = (props) => {
                             className={classes.textInput}
                             label="Senha"
                             value={userSettings.password}
+                            onChange={(event) => inputChangedHandler(event, 'password')}
                         />
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Confirmação de senha"
                             value={userSettings.passwordConfirmation}
+                            onChange={(event) => inputChangedHandler(event, 'passwordConfirmation')}
                         />
                     </div>
                 </div>
