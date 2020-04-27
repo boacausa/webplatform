@@ -4,6 +4,7 @@ import SecondLevelNavigation from "../../components/Navigation/SecondLevelNaviga
 import TextInputWithLabel from "../../components/TextInputWithLabel/TextInputWithLabel";
 import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
+import SubmitButton from "../../components/SubmitButton/SubmitButton";
 
 const UserSettings = (props) => {
     const [userSettings, setUserSettings] = useState({
@@ -88,6 +89,13 @@ const UserSettings = (props) => {
                             onChange={(event) => inputChangedHandler(event, 'passwordConfirmation')}
                         />
                     </div>
+                </div>
+
+                <div className={classes.submitBox}>
+                    <SubmitButton
+                        title='Salvar'
+                        classStyleModifier={classes.submitButton}
+                    />
                 </div>
             </div>
         </div>
