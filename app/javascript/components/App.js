@@ -12,7 +12,7 @@ import HomePage from "../containers/HomePage/HomePage";
 import DialogMessage from "./DialogMessage/DialogMessage";
 import UserSettings from "../containers/UserSettings/UserSettings";
 
-require('typeface-roboto');
+import '../fonts/roboto/index.css';
 
 class App extends React.Component {
     state = {
