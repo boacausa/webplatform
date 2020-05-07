@@ -14,6 +14,13 @@ class RailsApi {
                 this.handleError(error)
             });
     };
+
+    post(path, params = {}) {
+        return axios.post(path, params)
+            .catch((error) => {
+                this.handleError(error)
+            });
+    };
 }
 
 export default new RailsApi;

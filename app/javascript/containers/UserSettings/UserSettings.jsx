@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import changePictureImage from "../../images/user_settings_change_picture.svg";
+import UserSettingsApi from "../../api/userSettingsApi";
 
 const UserSettings = (props) => {
     const [userSettings, setUserSettings] = useState({
@@ -20,6 +21,7 @@ const UserSettings = (props) => {
         const user = props.user;
 
         const userData = {
+            id: user.id,
             name: user.name,
             email: user.email,
             phone: user.phone,
@@ -41,6 +43,11 @@ const UserSettings = (props) => {
         updatedUserSettings[inputIdentifier] = event.target.value;
 
         setUserSettings(updatedUserSettings)
+    }
+
+    const submitHandler = () => {
+        console.log(userSettings)
+        UserSettingsApi.updateUser(userSettings);
     }
 
     return (
@@ -101,6 +108,7 @@ const UserSettings = (props) => {
                     <SubmitButton
                         title='Salvar'
                         classStyleModifier={classes.submitButton}
+                        clicked={submitHandler}
                     />
                 </div>
             </div>
