@@ -6,17 +6,34 @@ import {cleanDialogMessage} from "../../actions/dialogMessage";
 import * as Sentry from "@sentry/browser";
 import classes from './DialogMessage.sass';
 
+const dialogMessageClass = (dialogMessage) => {
+    switch (dialogMessage.type) {
+        case "ERROR":
+            return classes.DialogMessageError;
+        case "SUCCESS":
+            return classes.DialogMessageSuccess;
+        default:
+            return classes.DialogMessageNeutral;
+    }
+};
+
+// TODO: click outside needs to close
+// TODO: click inside needs to close
+// TODO: fade away in a couple of seconds
+// TODO: write tests
 const DialogMessage = ({dialogMessage, cleanDialogMessage}) => {
     if (!dialogMessage.message) {
         return null;
     }
 
-    Sentry.captureException(dialogMessage.error);
+    if (dialogMessage.error) {
+        Sentry.captureException(dialogMessage.error);
+    }
 
     return <SimpleModal
         show={true}
         modalClosed={cleanDialogMessage}
-        classStyleModifier={classes.DialogMessageError}
+        classStyleModifier={dialogMessageClass(dialogMessage)}
         showBackdrop={false}
     >
         <p>{dialogMessage.message}</p>
