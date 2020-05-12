@@ -1,10 +1,11 @@
 import { store } from '../configureStore';
-import {setErrorDialogMessage} from "../actions/dialogMessage";
+import {cleanDialogMessage, setErrorDialogMessage} from "../actions/dialogMessage";
 
 const axios = require('axios');
 
 class RailsApi {
     handleError = (error) => {
+        store.dispatch(cleanDialogMessage())
         store.dispatch(setErrorDialogMessage({error}))
     }
 
