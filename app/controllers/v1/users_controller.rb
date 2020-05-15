@@ -11,7 +11,7 @@ class V1::UsersController < ApplicationController
   private
 
   def params_user
-    params.permit(:id, :name, :email, :phone)
+    params.permit(:id, :name, :email, :phone, :password)
   end
 end
 

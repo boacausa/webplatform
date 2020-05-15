@@ -8,14 +8,15 @@ import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import changePictureImage from "../../images/user_settings_change_picture.svg";
 import UserSettingsApi from "../../api/userSettingsApi";
 
+// TODO: update password
+// TODO: password confirmation validation
+// TODO: phone validation
+// TODO: presence validation
+
+const NO_PASSWORD = 'NO_PASSWORD';
+
 const UserSettings = (props) => {
-    const [userSettings, setUserSettings] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        password: '**********',
-        passwordConfirmation: '**********'
-    });
+    const [userSettings, setUserSettings] = useState({});
 
     useEffect(() => {
         const user = props.user;
@@ -25,6 +26,8 @@ const UserSettings = (props) => {
             name: user.name,
             email: user.email,
             phone: user.phone,
+            password: NO_PASSWORD,
+            passwordConfirmation: NO_PASSWORD,
         };
 
         setUserSettings(userData)
@@ -46,8 +49,21 @@ const UserSettings = (props) => {
     }
 
     const submitHandler = () => {
-        console.log(userSettings)
-        UserSettingsApi.updateUser(userSettings);
+        let userSettingsParam = {
+            id: userSettings.id,
+            name: userSettings.name,
+            email: userSettings.email,
+            phone: userSettings.phone,
+        };
+
+        if (userSettings.password !== NO_PASSWORD) {
+            userSettingsParam = {
+                ...userSettingsParam,
+                password: userSettings.password
+            }
+        }
+
+        UserSettingsApi.updateUser(userSettingsParam);
     }
 
     return (
@@ -93,12 +109,14 @@ const UserSettings = (props) => {
                             className={classes.textInput}
                             label="Senha"
                             value={userSettings.password}
+                            type='password'
                             onChange={(event) => inputChangedHandler(event, 'password')}
                         />
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Confirmação de senha"
                             value={userSettings.passwordConfirmation}
+                            type='password'
                             onChange={(event) => inputChangedHandler(event, 'passwordConfirmation')}
                         />
                     </div>
