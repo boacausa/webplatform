@@ -31,7 +31,33 @@
     "webpack-merge": "^4.2.1"
   },
   "devDependencies": {
+    "babel-jest": "^26.0.1",
     "cypress": "^3.6.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^26.0.1",
+    "jest-enzyme": "^7.1.2",
+    "react-test-render": "^1.1.2",
+    "regenerator-runtime": "^0.13.5",
     "webpack-dev-server": "^3.7.2"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "roots": [
+      "spec/javascript",
+      "app/javascript"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript/packs"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+      "<rootDir>/spec/javascript/__mocks__/fileMock.js",
+      "\\.(css|sass)$": "<rootDir>/spec/javascript/__mocks__/styleMock.js"
+    }
   }
 }
