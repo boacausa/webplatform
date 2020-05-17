@@ -9,6 +9,7 @@ const SubmitButton = (props) => {
         <button
             onClick={props.clicked}
             className={cx(buttonClass, props.classStyleModifier)}
+            disabled={props.isDisabled}
         >{props.title}</button>
     );
 };
