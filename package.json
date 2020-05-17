@@ -45,7 +45,9 @@
     "test": "jest"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "setupFilesAfterEnv": [
+      "./node_modules/jest-enzyme/lib/index.js"
+    ],
     "roots": [
       "spec/javascript",
       "app/javascript"
