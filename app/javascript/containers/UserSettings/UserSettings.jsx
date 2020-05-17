@@ -8,7 +8,6 @@ import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import changePictureImage from "../../images/user_settings_change_picture.svg";
 import UserSettingsApi from "../../api/userSettingsApi";
 
-// TODO: update password
 // TODO: password confirmation validation
 // TODO: phone validation
 // TODO: presence validation
