@@ -8,7 +8,8 @@ import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import changePictureImage from "../../images/user_settings_change_picture.svg";
 import UserSettingsApi from "../../api/userSettingsApi";
 
-// TODO: password confirmation validation
+// TODO: password min requirements validation
+// TODO: required fields validation
 // TODO: phone validation
 // TODO: presence validation
 
@@ -16,6 +17,7 @@ const NO_PASSWORD = 'NO_PASSWORD';
 
 const UserSettings = (props) => {
     const [userSettings, setUserSettings] = useState({});
+    const [formErrors, setFormErrors] = useState([]);
 
     useEffect(() => {
         const user = props.user;
@@ -45,6 +47,23 @@ const UserSettings = (props) => {
         updatedUserSettings[inputIdentifier] = event.target.value;
 
         setUserSettings(updatedUserSettings)
+        validateInput(updatedUserSettings);
+    }
+
+    const validateInput = (userSettings) => {
+        let errors = {};
+
+        if (userSettings.password !== userSettings.passwordConfirmation) {
+            errors['password'] = {
+                message: null
+            }
+
+            errors['passwordConfirmation'] = {
+                message: "Password doesn't match"
+            }
+        }
+
+        setFormErrors(errors)
     }
 
     const submitHandler = () => {
@@ -109,6 +128,7 @@ const UserSettings = (props) => {
                             label="Senha"
                             value={userSettings.password}
                             type='password'
+                            error={formErrors['password']}
                             onChange={(event) => inputChangedHandler(event, 'password')}
                         />
                         <TextInputWithLabel
@@ -116,6 +136,7 @@ const UserSettings = (props) => {
                             label="Confirmação de senha"
                             value={userSettings.passwordConfirmation}
                             type='password'
+                            error={formErrors['passwordConfirmation']}
                             onChange={(event) => inputChangedHandler(event, 'passwordConfirmation')}
                         />
                     </div>
@@ -126,6 +147,7 @@ const UserSettings = (props) => {
                         title='Salvar'
                         classStyleModifier={classes.submitButton}
                         clicked={submitHandler}
+                        isDisabled={Object.keys(formErrors).length > 0}
                     />
                 </div>
             </div>
