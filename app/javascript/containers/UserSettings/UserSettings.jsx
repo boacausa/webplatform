@@ -9,7 +9,6 @@ import changePictureImage from "../../images/user_settings_change_picture.svg";
 import UserSettingsApi from "../../api/userSettingsApi";
 
 // TODO: password min requirements validation
-// TODO: required fields validation
 // TODO: phone validation
 // TODO: email validation
 
@@ -52,6 +51,15 @@ const UserSettings = (props) => {
 
     const validateInput = (userSettings) => {
         let errors = {};
+
+        ['name', 'email', 'phone', 'password'].map((inputName) => {
+            if (userSettings[inputName].trim() === '') {
+                errors[inputName] = {
+                    message: "Este campo é obrigatório"
+                }
+            }
+        })
+
 
         if (userSettings.password !== userSettings.passwordConfirmation) {
             errors['password'] = {
@@ -105,18 +113,21 @@ const UserSettings = (props) => {
                             className={classes.textInput}
                             label="Nome Completo"
                             value={userSettings.name}
+                            error={formErrors['name']}
                             onChange={(event) => inputChangedHandler(event, 'name')}
                          />
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Email"
                             value={userSettings.email}
+                            error={formErrors['email']}
                             onChange={(event) => inputChangedHandler(event, 'email')}
                         />
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Telefone"
                             value={userSettings.phone}
+                            error={formErrors['phone']}
                             onChange={(event) => inputChangedHandler(event, 'phone')}
                         />
                     </div>
