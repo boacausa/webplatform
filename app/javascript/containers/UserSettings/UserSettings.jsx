@@ -11,7 +11,7 @@ import UserSettingsApi from "../../api/userSettingsApi";
 // TODO: password min requirements validation
 // TODO: required fields validation
 // TODO: phone validation
-// TODO: presence validation
+// TODO: email validation
 
 const NO_PASSWORD = 'NO_PASSWORD';
 
@@ -59,7 +59,7 @@ const UserSettings = (props) => {
             }
 
             errors['passwordConfirmation'] = {
-                message: "Password doesn't match"
+                message: "Senhas não conferem"
             }
         }
 
