@@ -3,7 +3,7 @@ import classes from "./TextInputWithLabel.sass";
 import cx from "classnames";
 
 const errorMessage = (error) => {
-    return <span className={classes.textError}>{error.message}</span>
+    return <span className={classes.textError}>{error}</span>
 }
 
 const inputErrorClass = (error) => {

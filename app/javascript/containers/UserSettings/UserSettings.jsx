@@ -7,10 +7,7 @@ import {createStructuredSelector} from "reselect";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import changePictureImage from "../../images/user_settings_change_picture.svg";
 import UserSettingsApi from "../../api/userSettingsApi";
-
-// TODO: password min requirements validation
-// TODO: phone validation/mask
-// TODO: email validation
+import FormValidation from "../../utils/Validation/FormValidation";
 
 const NO_PASSWORD = 'NO_PASSWORD';
 
@@ -50,37 +47,16 @@ const UserSettings = (props) => {
     }
 
     const validateInput = (userSettings) => {
-        let errors = {};
+        let formValidation = new FormValidation();
 
-        // TODO: transform this into a new validation class
-        // ex: errors << Validation.requiredFields(userSettings, ['name', 'email', 'phone', 'password'])
-        // ex: errors << Validation.password(userSettings.password, userSettings.passwordConfirmation)
-        ['name', 'email', 'phone', 'password'].map((inputName) => {
-            if (userSettings[inputName].trim() === '') {
-                errors[inputName] = {
-                    message: "Este campo é obrigatório"
-                }
-            }
-        })
+        // TODO: password min requirements validation
+        // TODO: phone validation/mask
 
-        if (userSettings.password !== userSettings.passwordConfirmation) {
-            errors['password'] = {
-                message: null
-            }
+        formValidation.email(userSettings.email)
+        formValidation.password(userSettings.password, userSettings.passwordConfirmation)
+        formValidation.requiredFields(['name', 'email', 'phone', 'password'], userSettings)
 
-            errors['passwordConfirmation'] = {
-                message: "Senhas não conferem"
-            }
-        }
-
-        // TODO: do not override required validation
-        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userSettings.email))) {
-            errors['email'] = {
-                message: "E-mail inválido"
-            }
-        }
-
-        setFormErrors(errors)
+        setFormErrors(formValidation.errors)
     }
 
     const submitHandler = () => {
