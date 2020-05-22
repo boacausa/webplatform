@@ -6,7 +6,7 @@ class FormValidation {
     requiredFields(requiredFieldNames, fields) {
         requiredFieldNames.map((inputName) => {
             const fieldValue = fields[inputName];
-            if (fieldValue === null || fieldValue.trim() === '') {
+            if (!fieldValue || fieldValue.trim() === '') {
                 this.appendError(inputName, "Este campo é obrigatório")
             }
         })

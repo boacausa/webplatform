@@ -5,7 +5,7 @@ describe('FormValidation', () => {
         describe('when fields are not set', () => {
             it('returns errors', () => {
                 const fields = {
-                    email: null,
+                    email: undefined,
                     password: ''
                 }
 
