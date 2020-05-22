@@ -13,7 +13,7 @@ const NO_PASSWORD = 'NO_PASSWORD';
 
 const UserSettings = (props) => {
     const [userSettings, setUserSettings] = useState({});
-    const [formErrors, setFormErrors] = useState([]);
+    const [formErrors, setFormErrors] = useState({});
 
     useEffect(() => {
         const user = props.user;
@@ -43,7 +43,12 @@ const UserSettings = (props) => {
         updatedUserSettings[inputIdentifier] = event.target.value;
 
         setUserSettings(updatedUserSettings)
-        validateInput(updatedUserSettings);
+
+        console.log({formErrors})
+
+        if (Object.keys(formErrors).length > 0) {
+            validateInput(updatedUserSettings);
+        }
     }
 
     const validateInput = (userSettings) => {
@@ -52,12 +57,19 @@ const UserSettings = (props) => {
         // TODO: phone validation/mask
         formValidation.email(userSettings.email)
         formValidation.password(userSettings.password, userSettings.passwordConfirmation)
+        formValidation.phone(userSettings.phone)
         formValidation.requiredFields(['name', 'email', 'phone', 'password'], userSettings)
 
         setFormErrors(formValidation.errors)
+
+        return Object.keys(formValidation.errors).length === 0;
     }
 
     const submitHandler = () => {
+        if (!validateInput(userSettings)) {
+            return
+        }
+
         let userSettingsParam = {
             id: userSettings.id,
             name: userSettings.name,

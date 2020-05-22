@@ -99,4 +99,46 @@ describe('FormValidation', () => {
             })
         })
     })
+
+    describe('phone', () => {
+        describe('when phone is valid', () => {
+            it('does not return error', () => {
+                let formValidation = new FormValidation();
+                formValidation.phone('(11) 98888-8888')
+                expect(formValidation.errors).toEqual({})
+            })
+
+            it('does not return error', () => {
+                let formValidation = new FormValidation();
+                formValidation.phone('21 98888-8888')
+                expect(formValidation.errors).toEqual({})
+            })
+
+            it('does not return error', () => {
+                let formValidation = new FormValidation();
+                formValidation.phone('5511988888888')
+                expect(formValidation.errors).toEqual({})
+            })
+
+            it('does not return error', () => {
+                let formValidation = new FormValidation();
+                formValidation.phone('9999-9999')
+                expect(formValidation.errors).toEqual({})
+            })
+
+            it('does not return error', () => {
+                let formValidation = new FormValidation();
+                formValidation.phone('+55 (11) 98888-8888')
+                expect(formValidation.errors).toEqual({})
+            })
+        })
+
+        describe('when phone is not valid', () => {
+            it('returns errors for phone', () => {
+                let formValidation = new FormValidation();
+                formValidation.phone('123')
+                expect(formValidation.errors).toEqual({"phone": "Número de telefone inválido"})
+            })
+        })
+    });
 });
