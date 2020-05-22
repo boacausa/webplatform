@@ -5,7 +5,7 @@ import TextInputWithLabel from "../../components/TextInputWithLabel/TextInputWit
 import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
-import changePictureImage from "../../images/user_settings_change_picture.svg";
+// import changePictureImage from "../../images/user_settings_change_picture.svg";
 import UserSettingsApi from "../../api/userSettingsApi";
 import FormValidation from "../../utils/Validation/FormValidation";
 
@@ -100,9 +100,9 @@ const UserSettings = (props) => {
 
                 <div className={classes.formTextInputs}>
                     <div>
-                        <div className={classes.userPictureBox}>
-                            <img src={changePictureImage} alt="Mudar imagem do usuário" className={classes.userPicture} />
-                        </div>
+                        {/*<div className={classes.userPictureBox}>*/}
+                        {/*    <img src={changePictureImage} alt="Mudar imagem do usuário" className={classes.userPicture} />*/}
+                        {/*</div>*/}
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Nome Completo"
@@ -127,7 +127,7 @@ const UserSettings = (props) => {
                     </div>
                     <div>
                         {/* To align text fields below the image input */}
-                        <div className={classes.userPictureBox} />
+                        {/*<div className={classes.userPictureBox} />*/}
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Senha"
