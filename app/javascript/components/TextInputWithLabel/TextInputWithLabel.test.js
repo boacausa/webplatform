@@ -19,7 +19,7 @@ describe('<TextInputWithLabel />', () => {
 
     describe('when <TextInputWithLabel /> receives an error', () => {
         it('shows error message', () => {
-            const wrapper = shallow(<TextInputWithLabel error={{ message: 'This input is invalid' }} />);
+            const wrapper = shallow(<TextInputWithLabel error={'This input is invalid'} />);
             expect(wrapper.text()).toEqual('This input is invalid');
         });
     });
