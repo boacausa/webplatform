@@ -47,11 +47,11 @@ const UserSettings = (props) => {
         console.log({formErrors})
 
         if (Object.keys(formErrors).length > 0) {
-            validateInput(updatedUserSettings);
+            validateForm(updatedUserSettings);
         }
     }
 
-    const validateInput = (userSettings) => {
+    const validateForm = (userSettings) => {
         let formValidation = new FormValidation();
 
         // TODO: phone validation/mask
@@ -66,7 +66,7 @@ const UserSettings = (props) => {
     }
 
     const submitHandler = () => {
-        if (!validateInput(userSettings)) {
+        if (!validateForm(userSettings)) {
             return
         }
 
