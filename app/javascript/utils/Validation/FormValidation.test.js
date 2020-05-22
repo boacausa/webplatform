@@ -35,7 +35,6 @@ describe('FormValidation', () => {
     })
 
     describe('email', () => {
-
         describe('when email is valid', () => {
             it('does not return error', () => {
                 let formValidation = new FormValidation();
@@ -62,10 +61,18 @@ describe('FormValidation', () => {
             })
         })
 
+        describe('when password is too small', () => {
+            it('returns errors for password', () => {
+                let formValidation = new FormValidation();
+                formValidation.password("1", "1")
+                expect(formValidation.errors).toEqual({"password": null, "passwordConfirmation": "Senha muito curta (mínimo 6 caracteres)"})
+            })
+        })
+
         describe('when password is right', () => {
             it('returns errors for password', () => {
                 let formValidation = new FormValidation();
-                formValidation.password("123456789", "123456789")
+                formValidation.password("123456", "123456")
                 expect(formValidation.errors).toEqual({})
             })
         })

@@ -49,9 +49,7 @@ const UserSettings = (props) => {
     const validateInput = (userSettings) => {
         let formValidation = new FormValidation();
 
-        // TODO: password min requirements validation
         // TODO: phone validation/mask
-
         formValidation.email(userSettings.email)
         formValidation.password(userSettings.password, userSettings.passwordConfirmation)
         formValidation.requiredFields(['name', 'email', 'phone', 'password'], userSettings)

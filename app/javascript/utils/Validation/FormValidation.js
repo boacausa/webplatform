@@ -22,6 +22,9 @@ class FormValidation {
         if (password !== passwordConfirmation) {
             this.appendError('password')
             this.appendError('passwordConfirmation', "Senhas não conferem")
+        } else if (password.length < 6) {
+            this.appendError('password')
+            this.appendError('passwordConfirmation', "Senha muito curta (mínimo 6 caracteres)")
         }
     }
 
