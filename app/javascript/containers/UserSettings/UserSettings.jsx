@@ -54,7 +54,6 @@ const UserSettings = (props) => {
     const validateForm = (userSettings) => {
         let formValidation = new FormValidation();
 
-        // TODO: phone validation/mask
         formValidation.email(userSettings.email)
         formValidation.password(userSettings.password, userSettings.passwordConfirmation)
         formValidation.phone(userSettings.phone)
