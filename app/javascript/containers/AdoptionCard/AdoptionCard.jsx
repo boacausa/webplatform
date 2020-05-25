@@ -3,7 +3,7 @@ import styles from './AdoptionCard.sass'
 import TimeAgo from 'javascript-time-ago'
 // Load pt-BR locale for time ago
 import br from 'javascript-time-ago/locale/pt'
-import AdoptionButton from "./AdoptionButton/AdoptionButton";
+import SubmitButton from "../../components/SubmitButton/SubmitButton";
 
 TimeAgo.addLocale(br);
 
@@ -59,8 +59,13 @@ const AdoptionCard = (props) => {
                 </div>
             </div>
             <div className={styles.adoptionCardBottom}>
-                <div className={styles.adoptionButton}>
-                    <AdoptionButton clicked={props.modalOpen} userRegisteredInterest={props.userRegisteredInterest} />
+                <div>
+                    <SubmitButton
+                        clicked={props.modalOpen}
+                        isDisabled={props.userRegisteredInterest}
+                        classStyleModifier={styles.adoptionButton}
+                        title='Adotar'
+                    />
                 </div>
             </div>
         </div>
