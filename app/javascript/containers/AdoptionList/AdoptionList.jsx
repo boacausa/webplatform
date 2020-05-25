@@ -60,7 +60,7 @@ class AdoptionList extends React.Component {
 
         axios
             .post(`../v1/pets_for_adoption/register_interest`, {
-                params: {register_interest: {user_email: userEmail, pet_id: pet.id}}
+                register_interest: {user_email: userEmail, pet_id: pet.id}
             })
             .then(() => {
                 this.props.fetchPetsForAdoption(userEmail);

@@ -33,6 +33,10 @@ jobs:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
 
       - run:
           name: install dependencies
@@ -43,11 +47,17 @@ jobs:
             sudo rm /usr/local/bin/bundler
             sudo gem install bundler
             bundle install --jobs=4 --retry=3 --path vendor/bundle
+            yarn install --frozen-lockfile
 
       - save_cache:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
 
       # Database setup
       - run: bundle exec rake db:create
@@ -63,11 +73,18 @@ jobs:
 
       # run tests!
       - run:
-          name: run tests
+          name: run rails tests
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
             bundle exec rspec spec --format progress --format RspecJunitFormatter --out /tmp/test-results/rspec.xml
+
+      - run:
+          name: run js` tests
+          command: |
+            npm test
+          environment:
+            JEST_JUNIT_OUTPUT: "/tmp/test-results/jest.xml"
 
       # collect reports
       - store_test_results:

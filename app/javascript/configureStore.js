@@ -32,10 +32,12 @@ const rootReducer = combineReducers({
   dialogMessage: dialogMessage,
 });
 
+export let store = null;
+
 export default function configureStore(user) {
   const preloadedState = { app: { ...appReducerDefaultState, user } };
 
-  const store = createStore(
+  store = createStore(
     rootReducer,
     preloadedState,
     composeWithDevTools(applyMiddleware(thunk))

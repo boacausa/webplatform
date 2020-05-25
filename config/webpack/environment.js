@@ -11,4 +11,6 @@ const CSSLoader = environment.loaders.get('sass').use.find(el => el.loader === '
 
 CSSLoader.options = merge(CSSLoader.options, myCssLoaderOptions);
 
+environment.loaders.get('file').test = /\.(woff|woff2|eot|ttf|svg)$/
+
 module.exports = environment;
