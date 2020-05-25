@@ -1,3 +1,9 @@
 <%= javascript_pack_tag 'application' %>
 
-<%= react_component('App', user: { email: current_user&.email, group: current_user&.group }) %>
+<%= react_component('App', user: {
+    id: current_user&.id,
+    email: current_user&.email,
+    name: current_user&.name,
+    phone: current_user&.phone,
+    group: current_user&.group,
+}) %>

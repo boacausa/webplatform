@@ -15,6 +15,12 @@ export default (state = dialogMessageReducerDefaultState, action) => {
         error: action.error,
         type: "ERROR",
       };
+    case types.SET_SUCCESS_DIALOG_MESSAGE:
+      return {
+        ...state,
+        message: action.message,
+        type: "SUCCESS",
+      };
     case types.CLEAN_DIALOG_MESSAGE:
       return {
         ...state,

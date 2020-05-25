@@ -1,0 +1,42 @@
+@import "../../variables/colors"
+@import "../../variables/fonts"
+
+.TextInputWithLabel
+  display: flex
+  flex-direction: column
+
+  .label
+    font-family: $fontFamily
+    font-style: normal
+    font-weight: 500
+    font-size: 16px
+    line-height: 10px
+    color: $darkFontColor
+    margin-bottom: 8px
+
+  .input
+    width: 300px
+    height: 40px
+    border: 1.2px solid $grey
+    box-sizing: border-box
+    border-radius: 5px
+    color: $darkFontColor
+    font-size: 16px
+    padding-left: 10px
+    font-style: normal
+    font-weight: normal
+
+  .inputError
+    border: 1.2px solid $errorColor
+
+  .inputError:focus
+    outline: $errorColor auto 5px
+
+  .textError
+    font-family: $fontFamily
+    font-style: normal
+    font-weight: 500
+    font-size: 12px
+    line-height: 10px
+    color: $errorColor
+    margin-top: 5px

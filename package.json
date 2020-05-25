@@ -10,6 +10,7 @@
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.6",
     "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
     "javascript-time-ago": "^2.0.1",
     "moment": "^2.24.0",
     "postcss-cssnext": "^3.1.0",
@@ -28,11 +29,37 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "sugarss": "^2.0.0",
-    "typeface-roboto": "0.0.75",
     "webpack-merge": "^4.2.1"
   },
   "devDependencies": {
+    "babel-jest": "^26.0.1",
     "cypress": "^3.6.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^26.0.1",
+    "jest-enzyme": "^7.1.2",
+    "react-test-render": "^1.1.2",
+    "regenerator-runtime": "^0.13.5",
     "webpack-dev-server": "^3.7.2"
+  },
+  "scripts": {
+    "test": "node scripts/test.js --env=jsdom"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./node_modules/jest-enzyme/lib/index.js"
+    ],
+    "roots": [
+      "spec/javascript",
+      "app/javascript"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript/packs"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/spec/javascript/__mocks__/fileMock.js",
+      "\\.(css|sass)$": "<rootDir>/spec/javascript/__mocks__/styleMock.js"
+    }
   }
 }

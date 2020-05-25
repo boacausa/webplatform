@@ -2,13 +2,33 @@
 @import "../../variables/fonts"
 @import "../../variables/sizes"
 
-.DialogMessageError
+%message-shared
+    font-family: $fontFamily
+    border-radius: 2px
     top: auto
     bottom: 10px
-    background-color: $errorColor
-    border-color: $errorColor
-    color: white
-    a
-        color: white !important
+    border: none
+    box-shadow: none
     p
-        margin: auto
+      margin: auto
+      text-align: center
+
+@mixin text-color($color)
+    color: $color
+    a
+        color: $color !important
+
+.DialogMessageNeutral
+    @extend %message-shared
+    @include text-color($darkFontColor)
+    background: rgba($lightGrey, 0.6)
+
+.DialogMessageError
+    @extend %message-shared
+    @include text-color(white)
+    background: rgba($errorColor, 0.6)
+
+.DialogMessageSuccess
+    @extend %message-shared
+    @include text-color($successDarkColor)
+    background: rgba($successLightColor, 0.6)
