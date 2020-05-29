@@ -1,8 +1,9 @@
 import React from "react"
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
-import Masks from "../utils/Masks";
+import Masks from "../../utils/Masks";
 import {Link} from "react-router-dom";
+import classes from "./NgoList.sass";
 
 const GET_NGOS_REQUEST = 'GET_NGOS_REQUEST';
 const GET_NGOS_SUCCESS = 'GET_NGOS_SUCCESS';
@@ -25,7 +26,7 @@ export function fetchNgosSuccess(json) {
     };
 }
 
-class NgosList extends React.Component {
+class NgoList extends React.Component {
     componentWillMount() {
         const {fetchNgos} = this.props;
         fetchNgos();
@@ -64,7 +65,7 @@ class NgosList extends React.Component {
         const {ngos} = this.props;
 
         return (
-            <div>
+            <div className={classes.NgoList}>
                 <div className="jumbotron">
                     <h1 className="display-4">Conheça as ONGs que fazem parte</h1>
                     <p className="lead">Encontre aqui uma ONG para acompanhar suas atividades, consultar sua situação financeira e fazer doações.</p>
@@ -81,4 +82,4 @@ const structuredSelector = createStructuredSelector({
 
 const mapDispatchToProps = {fetchNgos};
 
-export default connect(structuredSelector, mapDispatchToProps)(NgosList);
+export default connect(structuredSelector, mapDispatchToProps)(NgoList);

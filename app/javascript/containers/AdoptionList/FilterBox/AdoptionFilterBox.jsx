@@ -8,7 +8,7 @@ import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
 import { setCityFilter, setNgoIdFilter, setSexFilter, setNameOrDescriptionFilter } from '../../../actions/adoptionFilters';
 import { fetchPetsForAdoption } from '../AdoptionList';
-import { fetchNgos } from '../../NgosList';
+import { fetchNgos } from '../../NgoList/NgoList';
 import cx from "classnames";
 
 const GET_NGO_CITIES_REQUEST = 'GET_NGO_CITIES_REQUEST';

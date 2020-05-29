@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   root 'static#index'
 
   localized do
-    resources :ngos, only: %i[index show]
+    # TODO: remove old pages
+    # resources :ngos, only: %i[index show]
 
     namespace :ngo_area do
       resources :ngos, only: %i[index new create edit update]
