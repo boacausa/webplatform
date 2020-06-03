@@ -1,9 +1,8 @@
 import React from "react"
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
-import Masks from "../../utils/Masks";
-import {Link} from "react-router-dom";
 import classes from "./NgoList.sass";
+import NgoCard from "./NgoCard/NgoCard";
 
 const GET_NGOS_REQUEST = 'GET_NGOS_REQUEST';
 const GET_NGOS_SUCCESS = 'GET_NGOS_SUCCESS';
@@ -32,40 +31,8 @@ class NgoList extends React.Component {
         fetchNgos();
     }
 
-    getCity = (ngo) => {
-        const city = ngo.city ? ngo.city : '';
-        const state = ngo.state ? ngo.state : '';
-
-        return city + "/" + state;
-    };
-
-    ngosList = (ngos) => {
-        return ngos.map(ngo => {
-            // TODO: extract a new component from this
-            return (
-                <Link to={`/new/ong/${ngo.fantasy_name_url}`} key={ngo.id} className={classes.ngoCard}>
-                    <img className={classes.ngoImage} src={ngo.logo_path} />
-                    <div className={classes.ngoCardContent}>
-                        <div className={classes.ngoCardTitleBox}>
-                            <h1 className={classes.ngoCardTitle}>{ngo.fantasy_name}</h1>
-                        </div>
-                        {/*TODO: This text needs to come from NGO model*/}
-                        <p className={classes.ngoCardSubTitle}>
-                            Se o que você vê é bom de mais para ser verdade, tome cuidado com o que você não vê.
-                        </p>
-                        <div className={classes.ngoCardLabelBox}>
-                            <span className={classes.ngoCardLabel}>{this.getCity(ngo)}</span>
-                            <span className={classes.ngoCardLabel}>{ngo.email}</span>
-                            <span className={classes.ngoCardLabel}>{Masks.phoneMask(ngo.phone_number1)}</span>
-                        </div>
-                    </div>
-                </Link>
-            );
-        });
-    };
-
     render() {
-        const {ngos} = this.props;
+        const ngos = this.props.ngos || [];
 
         return (
             <div className={classes.NgoList}>
@@ -74,7 +41,9 @@ class NgoList extends React.Component {
                     <p className={classes.subTitle}>ONGs parceiras do projeto Boa Causa</p>
                 </div>
                 <div className={classes.ngoCards}>
-                    {ngos && this.ngosList(ngos)}
+                    {ngos.map(ngo => {
+                        return <NgoCard ngo={ngo} />
+                    })}
                 </div>
             </div>
         );

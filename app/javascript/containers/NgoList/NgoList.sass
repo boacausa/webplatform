@@ -2,7 +2,7 @@
 @import "../../variables/fonts"
 @import "../../variables/sizes"
 
-
+// TODO: export to a file
 @mixin align-horizontal-center
   display: block
   margin-left: auto
@@ -30,55 +30,3 @@
   .ngoCards
     display: flex
     margin: 30px
-
-  // Ngo card classes
-  .ngoCard
-    height: 440px
-    width: 400px
-    margin: 10px
-
-  .ngoCard:hover
-      text-decoration: none
-
-  .ngoImage
-    @include align-horizontal-center
-    width: 214px
-    height: 214px
-
-  .ngoCardContent
-    display: flex
-    flex-direction: column
-
-  // TODO: Rename to title when its own file
-  .ngoCardTitleBox
-    margin: 20px
-    @include align-horizontal-center
-
-  .ngoCardTitle
-    font-family: $fontFamily
-    font-size: 36px
-    font-weight: 300
-    color: $darkFontColor
-
-  .ngoCardSubTitle
-    font-family: $fontFamily
-    font-size: 18px
-    font-weight: 300
-    color: $lightFontColor
-    text-align: center
-
-  .ngoCardLabelBox
-    margin: auto
-
-  .ngoCardLabel
-    font-family: $fontFamily
-    background-color: $labelColor
-    color: white
-    font-style: normal
-    font-weight: normal
-    font-size: 10px
-    line-height: 12px
-    text-align: center
-    padding: 4px 10px
-    border-radius: 9px
-    margin: 0 5px
