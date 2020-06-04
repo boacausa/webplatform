@@ -1,12 +1,12 @@
 @import "../../../variables/all"
 
+.NgoCard:hover
+  text-decoration: none
+
 .NgoCard
   height: 440px
   width: 400px
   margin: 10px
-
-  .NgoCard:hover
-      text-decoration: none
 
   .image
     @include align-horizontal-center
@@ -17,7 +17,6 @@
     display: flex
     flex-direction: column
 
-  // TODO: Rename to title when its own file
   .titleBox
     margin: 20px
     @include align-horizontal-center
@@ -37,6 +36,10 @@
 
   .labelBox
     margin: auto
+    height: 50px
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
 
   .label
     font-family: $fontFamily
@@ -50,3 +53,4 @@
     padding: 4px 10px
     border-radius: 9px
     margin: 0 5px
+    height: 20px
