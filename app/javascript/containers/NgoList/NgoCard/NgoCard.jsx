@@ -20,9 +20,8 @@ const NgoCard = ({ngo}) => {
                 <div className={classes.titleBox}>
                     <h1 className={classes.title}>{ngo.fantasy_name}</h1>
                 </div>
-                {/*TODO: This text needs to come from NGO model*/}
                 <p className={classes.subTitle}>
-                    Se o que você vê é bom de mais para ser verdade, tome cuidado com o que você não vê.
+                    {ngo.description}
                 </p>
                 <div className={classes.labelBox}>
                     <span className={classes.label}>{getCity(ngo)}</span>

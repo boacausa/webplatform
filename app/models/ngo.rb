@@ -14,6 +14,7 @@ class Ngo < ApplicationRecord
   validates :neighborhood, presence: true
   validates :city, presence: true
   validates :state, presence: true
+  validates :description, presence: true
 
   scope :active, -> { where(active: true) }
 

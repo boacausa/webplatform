@@ -25,6 +25,7 @@ puts 'Creating NGOs'
     address_number: Faker::Address.building_number,
     address: Faker::Address.street_address,
     neighborhood: Faker::Address.community,
+    description: Faker::Lorem.paragraph
   )
 
   Ngo.last.image.attach(io: File.open("public/images/ngo/amigobicho.png"), filename: 'amigobicho.png')
