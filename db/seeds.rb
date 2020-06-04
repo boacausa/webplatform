@@ -8,39 +8,27 @@ User.destroy_all
 
 puts 'Creating NGOs'
 
-Ngo.create!(
-  social_name: 'Amigo Bicho Nome Social',
-  fantasy_name: 'Amigo Bicho',
-  phone_number1: Faker::PhoneNumber.phone_number,
-  phone_number2: Faker::PhoneNumber.phone_number,
-  email: Faker::Internet.email,
-  site: Faker::Internet.url,
-  cnpj: CNPJ.generate,
-  date_start: Faker::Date.backward(days: 1000),
-  active: true,
-  city: Faker::Address.city,
-  state: Faker::Address.state_abbr,
-  zipcode: Faker::Address.zip_code,
-  address_number: Faker::Address.building_number,
-  address: Faker::Address.street_address,
-  neighborhood: Faker::Address.community,
-)
+10.times do |i|
+  Ngo.create!(
+    social_name: "#{i} NGO Social Name",
+    fantasy_name: "#{i} NGO",
+    phone_number1: Faker::PhoneNumber.phone_number,
+    phone_number2: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    site: Faker::Internet.url,
+    cnpj: CNPJ.generate,
+    date_start: Faker::Date.backward(days: 1000),
+    active: true,
+    city: Faker::Address.city,
+    state: Faker::Address.state_abbr,
+    zipcode: Faker::Address.zip_code,
+    address_number: Faker::Address.building_number,
+    address: Faker::Address.street_address,
+    neighborhood: Faker::Address.community,
+  )
 
-Ngo.last.image.attach(io: File.open("public/images/ngo/amigobicho.png"), filename: 'amigobicho.png')
-
-Ngo.create!(
-  social_name: 'Outra ONG',
-  fantasy_name: 'ONG Teste',
-  phone_number1: Faker::PhoneNumber.phone_number,
-  phone_number2: Faker::PhoneNumber.phone_number,
-  email: Faker::Internet.email,
-  site: Faker::Internet.url,
-  cnpj: CNPJ.generate,
-  date_start: Faker::Date.backward(days: 1000),
-  active: true
-)
-
-Ngo.last.image.attach(io: File.open("public/images/ngo/amigobicho.png"), filename: 'amigobicho.png')
+  Ngo.last.image.attach(io: File.open("public/images/ngo/amigobicho.png"), filename: 'amigobicho.png')
+end
 
 puts 'Creating Users'
 
