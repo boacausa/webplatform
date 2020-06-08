@@ -37,8 +37,8 @@ class NgoList extends React.Component {
         return (
             <div className={classes.NgoList}>
                 <div className={classes.titleBox}>
-                    <h1 className={classes.title}>Antes de ter amado um animal, parte da nossa alma parmanece desacordada</h1>
-                    <p className={classes.subTitle}>ONGs parceiras do projeto Boa Causa</p>
+                    <h1 className={classes.title}>Conheça as ONGs que lutam todos os dias por uma Boa Causa</h1>
+                    <p className={classes.subTitle}>Acompanhe, aqui, suas atividades, situação financeira e faça doações</p>
                 </div>
                 <div className={classes.ngoCards}>
                     {ngos.map(ngo => {
