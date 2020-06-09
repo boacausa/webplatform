@@ -14,7 +14,7 @@ const NgoCard = ({ngo}) => {
     };
 
     return (
-        <Link to={`/new/ong/${ngo.fantasy_name_url}`} key={ngo.id} className={classes.NgoCard}>
+        <Link to={`/ong/${ngo.fantasy_name_url}`} key={ngo.id} className={classes.NgoCard}>
             <img className={classes.image} src={ngo.logo_path} />
             <div className={classes.content}>
                 <div className={classes.titleBox}>
