@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import NgoApi from "../../api/ngoApi";
+import classes from "./NgoPage.sass";
 
 const NgoPage = (props) => {
     const [currentNgo, setCurrentNgo] = useState({});
@@ -10,6 +11,8 @@ const NgoPage = (props) => {
         })
 
     }, [])
+
+    console.log({currentNgo})
 
     // has_bank_account = (ngo) => {
     //     return ngo.bank && ngo.account && ngo.agency
@@ -49,8 +52,32 @@ const NgoPage = (props) => {
     //         </div>
     //     )
     // }
-    return <div>
-
+    return <div className={classes.NgoPage}>
+        <div className={classes.leftSection}>
+            <img className={classes.image} src={currentNgo.logo_path} />
+            <h1 className={classes.subtitle}>Faça uma doação agora mesmo!</h1>
+        </div>
+        <div className={classes.rightSection}>
+            <h1 className={classes.title}>{currentNgo.fantasy_name}</h1>
+            <p className={classes.description}>{currentNgo.description}</p>
+            <p className={classes.ngoInfoTitle}>Contato</p>
+            <p className={classes.ngoInfo}><strong>E-mail:</strong> {currentNgo.email}</p>
+            <p className={classes.ngoInfo}><strong>Site:</strong> {currentNgo.site}</p>
+            <p className={classes.ngoInfo}><strong>CNPJ:</strong> {currentNgo.cnpj}</p>
+            {/* TODO: format*/}
+            <p className={classes.ngoInfo}><strong>Telefone 1:</strong> {currentNgo.phone_number1}</p>
+            <p className={classes.ngoInfo}><strong>Telefone 2:</strong> {currentNgo.phone_number2}</p>
+            <p className={classes.ngoInfo}><strong>Atividade:</strong> {currentNgo.activity}</p>
+            {/* TODO: link */}
+            <p className={classes.ngoInfo}><strong>Portal da transparência:</strong> {currentNgo.transparency_portal}</p>
+            <p className={classes.ngoInfoTitle}>Endereço</p>
+            <p className={classes.ngoInfo}><strong>CEP:</strong> {currentNgo.zipcode}</p>
+            <p className={classes.ngoInfo}><strong>Número:</strong> {currentNgo.address_number}</p>
+            <p className={classes.ngoInfo}><strong>Rua:</strong> {currentNgo.address}</p>
+            <p className={classes.ngoInfo}><strong>Bairro:</strong> {currentNgo.neighborhood}</p>
+            <p className={classes.ngoInfo}><strong>Cidade:</strong> {currentNgo.city}</p>
+            <p className={classes.ngoInfo}><strong>Estado:</strong> {currentNgo.state}</p>
+        </div>
     </div>
 }
 
