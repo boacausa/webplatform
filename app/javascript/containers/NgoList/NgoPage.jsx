@@ -26,6 +26,16 @@ const bankAccountInfo = (ngo) => {
     </div>
 }
 
+const paymentMethodCard = (ngo) => {
+    if (ngo.payment_type === 'paypal-form' && ngo.payment_form) {
+        return <div>
+            <h2 className={classes.infoTitle}>Via cartão de crédito - Paypal</h2>
+            <div className={classes.paypalForm} dangerouslySetInnerHTML={{__html: ngo.payment_form}} />
+        </div>;
+    }
+
+};
+
 const NgoPage = (props) => {
     const [currentNgo, setCurrentNgo] = useState({});
 
@@ -36,45 +46,11 @@ const NgoPage = (props) => {
 
     }, [])
 
-    //
-    // paymentMethodCard = (ngo) => {
-    //     // if (ngo.payment_type && this.has_bank_account(ngo)) {
-    //     if (ngo.payment_type === 'paypal-form' && ngo.payment_form) {
-    //         return (
-    //             <div>
-    //                 {ngo.payment_form}
-    //             </div>
-    //         );
-    //     }
-    //
-    // };
-
-    // render() {
-    //     const {ngo} = this.props;
-    //
-    //     console.log(ngo)
-    //
-    //     if (!ngo) return (<div/>);
-    //
-    //     return (
-    //         <div>
-    //             <div className="jumbotron">
-    //                 <div style={{width: '100%', height: '60px'}}>
-    //                     <h1 style={{float: 'left', marginTop: '2px'}}>{ngo.fantasy_name}</h1>
-    //                     <span style={{margin: '20px'}}
-    //                           className="badge badge-success">{"Atuando desde " + new Date(ngo.date_start).getFullYear()}</span>
-    //                 </div>
-    //                 <p>{ngo.description}</p>
-    //             </div>
-    //
-    //             {this.paymentMethodCard(ngo)}
-    //         </div>
-    //     )
-    // }
     return <div className={classes.NgoPage}>
         <div className={classes.leftSection}>
             <img className={classes.image} src={currentNgo.logo_path} />
             <h1 className={classes.subtitle}>Faça uma doação agora mesmo!</h1>
+            {paymentMethodCard(currentNgo)}
             {bankAccountInfo(currentNgo)}
         </div>
         <div className={classes.rightSection}>
