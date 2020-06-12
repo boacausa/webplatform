@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import NgoApi from "../../api/ngoApi";
 import classes from "./NgoPage.sass";
+import Masks from "../../utils/Masks";
 
 const NgoPage = (props) => {
     const [currentNgo, setCurrentNgo] = useState({});
@@ -64,12 +65,14 @@ const NgoPage = (props) => {
             <p className={classes.ngoInfo}><strong>E-mail:</strong> {currentNgo.email}</p>
             <p className={classes.ngoInfo}><strong>Site:</strong> {currentNgo.site}</p>
             <p className={classes.ngoInfo}><strong>CNPJ:</strong> {currentNgo.cnpj}</p>
-            {/* TODO: format*/}
-            <p className={classes.ngoInfo}><strong>Telefone 1:</strong> {currentNgo.phone_number1}</p>
-            <p className={classes.ngoInfo}><strong>Telefone 2:</strong> {currentNgo.phone_number2}</p>
+            <p className={classes.ngoInfo}><strong>Telefone 1:</strong> {Masks.phoneMask(currentNgo.phone_number1)}</p>
+            <p className={classes.ngoInfo}><strong>Telefone 2:</strong> {Masks.phoneMask(currentNgo.phone_number2)}</p>
             <p className={classes.ngoInfo}><strong>Atividade:</strong> {currentNgo.activity}</p>
-            {/* TODO: link */}
-            <p className={classes.ngoInfo}><strong>Portal da transparência:</strong> {currentNgo.transparency_portal}</p>
+            <p className={classes.ngoInfo}><strong>Portal da transparência: </strong>
+                <a href={currentNgo.transparency_portal} target='_blank'>
+                    {currentNgo.transparency_portal}
+                </a>
+            </p>
             <p className={classes.ngoInfoTitle}>Endereço</p>
             <p className={classes.ngoInfo}><strong>CEP:</strong> {currentNgo.zipcode}</p>
             <p className={classes.ngoInfo}><strong>Número:</strong> {currentNgo.address_number}</p>
