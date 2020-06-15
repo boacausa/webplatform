@@ -1,59 +1,31 @@
-import React from "react"
-import {connect} from 'react-redux';
-import {createStructuredSelector} from 'reselect';
+import React, {useEffect, useState} from "react"
 import classes from "./NgoList.sass";
 import NgoCard from "./NgoCard/NgoCard";
+import NgoApi from "../../api/ngoApi";
 
-const GET_NGOS_REQUEST = 'GET_NGOS_REQUEST';
-const GET_NGOS_SUCCESS = 'GET_NGOS_SUCCESS';
+// TODO: bug going back to ngo list from ngo page sometimes
+const NgoList = () => {
+    const [ngos, setNgos] = useState([]);
 
-export function fetchNgos() {
-    return dispatch => {
-        dispatch({type: GET_NGOS_REQUEST});
-        // TODO: how to make the path look better?
-        return fetch(`../v1/ngos.json`)
-            .then(response => response.json())
-            .then(json => dispatch(fetchNgosSuccess(json)))
-            .catch(error => console.log(error));
-    }
-}
+    useEffect(() => {
+        NgoApi.fetchNgos().then((response) => {
+            setNgos(response.data.ngos)
+        })
+    }, [])
 
-export function fetchNgosSuccess(json) {
-    return {
-        type: GET_NGOS_SUCCESS,
-        json
-    };
-}
-
-class NgoList extends React.Component {
-    componentWillMount() {
-        const {fetchNgos} = this.props;
-        fetchNgos();
-    }
-
-    render() {
-        const ngos = this.props.ngos || [];
-
-        return (
-            <div className={classes.NgoList}>
-                <div className={classes.titleBox}>
-                    <h1 className={classes.title}>Conheça as ONGs que lutam todos os dias por uma Boa Causa</h1>
-                    <p className={classes.subTitle}>Acompanhe, aqui, suas atividades, situação financeira e faça doações</p>
-                </div>
-                <div className={classes.ngoCards}>
-                    {ngos.map(ngo => {
-                        return <NgoCard ngo={ngo} />
-                    })}
-                </div>
+    return (
+        <div className={classes.NgoList}>
+            <div className={classes.titleBox}>
+                <h1 className={classes.title}>Conheça as ONGs que lutam todos os dias por uma Boa Causa</h1>
+                <p className={classes.subTitle}>Acompanhe, aqui, suas atividades, situação financeira e faça doações</p>
             </div>
-        );
-    }
+            <div className={classes.ngoCards}>
+                {ngos.map(ngo => {
+                    return <NgoCard key={ngo.id} ngo={ngo} />
+                })}
+            </div>
+        </div>
+    );
 }
 
-const structuredSelector = createStructuredSelector({
-    ngos: state => state.app.ngos,
-});
-
-const mapDispatchToProps = {fetchNgos};
-
-export default connect(structuredSelector, mapDispatchToProps)(NgoList);
+export default NgoList;
