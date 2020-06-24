@@ -3,10 +3,8 @@ import Masks from "../../../utils/Masks";
 import {Link} from "react-router-dom";
 import classes from "./NgoCard.sass";
 
-// TODO: add test
 const NgoCard = ({ngo}) => {
     const getCity = () => {
-        // TODO: city needs to be a required field
         const city = ngo.city ? ngo.city : '';
         const state = ngo.state ? ngo.state : '';
 
