@@ -52,6 +52,7 @@
 
   .textInput
     margin-bottom: 20px
+    width: 300px
 
   .userPictureBox
     height: 80px
@@ -68,3 +69,30 @@
 
   .submitButton
     width: 170px
+
+@media #{$tabletOrLess}
+  .UserSettings
+    .formTextInputs
+      margin: 20px 30px
+      display: flex
+      flex-direction: column
+
+    .formBox
+      margin: 0
+      width: auto
+      height: auto
+
+    .textInput
+      width: auto
+
+    .title
+      text-align: center
+
+    .submitBox
+      justify-content: center
+      padding-top: 20px
+      padding-right: unset
+      border-top: unset
+
+    .submitButton
+      width: 80%
