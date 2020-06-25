@@ -4,6 +4,7 @@ import Backdrop from "../../Backdrop/Backdrop";
 import LineDivisor from "../../LineDivisor/LineDivisor";
 import {redirectToLogOut, redirectToNgoArea} from "../../../utils/ServerLinks";
 import NavigationLinks from "../NavigationLinks/NavigationLinks";
+import {NavLink} from "react-router-dom";
 
 function ngoAreaLink(user) {
     if (user.group === "admin" || user.group === "ngo") {
@@ -28,7 +29,12 @@ function settings(user) {
         return <div>
             <LineDivisor />
             <div className={styles.linksBox}>
-                <a className={styles.link}>Configurações</a>
+                <NavLink
+                    exact={true}
+                    className={styles.link}
+                    activeClassName={styles.linkActive} to='/settings'>
+                    Configurações
+                </NavLink>
                 {ngoAreaLink(user)}
             </div>
         </div>
