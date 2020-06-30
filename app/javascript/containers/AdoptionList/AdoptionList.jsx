@@ -55,6 +55,7 @@ class AdoptionList extends React.Component {
 
     addAdoptionInterestHandler = (userEmail, pet) => {
         if (!userEmail) {
+            this.setState({showAdoptingModal: true});
             return;
         }
 
