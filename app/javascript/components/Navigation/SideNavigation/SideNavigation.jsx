@@ -24,7 +24,7 @@ function userProperties(user) {
     }
 }
 
-function settings(user) {
+function settings(user, closeEvent) {
     if (user.email) {
         return <div>
             <LineDivisor />
@@ -32,6 +32,7 @@ function settings(user) {
                 <NavLink
                     exact={true}
                     className={styles.link}
+                    onClick={closeEvent}
                     activeClassName={styles.linkActive} to='/settings'>
                     Configurações
                 </NavLink>
@@ -65,8 +66,8 @@ const sideNavigation = (props) => {
             <Backdrop show={props.visible} clicked={props.close} />
             <div className={attachedClasses.join(' ')}>
                 {userProperties(props.user)}
-                <NavigationLinks styles={styles} />
-                {settings(props.user)}
+                <NavigationLinks styles={styles} onClick={props.close} />
+                {settings(props.user, props.close)}
                 <LineDivisor />
                 {loginLogout(props.user)}
             </div>
