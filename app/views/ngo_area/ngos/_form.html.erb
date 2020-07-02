@@ -22,9 +22,10 @@
     <%= label_tag(:cnpj, 'CNPJ') %>
     <%= f.number_field :cnpj, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group <%= form_group_error_class(@ngo, :description) %>">
     <%= label_tag(:description, 'Descrição') %>
     <%= f.text_area :description, class: 'form-control' %>
+    <%= field_error_tag(@ngo, :description) %>
   </div>
   <div class="form-group">
     <%= label_tag(:phone_number1, 'Telefone 1') %>

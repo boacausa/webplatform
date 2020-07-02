@@ -4,6 +4,7 @@ import Backdrop from "../../Backdrop/Backdrop";
 import LineDivisor from "../../LineDivisor/LineDivisor";
 import {redirectToLogOut, redirectToNgoArea} from "../../../utils/ServerLinks";
 import NavigationLinks from "../NavigationLinks/NavigationLinks";
+import {NavLink} from "react-router-dom";
 
 function ngoAreaLink(user) {
     if (user.group === "admin" || user.group === "ngo") {
@@ -23,12 +24,18 @@ function userProperties(user) {
     }
 }
 
-function settings(user) {
+function settings(user, closeEvent) {
     if (user.email) {
         return <div>
             <LineDivisor />
             <div className={styles.linksBox}>
-                <a className={styles.link}>Configurações</a>
+                <NavLink
+                    exact={true}
+                    className={styles.link}
+                    onClick={closeEvent}
+                    activeClassName={styles.linkActive} to='/settings'>
+                    Configurações
+                </NavLink>
                 {ngoAreaLink(user)}
             </div>
         </div>
@@ -59,8 +66,8 @@ const sideNavigation = (props) => {
             <Backdrop show={props.visible} clicked={props.close} />
             <div className={attachedClasses.join(' ')}>
                 {userProperties(props.user)}
-                <NavigationLinks styles={styles} />
-                {settings(props.user)}
+                <NavigationLinks styles={styles} onClick={props.close} />
+                {settings(props.user, props.close)}
                 <LineDivisor />
                 {loginLogout(props.user)}
             </div>

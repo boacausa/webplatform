@@ -44,4 +44,4 @@ export default function configureStore(user) {
   );
 
   return store;
-};
+}
