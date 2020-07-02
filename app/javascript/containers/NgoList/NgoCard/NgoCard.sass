@@ -1,0 +1,57 @@
+@import "../../../variables/all"
+
+.NgoCard:hover
+  text-decoration: none
+
+.NgoCard
+  min-height: 440px
+  max-height: 540px
+  width: 400px
+  margin: 10px
+
+  .image
+    @include align-horizontal-center
+    width: 214px
+    height: 214px
+
+  .content
+    display: flex
+    flex-direction: column
+
+  .titleBox
+    margin: 20px
+    @include align-horizontal-center
+
+  .title
+    font-family: $fontFamily
+    font-size: 36px
+    font-weight: 300
+    color: $darkFontColor
+
+  .subTitle
+    font-family: $fontFamily
+    font-size: 18px
+    font-weight: 300
+    color: $lightFontColor
+    text-align: center
+
+  .labelBox
+    margin: auto
+    height: 50px
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+  .label
+    font-family: $fontFamily
+    background-color: $labelColor
+    color: white
+    font-style: normal
+    font-weight: normal
+    font-size: 10px
+    line-height: 12px
+    text-align: center
+    padding: 4px 10px
+    border-radius: 9px
+    margin: 0 5px
+    height: 20px
