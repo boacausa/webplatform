@@ -5,7 +5,8 @@ module ErrorsHelper
     content_tag(
       :div,
       I18n.t(:form_error),
-      class: 'alert alert-danger'
+      class: 'alert alert-danger',
+      style: 'margin: 10px'
     )
   end
 

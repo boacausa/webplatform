@@ -7,6 +7,7 @@ const NavigationLinks = (props) => {
             <NavLink
                 exact={exact}
                 className={props.styles.link}
+                onClick={props.onClick}
                 activeClassName={props.styles.linkActive} to={to}>
                 {title}
             </NavLink>

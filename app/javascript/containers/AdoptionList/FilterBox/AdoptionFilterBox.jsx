@@ -8,7 +8,6 @@ import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
 import { setCityFilter, setNgoIdFilter, setSexFilter, setNameOrDescriptionFilter } from '../../../actions/adoptionFilters';
 import { fetchPetsForAdoption } from '../AdoptionList';
-import { fetchNgos } from '../../NgosList';
 import cx from "classnames";
 
 const GET_NGO_CITIES_REQUEST = 'GET_NGO_CITIES_REQUEST';
@@ -47,7 +46,6 @@ class AdoptionFilterBox extends React.Component {
 
     componentWillMount() {
         const {fetchCitiesForAdoption, fetchNgos} = this.props;
-        fetchNgos();
         fetchCitiesForAdoption();
     }
 
@@ -132,7 +130,6 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = {
   fetchPetsForAdoption,
   fetchCitiesForAdoption,
-  fetchNgos,
   setCityFilter,
   setNgoIdFilter,
   setSexFilter,

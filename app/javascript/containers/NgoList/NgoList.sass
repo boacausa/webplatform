@@ -1,0 +1,34 @@
+@import "../../variables/all"
+
+.NgoList
+  .titleBox
+    @include align-horizontal-center
+    margin: 60px auto
+    max-width: 800px
+    text-align: center
+
+  .title
+    font-family: $fontFamily
+    font-size: 36px
+    font-weight: 300
+    color: $darkFontColor
+
+  .subTitle
+    font-family: $fontFamily
+    font-size: 24px
+    font-weight: 300
+    color: $lightFontColor
+
+  .ngoCards
+    display: flex
+    margin: 30px
+    flex-wrap: wrap
+    justify-content: space-evenly
+
+@media #{$tabletOrLess}
+  .NgoList
+    .titleBox
+      margin: 30px 20px
+
+    .ngoCards
+      margin: 10px

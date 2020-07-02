@@ -112,7 +112,7 @@ const UserSettings = (props) => {
                          />
                         <TextInputWithLabel
                             className={classes.textInput}
-                            label="Email"
+                            label="E-mail"
                             value={userSettings.email}
                             error={formErrors['email']}
                             onChange={(event) => inputChangedHandler(event, 'email')}
