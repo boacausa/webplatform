@@ -11,6 +11,7 @@ import DialogMessage from "./DialogMessage/DialogMessage";
 import UserSettings from "../containers/UserSettings/UserSettings";
 import NgoList from "../containers/NgoList/NgoList";
 import NgoPage from "../containers/NgoList/NgoPage";
+import NewUser from "../containers/User/NewUser";
 
 import '../fonts/roboto/index.css';
 
@@ -47,6 +48,7 @@ class App extends React.Component {
                             <Route exact path="/ong/:id" component={NgoPage} />
                             <Route path="/adocao" component={AdoptionList} />
                             <Route path="/settings" component={UserSettings} />
+                            <Route path="/usuario/novo" component={NewUser} />
                         </Switch>
                     </BrowserRouter>
                     <DialogMessage />
