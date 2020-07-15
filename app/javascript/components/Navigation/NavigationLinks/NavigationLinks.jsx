@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import * as RoutePaths from "../../../utils/RoutePaths";
 
 const NavigationLinks = (props) => {
     function navLink(title, to, exact = false) {
@@ -16,9 +17,9 @@ const NavigationLinks = (props) => {
 
     return (
         <div className={props.styles.linksBox}>
-            {navLink('Início', '/', true)}
-            {navLink('ONGs', '/ongs')}
-            {navLink('Adoção', '/adocao')}
+            {navLink('Início', RoutePaths.HOME_PATH, true)}
+            {navLink('ONGs', RoutePaths.NGO_LIST_PATH)}
+            {navLink('Adoção', RoutePaths.ADOPTION_LIST_PATH)}
         </div>
     )
 };

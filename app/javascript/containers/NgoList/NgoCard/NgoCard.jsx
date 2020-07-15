@@ -2,6 +2,7 @@ import React from "react"
 import Masks from "../../../utils/Masks";
 import {Link} from "react-router-dom";
 import classes from "./NgoCard.sass";
+import * as RoutePaths from "../../../utils/RoutePaths";
 
 const NgoCard = ({ngo}) => {
     const getCity = () => {
@@ -12,7 +13,7 @@ const NgoCard = ({ngo}) => {
     };
 
     return (
-        <Link to={`/ong/${ngo.fantasy_name_url}`} key={ngo.id} className={classes.NgoCard}>
+        <Link to={RoutePaths.NGO_SHOW_PATH(ngo.fantasy_name_url)} key={ngo.id} className={classes.NgoCard}>
             <img className={classes.image} src={ngo.logo_path} />
             <div className={classes.content}>
                 <div className={classes.titleBox}>

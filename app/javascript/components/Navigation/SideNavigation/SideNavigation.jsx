@@ -5,6 +5,7 @@ import LineDivisor from "../../LineDivisor/LineDivisor";
 import {redirectToLogOut, redirectToNgoArea} from "../../../utils/ServerLinks";
 import NavigationLinks from "../NavigationLinks/NavigationLinks";
 import {NavLink} from "react-router-dom";
+import * as RoutePaths from "../../../utils/RoutePaths";
 
 function ngoAreaLink(user) {
     if (user.group === "admin" || user.group === "ngo") {
@@ -33,7 +34,7 @@ function settings(user, closeEvent) {
                     exact={true}
                     className={styles.link}
                     onClick={closeEvent}
-                    activeClassName={styles.linkActive} to='/settings'>
+                    activeClassName={styles.linkActive} to={RoutePaths.UPDATE_USER_PATH}>
                     Configurações
                 </NavLink>
                 {ngoAreaLink(user)}

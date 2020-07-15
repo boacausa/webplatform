@@ -12,6 +12,7 @@ import UserSettings from "../containers/UserSettings/UserSettings";
 import NgoList from "../containers/NgoList/NgoList";
 import NgoPage from "../containers/NgoList/NgoPage";
 import NewUser from "../containers/User/NewUser";
+import * as RoutePaths from "../utils/RoutePaths";
 
 import '../fonts/roboto/index.css';
 
@@ -43,12 +44,12 @@ class App extends React.Component {
                             close={this.sideDrawerCloseHandler}
                         />
                         <Switch>
-                            <Route exact path="/" component={HomePage} />
-                            <Route path="/ongs" component={NgoList} />
-                            <Route exact path="/ong/:id" component={NgoPage} />
-                            <Route path="/adocao" component={AdoptionList} />
-                            <Route path="/settings" component={UserSettings} />
-                            <Route path="/usuario/novo" component={NewUser} />
+                            <Route exact path={RoutePaths.HOME_PATH} component={HomePage} />
+                            <Route path={RoutePaths.NGO_LIST_PATH} component={NgoList} />
+                            <Route exact path={RoutePaths.NGO_SHOW_PATH()} component={NgoPage} />
+                            <Route path={RoutePaths.ADOPTION_LIST_PATH} component={AdoptionList} />
+                            <Route path={RoutePaths.UPDATE_USER_PATH} component={UserSettings} />
+                            <Route path={RoutePaths.NEW_USER_PATH} component={NewUser} />
                         </Switch>
                     </BrowserRouter>
                     <DialogMessage />
