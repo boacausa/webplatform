@@ -69,8 +69,16 @@ describe('FormValidation', () => {
             })
         })
 
+        describe('when password is null', () => {
+            it('does not return errors for password', () => {
+                let formValidation = new FormValidation();
+                formValidation.password(null, null)
+                expect(formValidation.errors).toEqual({})
+            })
+        })
+
         describe('when password is right', () => {
-            it('returns errors for password', () => {
+            it('does not return errors for password', () => {
                 let formValidation = new FormValidation();
                 formValidation.password("123456", "123456")
                 expect(formValidation.errors).toEqual({})
