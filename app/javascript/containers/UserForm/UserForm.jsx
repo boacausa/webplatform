@@ -9,21 +9,32 @@ const NO_PASSWORD = 'NO_PASSWORD';
 // TODO: use this on UserSettings
 // TODO: consider changing UserSettings to UpdateUser
 
+const initialUserData = {
+    id: null,
+    name: null,
+    email: null,
+    phone: null,
+    password: null,
+    passwordConfirmation: null,
+}
+
 const UserForm = ({user, title, saveUser}) => {
-    const [userSettings, setUserSettings] = useState({});
+    const [userData, setUserData] = useState(initialUserData);
     const [formErrors, setFormErrors] = useState({});
 
     useEffect(() => {
-        const userData = {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            phone: user.phone,
-            password: NO_PASSWORD,
-            passwordConfirmation: NO_PASSWORD,
-        };
+        if (user) {
+            const initialUserData = {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                phone: user.phone,
+                password: user.password,
+                passwordConfirmation: user.password,
+            };
 
-        setUserSettings(userData)
+            setUserData(initialUserData)
+        }
 
         return () => {
             // cleanup
@@ -32,28 +43,28 @@ const UserForm = ({user, title, saveUser}) => {
 
 
     const inputChangedHandler = (event, inputIdentifier) => {
-        const updatedUserSettings = {
-            ...userSettings
+        const updatedUserData = {
+            ...userData
         };
 
-        updatedUserSettings[inputIdentifier] = event.target.value;
+        updatedUserData[inputIdentifier] = event.target.value;
 
-        setUserSettings(updatedUserSettings)
+        setUserData(updatedUserData)
 
         console.log({formErrors})
 
         if (Object.keys(formErrors).length > 0) {
-            validateForm(updatedUserSettings);
+            validateForm(updatedUserData);
         }
     }
 
-    const validateForm = (userSettings) => {
+    const validateForm = (userData) => {
         let formValidation = new FormValidation();
 
-        formValidation.email(userSettings.email)
-        formValidation.password(userSettings.password, userSettings.passwordConfirmation)
-        formValidation.phone(userSettings.phone)
-        formValidation.requiredFields(['name', 'email', 'phone', 'password'], userSettings)
+        formValidation.email(userData.email)
+        formValidation.password(userData.password, userData.passwordConfirmation)
+        formValidation.phone(userData.phone)
+        formValidation.requiredFields(['name', 'email', 'phone', 'password'], userData)
 
         setFormErrors(formValidation.errors)
 
@@ -61,21 +72,21 @@ const UserForm = ({user, title, saveUser}) => {
     }
 
     const submitHandler = () => {
-        if (!validateForm(userSettings)) {
+        if (!validateForm(userData)) {
             return
         }
 
-        let userSettingsParam = {
-            id: userSettings.id,
-            name: userSettings.name,
-            email: userSettings.email,
-            phone: userSettings.phone,
+        let userDataParam = {
+            id: userData.id,
+            name: userData.name,
+            email: userData.email,
+            phone: userData.phone,
         };
 
-        if (userSettings.password !== NO_PASSWORD) {
-            userSettingsParam = {
-                ...userSettingsParam,
-                password: userSettings.password
+        if (userData.password !== NO_PASSWORD) {
+            userDataParam = {
+                ...userDataParam,
+                password: userData.password
             }
         }
 
@@ -95,21 +106,21 @@ const UserForm = ({user, title, saveUser}) => {
                 <TextInputWithLabel
                     className={classes.textInput}
                     label="Nome Completo"
-                    value={userSettings.name}
+                    value={userData.name}
                     error={formErrors['name']}
                     onChange={(event) => inputChangedHandler(event, 'name')}
                 />
                 <TextInputWithLabel
                     className={classes.textInput}
                     label="E-mail"
-                    value={userSettings.email}
+                    value={userData.email}
                     error={formErrors['email']}
                     onChange={(event) => inputChangedHandler(event, 'email')}
                 />
                 <TextInputWithLabel
                     className={classes.textInput}
                     label="Telefone"
-                    value={userSettings.phone}
+                    value={userData.phone}
                     error={formErrors['phone']}
                     onChange={(event) => inputChangedHandler(event, 'phone')}
                 />
@@ -120,7 +131,7 @@ const UserForm = ({user, title, saveUser}) => {
                 <TextInputWithLabel
                     className={classes.textInput}
                     label="Senha"
-                    value={userSettings.password}
+                    value={userData.password}
                     type='password'
                     error={formErrors['password']}
                     onChange={(event) => inputChangedHandler(event, 'password')}
@@ -128,7 +139,7 @@ const UserForm = ({user, title, saveUser}) => {
                 <TextInputWithLabel
                     className={classes.textInput}
                     label="Confirmação de senha"
-                    value={userSettings.passwordConfirmation}
+                    value={userData.passwordConfirmation}
                     type='password'
                     error={formErrors['passwordConfirmation']}
                     onChange={(event) => inputChangedHandler(event, 'passwordConfirmation')}
