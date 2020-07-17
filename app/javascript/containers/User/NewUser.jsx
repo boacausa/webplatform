@@ -1,12 +1,12 @@
 import React from "react"
 import classes from './NewUser.sass'
 import UserForm from "../UserForm/UserForm";
-import UserSettingsApi from "../../api/userSettingsApi";
+import UserApi from "../../api/userApi";
 
 const NewUser = () => {
     const saveUser = (userData) => {
         // TODO: needs a create user
-        UserSettingsApi.updateUser(userData);
+        UserApi.updateUser(userData);
     }
 
     return (

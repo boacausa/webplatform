@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react"
-import classes from './UserSettings.sass'
-import SecondLevelNavigation from "../../components/Navigation/SecondLevelNavigation/SecondLevelNavigation";
-import TextInputWithLabel from "../../components/TextInputWithLabel/TextInputWithLabel";
+import classes from './UpdateUser.sass';
+import SecondLevelNavigation from "../../../components/Navigation/SecondLevelNavigation/SecondLevelNavigation";
+import TextInputWithLabel from "../../../components/TextInputWithLabel/TextInputWithLabel";
 import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
-import SubmitButton from "../../components/SubmitButton/SubmitButton";
+import SubmitButton from "../../../components/SubmitButton/SubmitButton";
 // import changePictureImage from "../../images/user_settings_change_picture.svg";
-import UserSettingsApi from "../../api/userSettingsApi";
-import FormValidation from "../../utils/Validation/FormValidation";
+import UserApi from "../../../api/userApi";
+import FormValidation from "../../../utils/Validation/FormValidation";
 
 const NO_PASSWORD = 'NO_PASSWORD';
 
-const UserSettings = (props) => {
-    const [userSettings, setUserSettings] = useState({});
+const UserData = (props) => {
+    const [userData, setUserData] = useState({});
     const [formErrors, setFormErrors] = useState({});
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const UserSettings = (props) => {
             passwordConfirmation: NO_PASSWORD,
         };
 
-        setUserSettings(userData)
+        setUserData(userData)
 
         return () => {
             // cleanup
@@ -36,28 +36,28 @@ const UserSettings = (props) => {
 
 
     const inputChangedHandler = (event, inputIdentifier) => {
-        const updatedUserSettings = {
-            ...userSettings
+        const updatedUserData = {
+            ...userData
         };
 
-        updatedUserSettings[inputIdentifier] = event.target.value;
+        updatedUserData[inputIdentifier] = event.target.value;
 
-        setUserSettings(updatedUserSettings)
+        setUserData(updatedUserData)
 
         console.log({formErrors})
 
         if (Object.keys(formErrors).length > 0) {
-            validateForm(updatedUserSettings);
+            validateForm(updatedUserData);
         }
     }
 
-    const validateForm = (userSettings) => {
+    const validateForm = (userData) => {
         let formValidation = new FormValidation();
 
-        formValidation.email(userSettings.email)
-        formValidation.password(userSettings.password, userSettings.passwordConfirmation)
-        formValidation.phone(userSettings.phone)
-        formValidation.requiredFields(['name', 'email', 'phone', 'password'], userSettings)
+        formValidation.email(userData.email)
+        formValidation.password(userData.password, userData.passwordConfirmation)
+        formValidation.phone(userData.phone)
+        formValidation.requiredFields(['name', 'email', 'phone', 'password'], userData)
 
         setFormErrors(formValidation.errors)
 
@@ -65,29 +65,29 @@ const UserSettings = (props) => {
     }
 
     const submitHandler = () => {
-        if (!validateForm(userSettings)) {
+        if (!validateForm(userData)) {
             return
         }
 
-        let userSettingsParam = {
-            id: userSettings.id,
-            name: userSettings.name,
-            email: userSettings.email,
-            phone: userSettings.phone,
+        let userDataParam = {
+            id: userData.id,
+            name: userData.name,
+            email: userData.email,
+            phone: userData.phone,
         };
 
-        if (userSettings.password !== NO_PASSWORD) {
-            userSettingsParam = {
-                ...userSettingsParam,
-                password: userSettings.password
+        if (userData.password !== NO_PASSWORD) {
+            userDataParam = {
+                ...userDataParam,
+                password: userData.password
             }
         }
 
-        UserSettingsApi.updateUser(userSettingsParam);
+        UserApi.updateUser(userDataParam);
     }
 
     return (
-        <div className={classes.UserSettings}>
+        <div className={classes.UpdateUser}>
             <SecondLevelNavigation>
                 <p className={classes.configurationMenu}>Configurações</p>
                 <span className={classes.configurationMenuSelected} />
@@ -106,21 +106,21 @@ const UserSettings = (props) => {
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Nome Completo"
-                            value={userSettings.name}
+                            value={userData.name}
                             error={formErrors['name']}
                             onChange={(event) => inputChangedHandler(event, 'name')}
                          />
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="E-mail"
-                            value={userSettings.email}
+                            value={userData.email}
                             error={formErrors['email']}
                             onChange={(event) => inputChangedHandler(event, 'email')}
                         />
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Telefone"
-                            value={userSettings.phone}
+                            value={userData.phone}
                             error={formErrors['phone']}
                             onChange={(event) => inputChangedHandler(event, 'phone')}
                         />
@@ -131,7 +131,7 @@ const UserSettings = (props) => {
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Senha"
-                            value={userSettings.password}
+                            value={userData.password}
                             type='password'
                             error={formErrors['password']}
                             onChange={(event) => inputChangedHandler(event, 'password')}
@@ -139,7 +139,7 @@ const UserSettings = (props) => {
                         <TextInputWithLabel
                             className={classes.textInput}
                             label="Confirmação de senha"
-                            value={userSettings.passwordConfirmation}
+                            value={userData.passwordConfirmation}
                             type='password'
                             error={formErrors['passwordConfirmation']}
                             onChange={(event) => inputChangedHandler(event, 'passwordConfirmation')}
@@ -164,4 +164,4 @@ const mapStateToProps = createStructuredSelector({
     user: state => state.app.user
 });
 
-export default connect(mapStateToProps, null)(UserSettings);
+export default connect(mapStateToProps, null)(UserData);

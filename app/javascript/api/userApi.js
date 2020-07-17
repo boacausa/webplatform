@@ -2,7 +2,7 @@ import RailsApi from './railsApi';
 import {setSuccessDialogMessage} from "../actions/dialogMessage";
 import {store} from "../configureStore";
 
-class UserSettingsApi {
+class UserApi {
     async updateUser(params) {
         await RailsApi.post(`../v1/users/update`, params)
             .then(_response => {
@@ -11,4 +11,4 @@ class UserSettingsApi {
     }
 }
 
-export default new UserSettingsApi;
+export default new UserApi;

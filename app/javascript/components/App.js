@@ -8,7 +8,7 @@ import Navigation from "./Navigation/Navigation";
 import SideNavigation from "./Navigation/SideNavigation/SideNavigation";
 import HomePage from "../containers/HomePage/HomePage";
 import DialogMessage from "./DialogMessage/DialogMessage";
-import UserSettings from "../containers/UserSettings/UserSettings";
+import UpdateUser from "../containers/User/UpdateUser/UpdateUser";
 import NgoList from "../containers/NgoList/NgoList";
 import NgoPage from "../containers/NgoList/NgoPage";
 import NewUser from "../containers/User/NewUser";
@@ -48,7 +48,7 @@ class App extends React.Component {
                             <Route path={RoutePaths.NGO_LIST_PATH} component={NgoList} />
                             <Route exact path={RoutePaths.NGO_SHOW_PATH()} component={NgoPage} />
                             <Route path={RoutePaths.ADOPTION_LIST_PATH} component={AdoptionList} />
-                            <Route path={RoutePaths.UPDATE_USER_PATH} component={UserSettings} />
+                            <Route path={RoutePaths.UPDATE_USER_PATH} component={UpdateUser} />
                             <Route path={RoutePaths.NEW_USER_PATH} component={NewUser} />
                         </Switch>
                     </BrowserRouter>

@@ -6,8 +6,7 @@ import SubmitButton from "../../components/SubmitButton/SubmitButton";
 
 const NO_PASSWORD = 'NO_PASSWORD';
 
-// TODO: use this on UserSettings
-// TODO: consider changing UserSettings to UpdateUser
+// TODO: use this on UpdateUser
 
 const initialUserData = {
     id: null,
