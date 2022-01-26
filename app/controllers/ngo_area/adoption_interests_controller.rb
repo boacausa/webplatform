@@ -4,7 +4,7 @@ class NgoArea::AdoptionInterestsController < NgoAreaController
   end
 
   def mark_notification_as_read
-    AdoptionInterestNotification.find(params[:notification_id]).update_attributes!(read: true)
+    AdoptionInterestNotification.find(params[:notification_id]).update!(read: true)
 
     redirect_to ngo_area_adoption_interests_path
   end

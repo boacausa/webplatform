@@ -3,7 +3,7 @@ class V1::UsersController < ApplicationController
 
   def update
     user = User.find(params_user[:id])
-    user.update_attributes!(params_user.except(:id))
+    user.update!(params_user.except(:id))
 
     render json: { success: true }.to_json, status: :ok
   end
