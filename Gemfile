@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rails', '~> 6.0'
+
 gem 'coffee-rails', '~> 4.2'
 gem 'cpf_cnpj'
 gem 'validators'
@@ -15,7 +17,6 @@ gem 'jquery-rails'
 gem 'nokogiri', '~> 1.10.8'
 gem 'pg'
 gem 'puma', '~> 4.3'
-gem 'rails', '~> 5.2'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
