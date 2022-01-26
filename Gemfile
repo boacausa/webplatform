@@ -42,7 +42,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'faker'
   gem 'factory_bot_rails'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'simplecov'
