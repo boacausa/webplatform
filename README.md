@@ -47,7 +47,8 @@ Open http://localhost:3000/
 **Run tests**
 
 ```shell
-bundle exec rspec spec
+bundle exec rspec spec # rails tests
+yarn test # react tests
 ```
 
 ### Quero contribuir
