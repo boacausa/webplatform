@@ -1,4 +1,6 @@
-puts 'Deleting old registers'
+# frozen_string_literal: true
+
+puts "Deleting old registers"
 
 AdoptionInterestNotification.destroy_all
 AdoptionInterest.destroy_all
@@ -6,7 +8,7 @@ Pet.destroy_all
 Ngo.destroy_all
 User.destroy_all
 
-puts 'Creating NGOs'
+puts "Creating NGOs"
 
 10.times do |i|
   Ngo.create!(
@@ -28,55 +30,55 @@ puts 'Creating NGOs'
     description: Faker::Lorem.paragraph
   )
 
-  Ngo.last.image.attach(io: File.open("public/images/ngo/amigobicho.png"), filename: 'amigobicho.png')
+  Ngo.last.image.attach(io: File.open("public/images/ngo/amigobicho.png"), filename: "amigobicho.png")
 end
 
-puts 'Creating Users'
+puts "Creating Users"
 
 User.create!(
-  name: 'User admin',
-  last_name: 'Sobrenome',
-  email: 'admin@boacausa.com',
-  cpf: '22201745064',
-  password: '123456789',
+  name: "User admin",
+  last_name: "Sobrenome",
+  email: "admin@boacausa.com",
+  cpf: "22201745064",
+  password: "123456789",
   group: :admin,
 )
 
 ngo_user = User.create!(
-  name: 'User da ONG',
-  last_name: 'Sobrenome',
-  email: 'ngo@boacausa.com',
-  cpf: '43290061035',
-  password: '123456789',
+  name: "User da ONG",
+  last_name: "Sobrenome",
+  email: "ngo@boacausa.com",
+  cpf: "43290061035",
+  password: "123456789",
   group: :ngo
 )
 
 User.create!(
-  name: 'User normal',
-  last_name: 'Sobrenome',
-  email: 'user@boacausa.com',
-  cpf: '07750110020',
-  password: '123456789',
+  name: "User normal",
+  last_name: "Sobrenome",
+  email: "user@boacausa.com",
+  cpf: "07750110020",
+  password: "123456789",
 )
 
 ngo_user.ngos << Ngo.first
 
-puts 'Creating Pets'
+puts "Creating Pets"
 
 ngo_ids = Ngo.all.pluck(:id)
 7.times do
   pet = Pet.create!(
-      name: Faker::Name.first_name,
-      age: Random.rand(10),
-      description: Faker::Lorem.paragraph_by_chars(number: [100, 50, 200, 300, 500].sample),
-      sex: ['f', 'm'].sample,
-      active: true,
-      ngo_id: ngo_ids.sample
+    name: Faker::Name.first_name,
+    age: Random.rand(10),
+    description: Faker::Lorem.paragraph_by_chars(number: [100, 50, 200, 300, 500].sample),
+    sex: ["f", "m"].sample,
+    active: true,
+    ngo_id: ngo_ids.sample
   )
 
   random_image_number = Random.rand(6)
 
-  pet.image.attach(io: File.open("public/images/pets/#{random_image_number}.png"), filename: "#{random_image_number}.png")
+  pet.image.attach(io: File.open("public/images/pets/#{random_image_number}.png"),
+    filename: "#{random_image_number}.png")
   pet.save
 end
-

@@ -1,16 +1,18 @@
-require 'spec_helper'
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+# frozen_string_literal: true
+
+require "spec_helper"
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../../config/environment", __FILE__)
 
 # Prevent database truncation if the environment is production
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+abort("The Rails environment is running in production mode!") if Rails.env.production?
 
-require 'rspec/rails'
-require 'capybara/rails'
-require 'faker'
-require 'support/factory_bot'
+require "rspec/rails"
+require "capybara/rails"
+require "faker"
+require "support/factory_bot"
 
-require 'simplecov'
+require "simplecov"
 SimpleCov.start
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -63,14 +65,14 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Warden::Test::Helpers
+  config.include(Devise::Test::ControllerHelpers, type: :controller)
+  config.include(Warden::Test::Helpers)
 
   def login_user(trait = nil)
     before(:each) do
-      @request.env['devise.mapping'] = Devise.mappings[:user]
+      @request.env["devise.mapping"] = Devise.mappings[:user]
       user = FactoryBot.create(:user, trait)
-      sign_in user
+      sign_in(user)
     end
   end
 
@@ -84,13 +86,13 @@ RSpec.configure do |config|
   config.before(:each) do |_|
     # TO-DO: Configure specs to run on pt-BR as default locale.
     I18n.default_locale = :en
-    stub_const("#{ApplicationController}::DEFAULT_LOCALE", 'en')
+    stub_const("#{ApplicationController}::DEFAULT_LOCALE", "en")
   end
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
-      with.test_framework :rspec
-      with.library :rails
+      with.test_framework(:rspec)
+      with.library(:rails)
     end
   end
 end

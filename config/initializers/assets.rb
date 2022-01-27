@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Be sure to restart your server when you modify this file.
 
 # Version of your assets, change this if you want to expire all your assets.
@@ -9,4 +11,5 @@ Rails.application.config.assets.version = "1.0"
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w[ngo_area.css ngo_area.js ngo_area/ngos/form.js ngo_area/users/form.js adoption.css ngos.css]
+Rails.application.config.assets.precompile += ["ngo_area.css", "ngo_area.js", "ngo_area/ngos/form.js",
+                                               "ngo_area/users/form.js", "adoption.css", "ngos.css",]

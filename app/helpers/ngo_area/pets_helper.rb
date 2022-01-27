@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NgoArea::PetsHelper
   def ngo_options(user)
     Ngo.from_user(user).pluck(:fantasy_name, :id)

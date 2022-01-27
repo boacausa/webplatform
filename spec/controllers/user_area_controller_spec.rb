@@ -1,5 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe UserAreaController, type: :controller do
+require "rails_helper"
 
+RSpec.describe(UserAreaController, type: :controller) do
 end

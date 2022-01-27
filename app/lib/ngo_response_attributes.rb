@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # TODO: add specs
 class NgoResponseAttributes
   attr_reader :ngo
@@ -20,7 +22,7 @@ class NgoResponseAttributes
     if ngo.image.attached?
       Rails.application.routes.url_helpers.rails_blob_path(ngo.image, only_path: true)
     else
-      ActionController::Base.helpers.image_path('image_not_found.png')
+      ActionController::Base.helpers.image_path("image_not_found.png")
     end
   end
 end

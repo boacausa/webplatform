@@ -1,14 +1,16 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 describe AdoptionInterest, type: :model do
-  describe '#notify_user' do
-    it 'enqueues a job' do
+  describe "#notify_user" do
+    it "enqueues a job" do
       adoption_interest = FactoryBot.create(:adoption_interest)
-      expect(NotifyAdoptionInterest).to have_been_enqueued.with(adoption_interest).exactly(:once)
+      expect(NotifyAdoptionInterest).to(have_been_enqueued.with(adoption_interest).exactly(:once))
     end
   end
 
-  describe '.by_ngo_user' do
+  describe ".by_ngo_user" do
     let(:ngo_1) { FactoryBot.create(:ngo) }
     let(:ngo_2) { FactoryBot.create(:ngo) }
     let(:pet_1) { FactoryBot.create(:pet, ngo: ngo_1) }
@@ -24,15 +26,15 @@ describe AdoptionInterest, type: :model do
       ngo_user
     end
 
-    it 'returns adoption interest from associated ngo' do
-      expect(described_class.by_ngo_user(ngo_user)).to contain_exactly(adoption_interest_1)
+    it "returns adoption interest from associated ngo" do
+      expect(described_class.by_ngo_user(ngo_user)).to(contain_exactly(adoption_interest_1))
     end
 
-    context 'when user is admin' do
+    context "when user is admin" do
       let(:ngo_user) { FactoryBot.create(:user, :admin_privileges) }
 
-      it 'returns all adoption interests' do
-        expect(described_class.by_ngo_user(ngo_user)).to contain_exactly(adoption_interest_1, adoption_interest_2)
+      it "returns all adoption interests" do
+        expect(described_class.by_ngo_user(ngo_user)).to(contain_exactly(adoption_interest_1, adoption_interest_2))
       end
     end
   end

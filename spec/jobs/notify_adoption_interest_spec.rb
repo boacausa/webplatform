@@ -1,12 +1,14 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 describe NotifyAdoptionInterest do
-  describe '#perform' do
+  describe "#perform" do
     before do
-      allow_any_instance_of(AdoptionInterest).to receive(:notify_user).and_return(nil)
+      allow_any_instance_of(AdoptionInterest).to(receive(:notify_user).and_return(nil))
     end
 
-    it 'creates an adoption interest notification' do
+    it "creates an adoption interest notification" do
       user1 = create(:user, :ngo_privileges)
 
       ngo1 = create(:ngo)
@@ -25,12 +27,13 @@ describe NotifyAdoptionInterest do
 
       adoption_interest = create(:adoption_interest, user: user1, pet: pet1)
 
-      expect(AdoptionInterestNotification.where(user: [ngo_user1, ngo_user2, ngo_user3], adoption_interest: adoption_interest).count).to eq(0)
-      expect { described_class.perform_now(adoption_interest) }.to change { AdoptionInterestNotification.count }.by(4)
-      expect(AdoptionInterestNotification.where(user: ngo_user1, adoption_interest: adoption_interest).count).to eq(1)
-      expect(AdoptionInterestNotification.where(user: ngo_user2, adoption_interest: adoption_interest).count).to eq(1)
-      expect(AdoptionInterestNotification.where(user: ngo_user3, adoption_interest: adoption_interest).count).to eq(1)
-      expect(AdoptionInterestNotification.where(user: ngo_user4, adoption_interest: adoption_interest).count).to eq(1)
+      expect(AdoptionInterestNotification.where(user: [ngo_user1, ngo_user2, ngo_user3],
+        adoption_interest: adoption_interest).count).to(eq(0))
+      expect { described_class.perform_now(adoption_interest) }.to(change { AdoptionInterestNotification.count }.by(4))
+      expect(AdoptionInterestNotification.where(user: ngo_user1, adoption_interest: adoption_interest).count).to(eq(1))
+      expect(AdoptionInterestNotification.where(user: ngo_user2, adoption_interest: adoption_interest).count).to(eq(1))
+      expect(AdoptionInterestNotification.where(user: ngo_user3, adoption_interest: adoption_interest).count).to(eq(1))
+      expect(AdoptionInterestNotification.where(user: ngo_user4, adoption_interest: adoption_interest).count).to(eq(1))
     end
   end
 end

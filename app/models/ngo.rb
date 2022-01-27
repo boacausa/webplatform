@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class Ngo < ApplicationRecord
   attr_accessor :logo_path
+
   before_save :set_fantasy_name_url
 
   include PhoneFormat
@@ -20,18 +23,18 @@ class Ngo < ApplicationRecord
 
   def self.from_user(user)
     if user.admin?
-      self.all
+      all
     else
-      self.joins(:users).where(users: { id: user.id })
+      joins(:users).where(users: { id: user.id })
     end
   end
 
   def phone_number1=(text)
-    super(only_numbers text)
+    super(only_numbers(text))
   end
 
   def phone_number2=(text)
-    super(only_numbers text)
+    super(only_numbers(text))
   end
 
   def phone_number1

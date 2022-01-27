@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 describe RegisterAdoptionInterest do
   let(:user) { FactoryBot.create(:user) }
@@ -8,14 +10,14 @@ describe RegisterAdoptionInterest do
 
   describe "#save!" do
     it "creates a AdoptionInterest record" do
-      expect { subject.save!(user.email, pet.id) }.to change { User.count }
+      expect { subject.save!(user.email, pet.id) }.to(change { User.count })
 
-      expect(AdoptionInterest.where(user_id: user.id, pet_id: pet.id).count).to eq(1)
+      expect(AdoptionInterest.where(user_id: user.id, pet_id: pet.id).count).to(eq(1))
     end
 
     context "when user does not exists" do
       it "raises an error" do
-        expect { subject.save!("undefined@email", pet.id) }.to raise_error(ActiveRecord::RecordNotFound)
+        expect { subject.save!("undefined@email", pet.id) }.to(raise_error(ActiveRecord::RecordNotFound))
       end
     end
   end

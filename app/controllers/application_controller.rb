@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-  DEFAULT_LOCALE = 'pt-BR'
+  DEFAULT_LOCALE = "pt-BR"
 
   protect_from_forgery with: :exception
 
