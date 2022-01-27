@@ -11,7 +11,7 @@ module ErrorsHelper
   end
 
   def field_error_tag(model, attribute)
-    return if model.errors.keys.exclude?(attribute)
+    return if model_error_attributes(model).exclude?(attribute)
 
     content_tag(
       :span,
@@ -21,8 +21,12 @@ module ErrorsHelper
   end
 
   def form_group_error_class(model, attribute)
-    return if model.errors.keys.exclude?(attribute)
+    return if model_error_attributes(model).exclude?(attribute)
 
     'has-error'
+  end
+
+  def model_error_attributes(model)
+    model.errors.map(&:attribute)
   end
 end

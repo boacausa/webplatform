@@ -15,7 +15,7 @@ describe RegisterAdoptionInterest do
 
     context "when user does not exists" do
       it "raises an error" do
-        expect { subject.save!("undefined@email", pet.id) }.to raise_error(ActiveRecord::RecordNotFound, "Couldn't find User")
+        expect { subject.save!("undefined@email", pet.id) }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

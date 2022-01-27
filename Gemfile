@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 6.0'
+gem 'rails', '~> 7.0.1'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'cpf_cnpj'
@@ -38,6 +38,7 @@ gem 'i18n'
 gem 'sidekiq', '5.2.7'
 
 group :development, :test do
+  gem 'byebug'
   gem 'capybara'
   gem 'dotenv-rails'
   gem 'faker'
@@ -57,7 +58,6 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'rubocop', '~> 0.62.0', require: false
-  gem 'byebug'
 end
 
 group :production do

@@ -8,9 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Uberdo3setor
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.0
 
     config.autoload_paths += %W(#{config.root}/services #{config.root}/lib)
     
