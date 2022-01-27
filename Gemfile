@@ -34,7 +34,7 @@ gem 'activestorage', '>= 5.2.1.1'
 
 gem 'route_translator'
 gem 'i18n'
-gem 'sidekiq', '5.2.7'
+gem 'sidekiq', '6.4.0'
 
 group :development, :test do
   gem 'capybara'
