@@ -46,7 +46,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "scripts": {
     "test": "node scripts/test.js --env=jsdom"
