@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class Pet < ApplicationRecord
   belongs_to :ngo
   has_many :adoption_interests, dependent: :destroy
 
   SEX = {
-    f: 'Fêmea',
-    m: 'Macho'
+    f: "Fêmea",
+    m: "Macho",
   }.freeze
 
   has_one_attached :image
@@ -15,7 +17,7 @@ class Pet < ApplicationRecord
   scope :by_sex, ->(sex) { where(sex: sex) }
   scope :by_name_or_description, lambda { |name_or_description|
     where(
-      'pets.name ILIKE ? OR pets.description ILIKE ?',
+      "pets.name ILIKE ? OR pets.description ILIKE ?",
       "%#{name_or_description}%",
       "%#{name_or_description}%"
     )
@@ -25,7 +27,7 @@ class Pet < ApplicationRecord
 
   def days_ago
     created_at
-    #TODO convert to text
+    # TODO: convert to text
   end
 
   def sex_text

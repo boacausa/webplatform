@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NgoArea::UsersController < NgoAreaController
   before_action :check_admin_privileges
 
@@ -14,9 +16,9 @@ class NgoArea::UsersController < NgoAreaController
   def create
     @user = User.new(params_user)
     if @user.save
-      redirect_to ngo_area_users_path
+      redirect_to(ngo_area_users_path)
     else
-      render action: :new
+      render(action: :new)
     end
   end
 
@@ -29,19 +31,20 @@ class NgoArea::UsersController < NgoAreaController
     @user.update(params_user)
 
     if current_user == @user && !@user.admin?
-      redirect_to root_path
+      redirect_to(root_path)
     else
-      redirect_to ngo_area_users_path
+      redirect_to(ngo_area_users_path)
     end
   end
 
   private
 
   def params_user
-    params.require(:user).permit(:name, :email, :last_name, :cpf, :phone, :group, :password, :password_confirmation, ngo_ids: [])
+    params.require(:user).permit(:name, :email, :last_name, :cpf, :phone, :group, :password, :password_confirmation,
+      ngo_ids: [])
   end
 
   def check_admin_privileges
-    head :not_found unless current_user.admin?
+    head(:not_found) unless current_user.admin?
   end
 end

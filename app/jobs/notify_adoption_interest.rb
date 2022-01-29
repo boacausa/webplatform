@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NotifyAdoptionInterest < ApplicationJob
   queue_as :default
 

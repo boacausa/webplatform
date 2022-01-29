@@ -11,30 +11,45 @@ Link para testes: http://porumaboacausa.herokuapp.com
 
 ### Setup
 
-**Pré-requisitos**
+**Requirements**
 
-* Ter o ruby 2.6.1 ou rbenv instalado
-* Ter o [docker](https://docs.docker.com/install/) e [docker-compose](https://docs.docker.com/compose/install/) instalado
+* [Docker](https://docs.docker.com/install/)
+* [rbenv](https://github.com/rbenv/rbenv)
+* [Node](https://nodejs.org/en/download/) version 14
+* [yarn](https://classic.yarnpkg.com/lang/en/docs/install)
+* [redis](https://redis.io/)
 
-**Passos de instalação**
+Note: both docker and rbenv are optional, they are used to install the postgres database and ruby on the next steps. Feel free to setup the database and ruby on your own if you like.
 
-* docker-compose up -d
-* rbenv install ruby 2.6.1
-* rbenv local 2.6.1
-* gem install bundler
-* bundler install
-* rails db:setup
-* rails s
+**Installation**
 
-**Para rodar os testes**
+```shell
+docker-compose up -d
+rbenv install ruby 3.0.3
+rbenv local 3.0.3
+gem install bundler
+bundler install
+rails db:setup
+yarn install
+cp .env.sample .env
+```
 
-* bundle exec rspec spec
+**Starting application**
 
-**Para rodar webpacker**
+```shell
+rails s
+# In a different terminal tab
+./bin/webpack-dev-server
+```
 
-_Estamos testando iniciativas para migrar a parte de front-end para ReactJS_
+Open http://localhost:3000/
 
-* ./bin/webpack-dev-server
+**Run tests**
+
+```shell
+bundle exec rspec spec # rails tests
+yarn test # react tests
+```
 
 ### Quero contribuir
 

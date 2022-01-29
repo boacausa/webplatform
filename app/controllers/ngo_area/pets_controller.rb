@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class NgoArea::PetsController < NgoAreaController
-  before_action :set_pet, only: %i[edit update destroy]
+  before_action :set_pet, only: [:edit, :update, :destroy]
 
   def index
     @pets = PetList.execute(current_user)
@@ -12,21 +14,20 @@ class NgoArea::PetsController < NgoAreaController
   def create
     @pet = Pet.create(params_pet)
 
-    redirect_to ngo_area_pets_path
+    redirect_to(ngo_area_pets_path)
   end
 
   def edit
-    #
   end
 
   def update
-    @pet.update params_pet
+    @pet.update(params_pet)
 
-    redirect_to ngo_area_pets_path
+    redirect_to(ngo_area_pets_path)
   end
 
   def destroy
-    redirect_to ngo_area_pets_path if @pet.destroy!
+    redirect_to(ngo_area_pets_path) if @pet.destroy!
   end
 
   private

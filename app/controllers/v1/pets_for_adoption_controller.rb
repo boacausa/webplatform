@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class V1::PetsForAdoptionController < ApplicationController
   skip_before_action :verify_authenticity_token
 
@@ -8,9 +10,9 @@ class V1::PetsForAdoptionController < ApplicationController
     pets = pets.by_city(params[:city]) if params[:city].present?
     pets = pets.by_ngo_id(params[:ngo_id]) if params[:ngo_id].present?
 
-    render json: {
-      pets: ListPets.new.all(pets, params[:user_email])
-    }.to_json
+    render(json: {
+      pets: ListPets.new.all(pets, params[:user_email]),
+    }.to_json)
   end
 
   def register_interest
@@ -24,7 +26,7 @@ class V1::PetsForAdoptionController < ApplicationController
       status = :not_found
     end
 
-    render json: response.to_json, status: status
+    render(json: response.to_json, status: status)
   end
 
   private

@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class AdoptionInterest < ApplicationRecord
   belongs_to :user
   belongs_to :pet
   has_many :adoption_interest_notifications, dependent: :destroy
 
-  scope :by_ngo_user, -> (user) do
+  scope :by_ngo_user, ->(user) do
     if user.admin?
-      self.all
+      all
     else
-      self.joins(:pet).where(pets: { ngo: user.ngos })
+      joins(:pet).where(pets: { ngo: user.ngos })
     end
   end
 

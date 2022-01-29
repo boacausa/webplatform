@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 describe Ngo do
   let(:ngo1) { create(:ngo) }
@@ -10,43 +12,43 @@ describe Ngo do
     user
   end
 
-  describe 'validations' do
-    it { is_expected.to validate_presence_of(:fantasy_name) }
-    it { is_expected.to validate_presence_of(:zipcode) }
-    it { is_expected.to validate_presence_of(:address_number) }
-    it { is_expected.to validate_presence_of(:address) }
-    it { is_expected.to validate_presence_of(:neighborhood) }
-    it { is_expected.to validate_presence_of(:city) }
-    it { is_expected.to validate_presence_of(:state) }
+  describe "validations" do
+    it { is_expected.to(validate_presence_of(:fantasy_name)) }
+    it { is_expected.to(validate_presence_of(:zipcode)) }
+    it { is_expected.to(validate_presence_of(:address_number)) }
+    it { is_expected.to(validate_presence_of(:address)) }
+    it { is_expected.to(validate_presence_of(:neighborhood)) }
+    it { is_expected.to(validate_presence_of(:city)) }
+    it { is_expected.to(validate_presence_of(:state)) }
   end
 
-  describe '.from_user' do
-    context 'when user is not admin' do
-      it 'returns just one ngo' do
-        expect(described_class.from_user(user)).to eq([ngo1])
+  describe ".from_user" do
+    context "when user is not admin" do
+      it "returns just one ngo" do
+        expect(described_class.from_user(user)).to(eq([ngo1]))
       end
     end
 
-    context 'when user is admin' do
-      it 'returns all ngos' do
+    context "when user is admin" do
+      it "returns all ngos" do
         user.group = :admin
         user.save
 
-        expect(described_class.from_user(user)).to match([ngo1, ngo2])
+        expect(described_class.from_user(user)).to(match([ngo1, ngo2]))
       end
     end
   end
 
-  describe 'callbacks' do
-    describe 'before_save' do
-      let(:fantasy_name) { 'Associação  Torrense de Proteção aos Animais – ATPA' }
-      let(:expected_fantasy_name_url) { 'associacao-torrense-de-protecao-aos-animais-atpa' }
+  describe "callbacks" do
+    describe "before_save" do
+      let(:fantasy_name) { "Associação  Torrense de Proteção aos Animais – ATPA" }
+      let(:expected_fantasy_name_url) { "associacao-torrense-de-protecao-aos-animais-atpa" }
 
-      it 'sets fantasy_name_url based on fantasy_name' do
+      it "sets fantasy_name_url based on fantasy_name" do
         ngo1.fantasy_name = fantasy_name
         ngo1.save
 
-        expect(ngo1.fantasy_name_url).to eql(expected_fantasy_name_url)
+        expect(ngo1.fantasy_name_url).to(eql(expected_fantasy_name_url))
       end
     end
   end

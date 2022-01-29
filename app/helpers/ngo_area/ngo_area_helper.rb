@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NgoArea::NgoAreaHelper
   def adoption_interest_notification(user)
     AdoptionInterestNotification

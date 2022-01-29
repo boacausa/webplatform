@@ -1,5 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe ApplicationController, type: :controller do
+require "rails_helper"
 
+RSpec.describe(ApplicationController, type: :controller) do
 end

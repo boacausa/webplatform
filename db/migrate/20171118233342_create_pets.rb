@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class CreatePets < ActiveRecord::Migration[5.0]
   def change
-    create_table :pets do |t|
-      t.string :name
-      t.integer :age
-      t.string :sex
+    create_table(:pets) do |t|
+      t.string(:name)
+      t.integer(:age)
+      t.string(:sex)
 
       t.timestamps
     end

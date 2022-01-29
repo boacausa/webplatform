@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ListPets
   def all(pets, user_email)
     add_extra_fields(pets, user_email)
@@ -27,7 +29,7 @@ class ListPets
     if pet.image.attached?
       Rails.application.routes.url_helpers.rails_blob_path(pet.image, only_path: true)
     else
-      ActionController::Base.helpers.image_path('image_not_found.png')
+      ActionController::Base.helpers.image_path("image_not_found.png")
     end
   end
 end

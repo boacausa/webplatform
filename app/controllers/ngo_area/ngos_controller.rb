@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NgoArea::NgosController < NgoAreaController
   def index
     @ngos = Ngo.from_user(current_user)
@@ -10,9 +12,9 @@ class NgoArea::NgosController < NgoAreaController
   def create
     @ngo = Ngo.create(params_ngo)
     if @ngo.save
-      redirect_to ngo_area_ngos_path
+      redirect_to(ngo_area_ngos_path)
     else
-      render :new
+      render(:new)
     end
   end
 
@@ -23,9 +25,9 @@ class NgoArea::NgosController < NgoAreaController
   def update
     @ngo = Ngo.find(params[:id])
     if @ngo.update(params_ngo)
-      redirect_to ngo_area_ngos_path
+      redirect_to(ngo_area_ngos_path)
     else
-      render :edit
+      render(:edit)
     end
   end
 
@@ -33,8 +35,8 @@ class NgoArea::NgosController < NgoAreaController
 
   def params_ngo
     params.require(:ngo).permit(:social_name, :fantasy_name, :phone_number1, :phone_number2, :email, :site, :cnpj,
-                                :activity, :date_start, :description, :image, :active, :transparency_portal, :bank,
-                                :agency, :operation, :account, :titular, :zipcode, :address_number, :address,
-                                :neighborhood, :city, :state, :payment_type, :payment_form)
+      :activity, :date_start, :description, :image, :active, :transparency_portal, :bank,
+      :agency, :operation, :account, :titular, :zipcode, :address_number, :address,
+      :neighborhood, :city, :state, :payment_type, :payment_form)
   end
 end

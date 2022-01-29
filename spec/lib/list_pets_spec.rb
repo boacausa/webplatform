@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 describe ListPets do
   let(:user_email) { nil }
@@ -11,18 +13,18 @@ describe ListPets do
     pets
   end
 
-  describe '#all' do
-    it 'returns an array with 2 registers' do
-      expect(subject.all(pets, user_email).count).to eq(2)
+  describe "#all" do
+    it "returns an array with 2 registers" do
+      expect(subject.all(pets, user_email).count).to(eq(2))
     end
 
-    it 'contains user_registered_interest attribute' do
-      expect(subject.all(pets, user_email).first).to include(
+    it "contains user_registered_interest attribute" do
+      expect(subject.all(pets, user_email).first).to(include(
         user_registered_interest: false
-      )
+      ))
     end
 
-    context 'when there is a user_email' do
+    context "when there is a user_email" do
       let(:user) { FactoryBot.create(:user) }
       let(:user_email) { user.email }
 
@@ -33,10 +35,10 @@ describe ListPets do
         [pet]
       end
 
-      it 'returns true for user_registered_interest attribute' do
-        expect(subject.all(pets, user_email).first).to include(
+      it "returns true for user_registered_interest attribute" do
+        expect(subject.all(pets, user_email).first).to(include(
           user_registered_interest: true
-        )
+        ))
       end
     end
   end

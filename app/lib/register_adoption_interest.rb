@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RegisterAdoptionInterest
   def save!(user_email, pet_id)
     user = User.find_by!(email: user_email)

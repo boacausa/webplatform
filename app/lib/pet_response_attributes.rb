@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # TODO: add specs
 class PetResponseAttributes
   attr_reader :pet
