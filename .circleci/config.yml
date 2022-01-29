@@ -9,7 +9,7 @@ jobs:
       # specify the version you desire here
        - image: circleci/ruby:3.0.3-node-browsers
          environment:
-           BUNDLER_VERSION: 2.2.32
+           BUNDLER_VERSION: 2.3.6
            RAILS_ENV: test
            CC_TEST_REPORTER_ID: cbd5dbe286144902877051aa0171c72a1d80942efaca7a9bba57670e130c1327
            POSTGRES_USER: circleci-demo-go

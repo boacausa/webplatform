@@ -199,7 +199,7 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     hashie (5.0.0)
     http_parser.rb (0.8.0)
-    i18n (1.9.0)
+    i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     io-wait (0.2.1)
     jbuilder (2.11.5)
@@ -515,4 +515,4 @@ RUBY VERSION
    ruby 3.0.3p157
 
 BUNDLED WITH
-   2.3.5
+   2.3.6
