@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
-    "@rails/webpacker": "^4.0.7",
-    "@sentry/browser": "^5.4.3",
+    "@rails/webpacker": "^5.4",
+    "@sentry/browser": "^6",
     "autoprefixer": "^9.6.1",
     "axios": "^0.19.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
@@ -18,18 +18,18 @@
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react_ujs": "^2.5.0",
     "react-dom": "^16.8.6",
     "react-error-boundary": "^1.2.5",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-text-mask": "^5.4.3",
-    "react_ujs": "^2.5.0",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "sugarss": "^2.0.0",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^5.8"
   },
   "devDependencies": {
     "babel-jest": "^26.0.1",
@@ -43,7 +43,7 @@
     "jest-enzyme": "^7.1.2",
     "react-test-render": "^1.1.2",
     "regenerator-runtime": "^0.13.5",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^4.7"
   },
   "engines": {
     "node": "16.x"
