@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "rails", "~> 7.0.1"
+gem "rails", "~> 7.0.2"
 
 gem "coffee-rails", "~> 4.2"
 gem "cpf_cnpj"
